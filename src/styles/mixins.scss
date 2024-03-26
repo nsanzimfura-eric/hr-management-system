@@ -1,0 +1,206 @@
+@import "./variables.scss";
+
+@mixin transition {
+  transition: all 0.5s ease-in-out;
+}
+
+@mixin background-img {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+@mixin scrollbar {
+  &::-webkit-scrollbar {
+    width: 10px;
+
+    @include mq($md) {
+      display: none;
+    }
+  }
+
+  /* Scrollbar Track */
+  &::-webkit-scrollbar-track {
+    background-color: transparent;
+    border-radius: 30px;
+  }
+
+  /* Scrollbar Thumb */
+  &::-webkit-scrollbar-thumb {
+    background-color: $light;
+    border-radius: 30px;
+  }
+}
+
+//  media screens
+@mixin mq($size) {
+  @media screen and (max-width: $size) {
+    @content;
+  }
+}
+
+@mixin mqh($size) {
+  @media screen and (max-height: $size) {
+    @content;
+  }
+}
+
+@mixin over-scroll-row {
+  @include mq($xls) {
+    width: auto;
+    flex-wrap: nowrap;
+    max-width: 100vw;
+    overflow: scroll;
+    @include scroll-bar-hidden;
+  }
+}
+
+@mixin col-md-xls {
+  @include mq($xls) {
+    max-width: calc((100% / 2) - 15px);
+    min-width: calc((100% / 2) - 15px);
+  }
+}
+
+@function pxToVh($element) {
+  @return #{calc($element/1080) * 100}vh;
+}
+
+@function pxToVw($element) {
+  @return #{calc($element/1920) * 100}vw;
+}
+
+@function pxToEm($element) {
+  @return #{calc($element/16)}em;
+}
+
+@mixin appBtn {
+  padding: pxToEm(20) pxToEm(26);
+  font-size: pxToEm(16);
+  border: 1px solid transparent;
+  border-radius: 5px;
+  background-color: $success;
+  @include transition;
+  font-family: $poppinsMedium;
+
+  @include mq($xlg) {
+    padding: pxToEm(18) pxToEm(24);
+  }
+
+  @include mq($lg) {
+    padding: pxToEm(16) pxToEm(20);
+  }
+
+  @include mq($md) {
+    padding: pxToEm(15) pxToEm(18);
+    font-size: pxToEm(14);
+  }
+
+  &:hover {
+    background-color: transparent;
+    border-color: $success;
+    color: $light !important;
+  }
+}
+
+@mixin hideScroll {
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@mixin container {
+  @include mq($lg) {
+    max-width: 100vw !important;
+    padding: 0 24px !important;
+    overflow-x: hidden !important;
+  }
+}
+
+@mixin h1 {
+  color: $light;
+  font-family: $poppinsBold;
+  font-weight: 900;
+  font-size: pxToEm(70);
+
+  @include mq($lg) {
+    font-size: pxToEm(60);
+  }
+
+  @include mq($xls) {
+    font-size: pxToEm(40);
+  }
+
+  @include mq($sm) {
+    font-size: pxToEm(30);
+  }
+}
+
+@mixin h2 {
+  color: $light;
+  font-family: $poppinsBold;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: pxToEm(44);
+  line-height: 1.3;
+
+  @include mq($lg) {
+    font-size: pxToEm(38);
+  }
+
+  @include mq($xls) {
+    font-size: pxToEm(33);
+  }
+
+  @include mq($sm) {
+    font-size: pxToEm(28);
+  }
+}
+
+@mixin h3 {
+  color: $light;
+  font-family: $poppinsBold;
+  font-weight: 700;
+  font-size: pxToEm(20);
+
+  @include mq($xls) {
+    font-size: pxToEm(18);
+  }
+
+  @include mq($xls) {
+    font-size: pxToEm(16);
+  }
+}
+
+@mixin p {
+  color: $border;
+  font-family: $poppinsMedium;
+  font-size: pxToEm(16);
+  line-height: 1.6;
+  display: flex;
+  justify-content: flex-start;
+
+  @include mq($md) {
+    font-size: pxToEm(14);
+  }
+
+  @include mq($sm) {
+    font-size: pxToEm(12);
+  }
+}
+
+@mixin pagePadding {
+  padding: 50px;
+
+  @include mq($lg) {
+    padding: 30px;
+  }
+
+  @include mq($md) {
+    padding: 20px;
+  }
+
+  @include mq($xls) {
+    padding: 15px;
+  }
+}

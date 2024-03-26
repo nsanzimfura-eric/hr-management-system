@@ -1,0 +1,37 @@
+@import "./variables.scss";
+@import "./mixins.scss";
+@import "./fonts.scss";
+@import "node_modules/bootstrap/scss/bootstrap";
+
+body,
+#root {
+  background-color: $dark;
+  padding: 0;
+  margin: 0;
+  width: 100vw;
+  overscroll-behavior: smooth;
+  overflow-x: hidden;
+  @include scrollbar;
+
+  ::selection {
+    background-color: $success;
+    color: $dark;
+  }
+
+  ::-webkit-selection {
+    background-color: $success;
+    color: $dark;
+  }
+
+  ::-moz-selection {
+    background-color: $success;
+    color: $dark;
+  }
+}
+
+* {
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
+  font-family: $poppinsMedium;
+}

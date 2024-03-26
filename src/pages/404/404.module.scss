@@ -1,0 +1,39 @@
+@import "../../styles/variables.scss";
+@import "../../styles/mixins.scss";
+
+.notFound {
+  :global {
+    background-color: transparent;
+    overflow: hidden;
+    height: 100vh;
+    padding: 0;
+    .msg {
+      height: calc(100% - 150px);
+    }
+    .toHome {
+      padding: 0;
+      margin: 0;
+      .page404 {
+        width: 700px;
+        aspect-ratio: 1/1;
+        height: auto;
+        border-radius: 20px;
+        border: 5px solid $wood;
+        background-size: contain;
+        @include mqh($md) {
+          width: 500px;
+          @include mq($md) {
+            width: 400px;
+          }
+        }
+        @include mq($xls) {
+          width: 80vw;
+          height: 60vh;
+        }
+        @include mq($sm) {
+          height: 40vh;
+        }
+      }
+    }
+  }
+}
