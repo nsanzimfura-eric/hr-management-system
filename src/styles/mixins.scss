@@ -173,7 +173,7 @@
 }
 
 @mixin p {
-  color: $border;
+  color: $primary;
   font-family: $poppinsMedium;
   font-size: pxToEm(16);
   line-height: 1.6;

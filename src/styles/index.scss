@@ -5,7 +5,7 @@
 
 body,
 #root {
-  background-color: $dark;
+  background-color: $secondary;
   padding: 0;
   margin: 0;
   width: 100vw;
@@ -14,18 +14,18 @@ body,
   @include scrollbar;
 
   ::selection {
-    background-color: $success;
-    color: $dark;
+    background-color: $dark;
+    color: $light;
   }
 
   ::-webkit-selection {
-    background-color: $success;
-    color: $dark;
+    background-color: $dark;
+    color: $light;
   }
 
   ::-moz-selection {
-    background-color: $success;
-    color: $dark;
+    background-color: $dark;
+    color: $light;
   }
 }
 
