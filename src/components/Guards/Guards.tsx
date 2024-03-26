@@ -1,13 +1,12 @@
 
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import styles from "./Guards.module.scss";
 import { useNavigate } from "react-router-dom";
 import { frontendRoutes } from "../../api/frontendRoutes";
 
-export interface GuardsProps {
-    children: React.ReactNode;
-}
-const Guards = ({ children }: GuardsProps) => {
+const Guards = (props: any) => {
+    const { children } = props;
+
     const navigate = useNavigate()
 
     useEffect(() => {
@@ -18,7 +17,7 @@ const Guards = ({ children }: GuardsProps) => {
     }, [])
 
     return (
-        <div className={styles.guards}>
+        <div className={styles.guards} {...props}>
             {children}
         </div>
     )

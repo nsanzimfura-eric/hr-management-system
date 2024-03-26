@@ -8,10 +8,10 @@ const Footer = () => {
     return (
         <div className={styles.footer}>
             <a href="https://nsanzimfura.web.app/" target="_blank">
-            <Typography variant="body2" className="text-primary">Release Notes</Typography>
+                <Typography variant="body1" className="text-primary">Release Notes</Typography>
             </a>
-            <Typography variant="body2" className="text-primary">Release Notes</Typography>
-            <Typography variant="body2" className="text-primary">Copyright © {year} HRM and services</Typography>
+            <Typography variant="body1" className="text-primary">Release Notes</Typography>
+            <Typography variant="body1" className="text-primary">Copyright © {year} HRM and services</Typography>
         </div>
     )
 }

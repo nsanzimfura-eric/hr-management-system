@@ -8,6 +8,7 @@ import useLoadFonts from './hooks/useLoadFonts';
 import LoadingComponent from './ui/LoadingComponent/LoadingComponent copy';
 import { frontendRoutes } from './api/frontendRoutes';
 import Login from './pages/login/Login';
+import Dashboard from './pages/dashboard/Dashboard';
 
 function App() {
   const { windowLoaded, fontsLoaded } = useLoadFonts()
@@ -19,6 +20,7 @@ function App() {
         <Routes>
           <Route path={frontendRoutes.home} element={<Home />} />
           <Route path={frontendRoutes.login} element={<Login />} />
+          <Route path={frontendRoutes.dashboard} element={<Dashboard />} />
           <Route path="*" element={<PageNotFound />} />
         </Routes>
       </ThemeProvider>

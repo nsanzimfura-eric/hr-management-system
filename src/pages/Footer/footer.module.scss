@@ -12,5 +12,24 @@
     padding: 0;
     overflow: hidden;
     margin-top: auto;
+    flex-direction: column;
+    padding: 40px;
+    gap: 6px;
+
+    @include mq($lg) {
+      padding: 20px;
+    }
+
+    @include mq($xls) {
+      padding: 15px;
+    }
+
+    a {
+      font-weight: 900;
+    }
+
+    * {
+      font-family: $poppinsRegular;
+    }
   }
 }
