@@ -1,17 +1,23 @@
 //  colors
 
-$primary: #ffffff;
-$dark: #000000;
-$darkOpaque: rgba(0, 0, 0, 0.4);
+$primary: #4B93E7;
+$blue: #4B93E7;
+$dark: #071C50;
+$darkOpaque: rgba(7, 28, 80, 0.5);
+$blackOpaque: rgba(0, 0, 0, 0.5);
 $light: #ffffff;
-$lightOpaque: rgb(255, 255, 255, 0.5);
-$secondary: #ffffbf;
+$light_gray: #E6E6E6;
+$secondary: #E7F1FF;
 $border: #cacaca;
-$wood: #71675d;
+$lightBlue: #7D9BE7;
+$lightBlueOpaque: hsl(198, 79%, 79%, 36%); //A0DBF4
+$leaf: #2B5708;
+$leafOpaque: rgba(43, 87, 8, .5);
+$leafLight: hsla(126, 70%, 82%, 36%); //B0F1B6
 // effects colors
-$success: #97c584;
-$warning: #f7e701;
-$error: #ff0000;
+$success: #469607;
+$warning: #F7AC25;
+$error: #D50000;
 
 // fonts families
 
