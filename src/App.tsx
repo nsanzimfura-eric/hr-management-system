@@ -1,14 +1,14 @@
 import Home from './pages/home/Home';
 import './styles/index.scss';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { apiRoutes } from './utils/constants';
 import PageNotFound from './pages/404/404';
 import useLoadFonts from './hooks/useLoadFonts';
+import LoadingComponent from './ui/LoadingComponent/LoadingComponent copy';
 
 function App() {
   const { windowLoaded, fontsLoaded } = useLoadFonts()
 
-  if (!windowLoaded || !fontsLoaded) return <div style={{ width: "100vw", height: "100vh" }}><LoadingPage /></div>;
+  if (!windowLoaded || !fontsLoaded) return <div style={{ width: "100vw", height: "100vh" }}><LoadingComponent /></div>;
   return (
     <BrowserRouter>
       <div className="appPage">
