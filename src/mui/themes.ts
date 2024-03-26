@@ -137,13 +137,13 @@ const themes = createTheme({
         root: {
           height: "40px",
           fontSize: "1rem",
-          // border: "1px solid #4B93E7",
+          border: "1px solid #4B93E7",
           "&.MuiInput-input": {
-            height: "40px",
-            // borderRadius: "8px",
+            height: "48px",
+            borderRadius: "8px",
           },
           "&.MuiOutlinedInput-input": {
-            height: "40px",
+            height: "48px",
             borderRadius: "8px",
           },
         },

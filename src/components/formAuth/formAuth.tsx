@@ -71,18 +71,6 @@ const FormAuth = () => {
                         <TextField
                             id="outlined-basic"
                             name="firstName"
-                            sx={{
-                                color: "#071C50", fontSize: "1rem",
-                                input: {
-                                    color: '#071C50',
-                                    fontSize: "1rem",
-                                    "&::placeholder": {
-                                        fontSize: "1rem",
-                                        color: '#071C50',
-                                    },
-                                },
-                                label: { color: '#071C50' }
-                            }}
                             label="FirstName"
                             variant="outlined"
                             onChange={handleChange}
