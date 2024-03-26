@@ -1,0 +1,13 @@
+@import "../../styles/variables.scss";
+@import "../../styles/mixins.scss";
+
+.guards {
+    :global {
+        background-color: transparent;
+        width: fit-content;
+        height: fit-content;
+        overflow: hidden;
+        margin: 0;
+        padding: 0;
+    }
+}
