@@ -1,0 +1,19 @@
+@import "../../styles/variables.scss";
+@import "../../styles/mixins.scss";
+
+.login {
+  :global {
+    // background-color: transparent;
+    padding: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 0;
+    overflow: hidden;
+    background-image: url("../../../public//svgs/loginBg.svg");
+    @include background-img;
+  }
+}

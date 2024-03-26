@@ -6,6 +6,8 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import PageNotFound from './pages/404/404';
 import useLoadFonts from './hooks/useLoadFonts';
 import LoadingComponent from './ui/LoadingComponent/LoadingComponent copy';
+import { frontendRoutes } from './api/frontendRoutes';
+import Login from './pages/login/Login';
 
 function App() {
   const { windowLoaded, fontsLoaded } = useLoadFonts()
@@ -14,13 +16,12 @@ function App() {
   return (
     <BrowserRouter>
       <ThemeProvider theme={themes}>
-      <div className="appPage">
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path={frontendRoutes.home} element={<Home />} />
+          <Route path={frontendRoutes.login} element={<Login />} />
           <Route path="*" element={<PageNotFound />} />
         </Routes>
-      </div>
-    </ThemeProvider>
+      </ThemeProvider>
     </BrowserRouter>
   )
 }
