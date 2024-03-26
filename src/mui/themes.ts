@@ -95,7 +95,6 @@ const themes = createTheme({
       ...mq(xls, {
         fontSize: ".7rem",
       }),
-
     },
     body1: {
       fontSize: "12px",
@@ -126,17 +125,39 @@ const themes = createTheme({
     },
   },
   components: {
-    MuiCircularProgress: {
-      variants: [
-        {
-          props: { about: "whiteColor" },
-          style: {
-            color: "#ffffff !important",
+    MuiTextField: {
+      styleOverrides: {
+        root: {
+          width: "100%",
+        },
+      },
+    },
+    MuiInputBase: {
+      styleOverrides: {
+        root: {
+          height: "40px",
+          fontSize: "1rem",
+          // border: "1px solid #4B93E7",
+          "&.MuiInput-input": {
+            height: "40px",
+            // borderRadius: "8px",
+          },
+          "&.MuiOutlinedInput-input": {
+            height: "40px",
+            borderRadius: "8px",
           },
         },
-      ],
+      },
     },
-  }
+    MuiButton: {
+      styleOverrides: {
+        root: {
+          height: "40px",
+          borderRadius: "8px",
+        },
+      },
+    },
+  },
 });
 
 export default themes;

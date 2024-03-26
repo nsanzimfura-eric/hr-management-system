@@ -1,18 +1,18 @@
 
 import { Container } from "react-bootstrap";
 import Footer from "../Footer/Footer";
-import styles from "./login.module.scss";
+import styles from "./signup.module.scss";
 import { Typography } from '@mui/material';
 import { Link } from "react-router-dom";
 import { frontendRoutes } from "../../api/frontendRoutes";
 import { useLocation } from 'react-router-dom';
 import FormAuth from "../../components/formAuth/formAuth";
 
-const Login = () => {
+const SignUp = () => {
   const location = useLocation();
 
   return (
-    <div className={styles.login} >
+    <div className={styles.signUp} >
       <Container className="loginWrapper">
         <div className="boxWrapper d-flex flex-column">
           {/* login title  */}
@@ -38,9 +38,10 @@ const Login = () => {
                     <div className="lineBorder"></div>
                     <Typography variant={location.pathname === frontendRoutes.signup ? 'h1' : 'h2'} className="textAction">Sign Up</Typography>
                   </Link>
+                  {/*  form */}
+                  <FormAuth />
                 </div>
-                {/*  form */}
-                <FormAuth />
+
               </div>
 
             </div>
@@ -52,4 +53,4 @@ const Login = () => {
   )
 }
 
-export default Login
+export default SignUp

@@ -1,6 +1,6 @@
 import styles from './LoadingComponent.module.scss';
 
-const LoadingComponent = ()=>{
+const LoadingComponent = () => {
 
     return (
         <div className={styles.loadingComp}>

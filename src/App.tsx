@@ -5,10 +5,11 @@ import themes from './mui/themes'
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import PageNotFound from './pages/404/404';
 import useLoadFonts from './hooks/useLoadFonts';
-import LoadingComponent from './ui/LoadingComponent/LoadingComponent copy';
+import LoadingComponent from './components/LoadingComponent/LoadingComponent';
 import { frontendRoutes } from './api/frontendRoutes';
 import Login from './pages/login/Login';
 import Dashboard from './pages/dashboard/Dashboard';
+import SignUp from './pages/signup/signup';
 
 function App() {
   const { windowLoaded, fontsLoaded } = useLoadFonts()
@@ -20,6 +21,7 @@ function App() {
         <Routes>
           <Route path={frontendRoutes.home} element={<Home />} />
           <Route path={frontendRoutes.login} element={<Login />} />
+          <Route path={frontendRoutes.signup} element={<SignUp />} />
           <Route path={frontendRoutes.dashboard} element={<Dashboard />} />
           <Route path="*" element={<PageNotFound />} />
         </Routes>
