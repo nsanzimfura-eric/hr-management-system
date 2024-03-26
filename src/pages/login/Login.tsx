@@ -27,7 +27,7 @@ const Login = () => {
             </div>
             <div className="col-12 col-md-6 accountsWrapper">
               <div className="lineLeft"></div>
-              <div className="content p-0 m-0">
+              <div className="contentForm d-flex flex-column w-100 p-0 m-0">
                 <div className="options d-flex m-0 p-0">
                   <Link to={frontendRoutes.login} className={`optionLink ${location.pathname === frontendRoutes.login && ' activeLink'}`}>
                     <Typography variant={location.pathname === frontendRoutes.login ? 'h1' : 'h2'} className="textAction">Login</Typography>

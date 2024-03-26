@@ -4,13 +4,11 @@
 .errorComponent {
   :global {
     width: 100%;
-    height: 100%;
     margin: 0;
     padding: 10px 15px;
     font-size: 12px;
     font-family: $poppinsRegular;
     color: $error;
-    background-color: transparent !important;
     @include mq($lg) {
       padding: 8px 10px;
       font-size: 10px;

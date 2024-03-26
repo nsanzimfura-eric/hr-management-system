@@ -6,7 +6,7 @@ import { Formik, Form } from 'formik';
 import { useNavigate, useLocation } from "react-router-dom";
 import { frontendRoutes } from "../../api/frontendRoutes";
 import { loginValidationSchema, signUpValidationSchema, signUpInitialValues, loginInitialValues } from "./validationSchema";
-import { textFieldStyles } from "./textFieldCustomStyles";
+import ErrorComponent from "../errorComponent/ErrorComponent";
 
 export interface AuthInterface {
     email: string;
@@ -59,7 +59,7 @@ const FormAuth = () => {
                 }
             }}
         >
-            {({ values, errors, resetForm, handleChange, handleSubmit, isSubmitting }) => {
+            {({ values, errors, resetForm, handleChange, handleSubmit, isSubmitting, touched }) => {
                 // useEffect(() => {
                 //     if ((data || loginData) && (!loading || !loginLoading)) {
                 //         resetForm();
@@ -68,13 +68,81 @@ const FormAuth = () => {
 
                 return (
                     <Form autoComplete="off" className={styles.formAuth}>
-                        <TextField
-                            id="outlined-basic"
-                            name="firstName"
-                            label="FirstName"
-                            variant="outlined"
-                            onChange={handleChange}
-                        />
+                        {
+                            isSignUp &&
+                            <div className="inputBox">
+                                <TextField
+                                    id="outlined-basic"
+                                    name="firstName"
+                                    label="FirstName"
+                                    variant="outlined"
+                                    onChange={handleChange}
+                                    placeholder="FirstName"
+                                    value={values.firstName}
+                                    error={errors && touched.firstName}
+                                />
+                                {errors.firstName && touched.firstName && <ErrorComponent message={errors.firstName} />}
+                            </div>
+                        }
+                        {
+                            isSignUp &&
+                            <div className="inputBox">
+                                <TextField
+                                    id="outlined-basic"
+                                    name="lastName"
+                                    label="LastName"
+                                    variant="outlined"
+                                    onChange={handleChange}
+                                    placeholder="LastName"
+                                    value={values.lastName}
+                                    error={errors && touched.lastName}
+                                />
+                                {errors.lastName && touched.lastName && <ErrorComponent message={errors.lastName} />}
+                            </div>
+                        }
+                        <div className="inputBox">
+                            <TextField
+                                id="outlined-basic"
+                                name="email"
+                                label={isSignUp ? "Email" : "Username"}
+                                variant="outlined"
+                                onChange={handleChange}
+                                placeholder={isSignUp ? "Email" : "Username"}
+                                value={values.email}
+                                error={errors && touched.email}
+                            />
+                            {errors.email && touched.email && <ErrorComponent message={errors.email} />}
+                        </div>
+                        <div className="inputBox">
+                            <TextField
+                                id="outlined-basic"
+                                name="password"
+                                label="Password"
+                                variant="outlined"
+                                onChange={handleChange}
+                                placeholder="Password"
+                                value={values.password}
+                                error={errors && touched.password}
+                            />
+                            {errors.password && touched.password && <ErrorComponent message={errors.password} />}
+                        </div>
+
+                        {
+                            isSignUp &&
+                            <div className="inputBox">
+                                <TextField
+                                    id="outlined-basic"
+                                    name="confirmPass"
+                                    label="Confirm Password"
+                                    variant="outlined"
+                                    onChange={handleChange}
+                                    placeholder="Confirm Password"
+                                    value={values.confirmPass}
+                                    error={errors && touched.confirmPass}
+                                />
+                                {errors.confirmPass && touched.confirmPass && <ErrorComponent message={errors.confirmPass} />}
+                            </div>
+                        }
                         <Button type="submit" disabled={isSubmitting} sx={{ width: "100%", color: "white" }} className="buttonSubmit" variant="contained" color="warning">
                             {isSignUp ? "Sign Up" : "Login"}
                         </Button>

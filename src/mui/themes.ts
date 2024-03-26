@@ -116,6 +116,7 @@ const themes = createTheme({
     },
     button: {
       fontSize: "1rem",
+      fontFamily: `"Poppins-Medium.ttf"`,
       ...mq(md, {
         fontSize: "0.85rem",
       }),
@@ -135,16 +136,41 @@ const themes = createTheme({
     MuiInputBase: {
       styleOverrides: {
         root: {
-          height: "40px",
+          height: "48px",
           fontSize: "1rem",
           border: "1px solid #4B93E7",
-          "&.MuiInput-input": {
-            height: "48px",
-            borderRadius: "8px",
+          fontFamily: `"Poppins-Medium.ttf"`,
+        },
+      },
+    },
+    MuiInputLabel: {
+      styleOverrides: {
+        root: {
+          fontFamily: `"Poppins-Regular.ttf"`,
+          fontSize: "1rem",
+          color: "#082777 !important",
+          "&.Mui-focused": {
+            color: "#082777 !important",
           },
-          "&.MuiOutlinedInput-input": {
-            height: "48px",
-            borderRadius: "8px",
+        },
+      },
+    },
+    MuiOutlinedInput: {
+      styleOverrides: {
+        root: {
+          backgroundColor: "transparent",
+          fontFamily: `"Poppins-Medium.ttf"`,
+          "&.Mui-focused": {
+            backgroundColor: "#DDEAFB",
+            color: "#082777",
+            border: "none !important",
+            "& *": {
+              color: "#082777",
+              fontSize: "1rem",
+            },
+          },
+          "&.Mui-focused $notchedOutline": {
+            border: "none",
           },
         },
       },
@@ -152,10 +178,28 @@ const themes = createTheme({
     MuiButton: {
       styleOverrides: {
         root: {
-          height: "40px",
+          height: "48px",
           borderRadius: "8px",
+          display: "grid",
+          placeItems: "center",
+          fontSize: "1rem",
+          textTransform: "none",
+          color: "white",
+          textAlign: "center",
+          boxShadow: "none",
+          "&:hover": {
+            boxShadow: "none",
+          },
         },
       },
+      variants: [
+        {
+          props: { size: "small" },
+          style: {
+            height: "40px",
+          },
+        },
+      ],
     },
   },
 });

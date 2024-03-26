@@ -1,6 +1,6 @@
 
-import styles from "./errorComponent.scss";
-import { Alert, Stack } from '@mui/material';
+import styles from "./errorComponent.module.scss";
+import { Typography } from '@mui/material';
 
 interface ErrorInterface {
     message: string;
@@ -9,9 +9,7 @@ const ErrorComponent = (props: ErrorInterface) => {
     const { message } = props;
 
     return (
-        <Stack className={styles.errorComponent} spacing={2}>
-            <Alert severity="error">{message}</Alert>
-        </Stack>
+        <Typography variant="body2" className={styles.error}>{message}</Typography>
     )
 }
 

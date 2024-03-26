@@ -1,0 +1,14 @@
+@import "../../styles/variables.scss";
+@import "../../styles/mixins.scss";
+
+.error {
+  :global {
+    margin: 0;
+    font-size: 12px;
+    font-family: $poppinsRegular;
+    color: $error;
+    @include mq($lg) {
+      font-size: 10px;
+    }
+  }
+}
