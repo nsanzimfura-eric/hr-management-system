@@ -9,7 +9,8 @@ const IconButton = (props: any) => {
             {isActive ? (
                 <>
                     <img src={icon.iconActive} alt="Icon" className="activeImg" />
-                    <div className="activeLineIcon"></div>
+                    <div className="activeLineIcon" />
+                    <div className="activeBg"></div>
                 </>
             ) : (
                 <img src={icon.icon} alt="Icon" />
