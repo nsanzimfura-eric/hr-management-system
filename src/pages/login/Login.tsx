@@ -22,7 +22,7 @@ const Login = () => {
           </div>
           {/* wrapper login */}
           <div className="row registrationWrapper">
-            <div className="col-12 col-md-6 imageRight">
+            <div className="col-12 col-md-6 imageRight ">
               <img src="/svgs/loginRight.svg" alt="Account BG" />
             </div>
             <div className="col-12 col-md-6 accountsWrapper">
