@@ -14,5 +14,59 @@
         border-top-right-radius: 8px;
         border-bottom-right-radius: 8px;
         background-color: $darkBlue;
+        display: flex;
+        flex-direction: column;
+        gap: 90px;
+
+        @include mqh($xms) {
+            gap: pxToVh(80);
+        }
+
+        .logoWrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 0;
+            overflow: hidden;
+            margin: 0;
+            width: 100%;
+            padding-top: 25px;
+            flex-grow: 0;
+            background-color: transparent;
+
+            img {
+                width: 40px;
+                aspect-ratio: 24/40;
+                height: 80px;
+
+                @include mq($lg) {
+                    width: 30px;
+                    aspect-ratio: 24/40;
+                    height: 60px;
+                }
+
+                @include mqh($xms) {
+                    width: 24px;
+                    aspect-ratio: 24/40;
+                    height: 40px;
+                }
+            }
+        }
+
+        .bottomWrapper {
+            width: 100%;
+            padding: 0;
+            margin: 0;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+            background-color: transparent;
+            justify-content: flex-start;
+
+            @include mqh($xms) {
+                gap: pxToVh(20);
+            }
+        }
     }
 }

@@ -12,25 +12,50 @@
         align-items: center;
         justify-content: center;
         gap: 5px;
+        height: pxToVh(81);
 
         img {
             width: 32px;
             aspect-ratio: 1/1;
             height: auto;
+            cursor: pointer;
+        }
+
+        .activeImg {
+            box-shadow: 10px -20px 30px -10px bgLogin;
         }
 
         .title {
             font-family: $poppinsSemiBold;
             @include p;
             color: $bgLogin;
+            cursor: pointer;
 
             @include mq($xls) {
+                display: none;
+            }
+
+            @include mqh($xms) {
                 display: none;
             }
         }
 
         .titleActive {
             color: $activeBtnColor;
+        }
+
+        .activeLineIcon {
+            position: absolute;
+            left: 0;
+            height: 100%;
+            width: 8px;
+            border-top-right-radius: 8px;
+            border-bottom-right-radius: 8px;
+            background-color: $warning;
+            bottom: 0;
+            top: 0;
+            margin: 0;
+            padding: 0;
         }
 
     }
