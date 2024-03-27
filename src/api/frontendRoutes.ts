@@ -4,4 +4,5 @@ export const frontendRoutes = {
     login: "/login",
     signup: "/signup",
     dashboard: "/dashboard",
+    forgotPassword: "/forgotPassword",
   };

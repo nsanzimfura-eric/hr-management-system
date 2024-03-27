@@ -12,10 +12,12 @@
     flex-direction: column;
     display: flex;
     gap: 16px;
+
     .buttonSubmit {
       font-family: $poppinsRegular;
       text-transform: capitalize !important;
     }
+
     .inputBox {
       display: flex;
       flex-direction: column;
@@ -25,6 +27,53 @@
       gap: 5px;
       justify-content: flex-start;
       align-items: flex-start;
+    }
+
+    .inputBoxCheck {
+      .checkBox {
+        gap: 8px;
+
+        .checkBoxRemember {
+          border: 1px solid $primary;
+          border-radius: 4px;
+          width: 16px;
+          aspect-ratio: 1/1;
+          height: auto;
+          background-color: transparent;
+          outline: none;
+          box-shadow: none;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          cursor: pointer;
+
+          .bg-checked {
+            display: none;
+            width: 12px;
+            aspect-ratio: 1/1;
+            height: auto;
+            background-color: $primary;
+            border-radius: inherit;
+            border: none;
+          }
+        }
+
+        .checked {
+          .bg-checked {
+            display: flex;
+          }
+        }
+      }
+
+      a {
+        text-decoration: none;
+      }
+
+      .text {
+        font-family: $poppinsRegular;
+        font-size: pxToEm(16);
+        color: $darkBlue;
+      }
     }
   }
 }

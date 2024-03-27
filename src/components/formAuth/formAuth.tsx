@@ -1,9 +1,9 @@
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import styles from "./formAuth.module.scss";
-import { TextField, Button } from '@mui/material';
+import { TextField, Button, Typography } from '@mui/material';
 import { Formik, Form } from 'formik';
-import { useNavigate, useLocation } from "react-router-dom";
+import { useNavigate, useLocation, Link } from "react-router-dom";
 import { frontendRoutes } from "../../api/frontendRoutes";
 import { loginValidationSchema, signUpValidationSchema, signUpInitialValues, loginInitialValues } from "./validationSchema";
 import ErrorComponent from "../errorComponent/ErrorComponent";
@@ -20,6 +20,7 @@ const FormAuth = () => {
     const navigate = useNavigate();
     const location = useLocation();
     const [isSignUp, setIsSignUp] = useState(false);
+    const [rememberUser, setRememberUser] = useState(false);
     const [validationShema, setValidationShema] = useState<any>(signUpValidationSchema);
     const [initialValues, setInitialValues] = useState<any>(signUpInitialValues);
 
@@ -45,6 +46,11 @@ const FormAuth = () => {
     const handleFormSubmitSignUp = (values: AuthInterface) => {
         console.log(values, 'sign up')
         navigate(frontendRoutes.login)
+    }
+
+    const checkBoxRef = useRef(null);
+    const handleClickCheckBox = () => {
+        checkBoxRef.current.click()
     }
 
     return (
@@ -141,6 +147,18 @@ const FormAuth = () => {
                                     error={errors.confirmPass && touched.confirmPass ? true : false}
                                 />
                                 {errors.confirmPass && touched.confirmPass && <ErrorComponent message={errors.confirmPass} />}
+                            </div>
+                        }
+                        {!isSignUp &&
+                            <div className="inputBoxCheck d-flex justify-content-between align-items-center w-100 m-0 p-0">
+                                <div className="checkBox d-flex align-items-center" onClick={handleClickCheckBox}>
+                                    <div className={`checkBoxRemember ${rememberUser && "checked"}`} > <div className="bg-checked"></div></div>
+                                    <input type="checkbox" name="remember" hidden ref={checkBoxRef} id="remember" checked={rememberUser} onChange={() => setRememberUser(prev => !prev)} />
+                                    <Typography variant="subtitle2" className="text">Remember</Typography>
+                                </div>
+                                <Link to={frontendRoutes.forgotPassword}>
+                                    <Typography variant="subtitle2" className="text">Forgot Password?</Typography>
+                                </Link>
                             </div>
                         }
                         <Button type="submit" disabled={isSubmitting} sx={{ width: "100%", color: "white" }} className="buttonSubmit" variant="contained" color="warning">

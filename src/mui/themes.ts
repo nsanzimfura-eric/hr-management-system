@@ -50,13 +50,13 @@ const themes = createTheme({
     fontFamily: `"Poppins-Medium.ttf"`,
     h1: {
       fontSize: "40px",
-      ...mq(lg, {
+      ...mq(md, {
         fontSize: "30px",
       }),
     },
     h2: {
       fontSize: "24px",
-      ...mq(lg, {
+      ...mq(md, {
         fontSize: "20px",
       }),
     },
@@ -65,35 +65,35 @@ const themes = createTheme({
     },
     h4: {
       fontSize: "19.93px",
-      ...mq(xlg, {
-        fontSize: "1.25rem",
-      }),
       ...mq(lg, {
+        fontSize: "1.2rem",
+      }),
+      ...mq(md, {
         fontSize: "1rem",
       }),
     },
     h5: {
       fontSize: "1.25rem",
-      ...mq(xlg, {
+      ...mq(md, {
         fontSize: "1rem",
       }),
     },
     h6: {
-      fontSize: "1rem",
-      ...mq(xlg, {
-        fontSize: "0.8rem",
+      fontSize: "1.2rem",
+      ...mq(md, {
+        fontSize: ".8rem",
       }),
-      ...mq(lg, {
-        fontSize: "0.7rem",
+    },
+    subtitle1: {
+      fontSize: "1.1rem",
+      ...mq(md, {
+        fontSize: "1rem",
       }),
     },
     subtitle2: {
       fontSize: "1rem",
       ...mq(md, {
         fontSize: "0.85rem",
-      }),
-      ...mq(xls, {
-        fontSize: ".7rem",
       }),
     },
     body1: {
