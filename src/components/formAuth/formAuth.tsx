@@ -57,6 +57,8 @@ const FormAuth = () => {
         checkBoxRef.current?.click()
     }
 
+    console.log(userAuth, 'user logged in')
+
     return (
         <Formik
             initialValues={initialValues}

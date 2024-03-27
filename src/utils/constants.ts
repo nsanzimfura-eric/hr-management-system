@@ -14,3 +14,11 @@ export const mediaSizes = {
 
 }
 
+export const dashboardRoutes = {
+  home: 'home',
+  jobs: 'jobs',
+  candidates: 'candidates',
+  reports: 'reports',
+  calender: 'calender',
+}
+
