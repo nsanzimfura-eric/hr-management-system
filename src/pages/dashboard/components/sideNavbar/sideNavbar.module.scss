@@ -2,71 +2,124 @@
 @import "../../../../styles/mixins.scss";
 
 .sideNavBar {
-    :global {
-        position: fixed;
-        height: 100vw;
-        overflow: hidden;
-        overflow-y: auto;
-        width: 126px;
-        padding: 0;
-        margin: 0;
-        border-radius: 0;
-        border-top-right-radius: 8px;
-        border-bottom-right-radius: 8px;
-        background-color: $darkBlue;
-        display: flex;
-        flex-direction: column;
-        gap: 90px;
+  :global {
+    position: fixed;
+    height: 100vh;
+    overflow: hidden;
+    overflow-y: auto;
+    width: 126px;
+    padding: 0;
+    margin: 0;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 5;
+    border-radius: 0;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    background-color: $darkBlue;
+    display: flex;
+    flex-direction: column;
+    gap: 90px;
+    @include transition;
+    @include mqh($xms) {
+      gap: pxToVh(80);
+    }
+
+    @include mq($md) {
+      width: 90px;
+    }
+    @include mq($sm) {
+      width: 60px;
+    }
+    .logoWrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 0;
+      overflow: hidden;
+      margin: 0;
+      width: 100%;
+      padding-top: 25px;
+      flex-grow: 0;
+      background-color: transparent;
+      position: relative;
+      border-radius: inherit;
+      .closeBtn {
+        position: absolute;
+        top: 10px;
+        right: 5px;
+        border-radius: inherit;
+        color: $bgLoginOpaque;
+        display: none;
+        cursor: pointer;
+        @include transition;
+        &:hover {
+          color: $warning;
+        }
+        @include mq($xls) {
+          display: flex !important;
+        }
+      }
+
+      img {
+        width: 40px;
+        aspect-ratio: 24/40;
+        height: 80px;
+        @include mq($xls) {
+          margin-top: 20px;
+        }
+
+        @include mq($lg) {
+          width: 30px;
+          aspect-ratio: 24/40;
+          height: 60px;
+        }
 
         @include mqh($xms) {
-            gap: pxToVh(80);
+          width: 24px;
+          aspect-ratio: 24/40;
+          height: 40px;
         }
-
-        .logoWrapper {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 0;
-            overflow: hidden;
-            margin: 0;
-            width: 100%;
-            padding-top: 25px;
-            flex-grow: 0;
-            background-color: transparent;
-
-            img {
-                width: 40px;
-                aspect-ratio: 24/40;
-                height: 80px;
-
-                @include mq($lg) {
-                    width: 30px;
-                    aspect-ratio: 24/40;
-                    height: 60px;
-                }
-
-                @include mqh($xms) {
-                    width: 24px;
-                    aspect-ratio: 24/40;
-                    height: 40px;
-                }
-            }
-        }
-
-        .bottomWrapper {
-            width: 100%;
-            padding: 0;
-            margin: 0;
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-            gap: 24px;
-            background-color: transparent;
-            justify-content: flex-start;
-
-            @include mqh($xms) {
-                gap: pxToVh(20);
-            }
-        }
+      }
     }
+
+    .bottomWrapper {
+      width: 100%;
+      padding: 0;
+      margin: 0;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      background-color: transparent;
+      justify-content: flex-start;
+
+      @include mqh($xms) {
+        gap: pxToVh(20);
+      }
+    }
+  }
+}
+
+.sideNavAside {
+  :global {
+    position: fixed;
+    height: 100vh;
+    opacity: 0;
+    overflow: hidden;
+    overflow-y: auto;
+    width: 126px;
+    padding: 0;
+    margin: 0;
+    left: -200px;
+    border-radius: 0;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    background-color: $darkBlue;
+    display: flex;
+    flex-direction: column;
+    gap: 90px;
+    @include transition;
+  }
 }

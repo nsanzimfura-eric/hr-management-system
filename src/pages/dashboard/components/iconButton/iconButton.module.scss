@@ -2,77 +2,92 @@
 @import "../../../../styles/mixins.scss";
 
 .iconButton {
-    :global {
-        background-color: transparent;
-        width: 100%;
-        padding: 0 10px;
-        position: relative;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        gap: 5px;
-        height: pxToVh(81);
-        @include transition;
-
-        img {
-            width: 32px;
-            aspect-ratio: 1/1;
-            height: auto;
-            cursor: pointer;
-            z-index: 1;
-        }
-
-        .title {
-            font-family: $poppinsSemiBold;
-            @include p;
-            color: $bgLoginOpaque;
-            cursor: pointer;
-            z-index: 1;
-
-            @include mq($xls) {
-                display: none;
-            }
-
-            @include mqh($xms) {
-                display: none;
-            }
-
-        }
-
-
-
-        .titleActive {
-            color: $activeBtnColor;
-        }
-
-        .activeLineIcon {
-            position: absolute;
-            left: 0;
-            height: 100%;
-            width: 8px;
-            border-top-right-radius: 8px;
-            border-bottom-right-radius: 8px;
-            background-color: $warning;
-            bottom: 0;
-            top: 0;
-            margin: 0;
-            padding: 0;
-            z-index: 2;
-        }
-
-        .activeBg {
-            position: absolute;
-            height: 100%;
-            width: 100%;
-            background-image: radial-gradient(circle, $darkBlue, $bgLoginOpaque, $darkBlue, $darkBlue);
-            margin: 0;
-            padding: 0;
-            z-index: -1;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            opacity: .5;
-        }
+  :global {
+    background-color: transparent;
+    width: 100%;
+    padding: 0 10px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    height: pxToVh(81);
+    @include transition;
+    @include mq($xls) {
+      height: pxToVh(60);
     }
+
+    img {
+      width: 32px;
+      aspect-ratio: 1/1;
+      height: auto;
+      cursor: pointer;
+      z-index: 1;
+
+      @include mq($xls) {
+        width: 25px;
+      }
+      @include mq($sm) {
+        width: 20px;
+      }
+    }
+
+    .title {
+      font-family: $poppinsSemiBold;
+      @include p;
+      color: $bgLoginOpaque;
+      cursor: pointer;
+      z-index: 1;
+
+      @include mq($md) {
+        display: none;
+      }
+
+      @include mqh($xms) {
+        display: none;
+      }
+    }
+
+    .titleActive {
+      color: $activeBtnColor;
+    }
+
+    .activeLineIcon {
+      position: absolute;
+      left: 0;
+      height: 100%;
+      width: 8px;
+      border-top-right-radius: 8px;
+      border-bottom-right-radius: 8px;
+      background-color: $warning;
+      bottom: 0;
+      top: 0;
+      margin: 0;
+      padding: 0;
+      z-index: 2;
+    }
+
+    .activeBg {
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      background-image: radial-gradient(
+        circle,
+        $darkBlue,
+        $bgLoginOpaque,
+        $darkBlue,
+        $darkBlue
+      );
+      margin: 0;
+      padding: 0;
+      z-index: -1;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      opacity: 0.5;
+      border-radius: 50%;
+      box-shadow: 10px 20px 30px -10px $bgLoginOpaque;
+    }
+  }
 }
