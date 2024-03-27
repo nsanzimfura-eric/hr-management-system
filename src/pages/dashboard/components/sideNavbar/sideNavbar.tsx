@@ -1,10 +1,9 @@
 
-import React, { ChangeEvent, useState } from "react";
+import React, { useState } from "react";
 import IconButton from "../iconButton/iconButton";
 import { navbarLinks } from "./navbarData";
 import styles from "./sideNavbar.module.scss";
 import CloseIcon from '@mui/icons-material/Close';
-import MenuIcon from '@mui/icons-material/Menu';
 import useWindowSize from "../../../../hooks/useWindowSize";
 import { mediaSizes } from "../../../../utils/constants";
 

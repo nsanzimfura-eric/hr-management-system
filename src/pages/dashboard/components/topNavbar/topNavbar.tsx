@@ -16,7 +16,7 @@ const TopNavbar = (props: SideNavProps) => {
         setSideNavAside(false)
     }
 
-    const handleChange = (e) => {
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setSearchValue(e.target.value);
     }
 
@@ -33,8 +33,10 @@ const TopNavbar = (props: SideNavProps) => {
             </div>
             <div className="profile d-flex">
                 <img src="/images/user.jpg" alt="User" />
-                <span>Jane Doe</span>
-                <button><img src="/svgs/arrowDown.svg" alt="Arrow down" /></button>
+                <div className="d-flex names">
+                    <span>Jane Doe</span>
+                    <button><img src="/svgs/arrowDown.svg" alt="Arrow down" /></button>
+                </div>
             </div>
         </div>
     )

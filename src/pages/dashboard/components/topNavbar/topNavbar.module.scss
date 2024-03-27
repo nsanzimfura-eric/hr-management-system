@@ -54,8 +54,48 @@
           font-family: $poppinsRegular;
           @include p;
           color: $dark;
+          box-shadow: non;
           &::placeholder {
             color: $dark;
+          }
+          &:focus {
+            outline: none;
+            border: none;
+            box-shadow: none;
+          }
+        }
+      }
+    }
+    .profile {
+      align-items: center;
+      justify-content: flex-end;
+      margin-left: auto;
+      gap: 16px;
+      img {
+        height: 40px;
+        aspect-ratio: 1/1;
+        width: auto;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 2px solid #d9d9d9;
+      }
+      .names {
+        align-items: center;
+        gap: 8px;
+        span {
+          font-family: $poppinsSemiBold;
+          @include p;
+          color: $dark;
+        }
+        button {
+          border: none;
+          outline: none;
+          background-color: transparent;
+          cursor: pointer;
+          img {
+            height: 12px;
+            aspect-ratio: 12/6;
+            width: 6px;
           }
         }
       }
