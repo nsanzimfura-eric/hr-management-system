@@ -130,6 +130,8 @@ const themes = createTheme({
       styleOverrides: {
         root: {
           width: "100%",
+    fontFamily: `"Poppins-Medium.ttf"`,
+
         },
       },
     },
@@ -187,6 +189,8 @@ const themes = createTheme({
           color: "white",
           textAlign: "center",
           boxShadow: "none",
+          fontFamily: `"Poppins-Medium.ttf"`,
+
           "&:hover": {
             boxShadow: "none",
           },

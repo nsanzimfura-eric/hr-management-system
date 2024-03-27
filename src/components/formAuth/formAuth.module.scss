@@ -17,6 +17,11 @@
     .buttonSubmit {
       font-family: $poppinsRegular;
       text-transform: capitalize !important;
+      margin-top: calc(54px - 16px);
+
+      &:hover {
+        background-color: darken($color: $warning, $amount: 8) !important;
+      }
     }
 
     .inputBox {

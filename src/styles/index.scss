@@ -29,7 +29,10 @@ body,
   }
 }
 
-* {
+*,
+body,
+#root,
+#root * {
   box-sizing: border-box;
   text-decoration: none;
   list-style: none;

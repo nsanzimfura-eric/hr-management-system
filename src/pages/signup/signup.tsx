@@ -14,7 +14,7 @@ const SignUp = () => {
   return (
     <div className={styles.login} >
       <Container className="loginWrapper">
-        <div className="boxWrapper d-flex flex-column">
+        <div className="boxWrapper d-flex flex-column w-100">
           {/* login title  */}
           <div className="d-flex titleBox">
             <img src="/svgs/logo.svg" alt="Logo" width={17} height={30} />

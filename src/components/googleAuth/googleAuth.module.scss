@@ -1,22 +1,27 @@
 @import "../../styles/variables.scss";
 @import "../../styles/mixins.scss";
 
-.formAuth {
+.authButton {
   :global {
-    background-color: transparent;
     width: 100%;
-    overflow: auto;
+    height: 48px;
     margin: 0;
-    padding: 0;
-    padding-top: 40px;
-    flex-direction: column;
     display: flex;
-    gap: 16px;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 8px;
+    padding: 0 20px;
+    border: none;
+    @include p;
+    font-family: $poppinsSemiBold;
+    text-transform: capitalize;
+    background-color: $primary;
+    color: $light;
+    border-radius: 8px;
+    @include transition;
+  }
 
-    .buttonSubmit {
-      font-family: $poppinsRegular;
-      text-transform: capitalize !important;
-    }
-
+  &:hover {
+    background-color: darken($color: $primary, $amount: 8);
   }
 }

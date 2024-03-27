@@ -140,10 +140,10 @@ const FormAuth = () => {
                                 <TextField
                                     id="outlined-basic"
                                     name="confirmPass"
-                                    label="Confirm Password"
+                                    label="Re-enter Password"
                                     variant="outlined"
                                     onChange={handleChange}
-                                    placeholder="Confirm Password"
+                                    placeholder="Re-enter Password"
                                     value={values.confirmPass}
                                     error={errors.confirmPass && touched.confirmPass ? true : false}
                                 />
@@ -162,10 +162,10 @@ const FormAuth = () => {
                                 </Link>
                             </div>
                         }
-                        <GoogleAuth />
-                        <Button type="submit" disabled={isSubmitting} sx={{ width: "100%", color: "white" }} className="buttonSubmit" variant="contained" color="warning">
+                        <Button type="submit" disabled={isSubmitting} sx={{ width: "100%", color: "white", }} className="buttonSubmit" variant="contained" color="warning">
                             {isSignUp ? "Sign Up" : "Login"}
                         </Button>
+                        <GoogleAuth />
                     </Form>
 
                 )

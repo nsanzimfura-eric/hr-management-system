@@ -183,24 +183,4 @@
   @include mq($md) {
     font-size: pxToEm(14);
   }
-
-  @include mq($sm) {
-    font-size: pxToEm(12);
-  }
-}
-
-@mixin pagePadding {
-  padding: 50px;
-
-  @include mq($lg) {
-    padding: 30px;
-  }
-
-  @include mq($md) {
-    padding: 20px;
-  }
-
-  @include mq($xls) {
-    padding: 15px;
-  }
 }
