@@ -10,6 +10,17 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    position: relative;
+    z-index: 3;
+    @include mq($xlg) {
+      padding: 20px 30px;
+    }
+    @include mq($lg) {
+      padding: 15px 25px;
+    }
+    @include mq($md) {
+      padding: 15px 20px;
+    }
     .searchWrapper {
       align-items: center;
       gap: 20px;
@@ -40,6 +51,7 @@
           aspect-ratio: 1/1;
           height: auto;
           cursor: pointer;
+          border: none;
         }
         input {
           background-color: transparent;
@@ -93,12 +105,58 @@
           background-color: transparent;
           cursor: pointer;
           img {
-            height: 12px;
-            aspect-ratio: 12/6;
-            width: 6px;
+            height: 18px;
+            border: none;
+            width: 8px;
+            object-fit: unset;
           }
         }
       }
+    }
+
+    //logout
+    .logoutWrapper {
+      position: fixed;
+      right: 32px;
+      top: 100px;
+      z-index: 5;
+      background-color: $light;
+      border-radius: 8px;
+      padding: 15px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+      transform: translateX(100px);
+      opacity: 0;
+      @include transition;
+      @include mq($xlg) {
+        right: 30px;
+      }
+      @include mq($lg) {
+        right: 25px;
+        top: 80px;
+      }
+      @include mq($md) {
+        right: 10px;
+      }
+      @include mqh($xms) {
+        top: 50px;
+      }
+      button {
+        border: none;
+        outline: none;
+        background-color: transparent;
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0;
+      }
+    }
+    .logoutWrapperActive {
+      transform: translateX(0);
+      opacity: 1;
     }
   }
 }

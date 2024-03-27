@@ -13,8 +13,11 @@ const Dashboard = () => {
     <Guards>
       <div className={styles.dashboard}>
         <SideNavBar sideNavAside={sideNavAside} setSideNavAside={setSideNavAside} />
-        <div className={`${sideNavAside ? "contentWrapper p-0 m-0" : "contentWrapper widthFullContentWrapper p-0 m-0"}`}>
+        <div className={`${sideNavAside ? "contentWrapper p-0 m-0" : "contentWrapper widthFullContentWrapper w-full p-0 m-0"}`}>
           <TopNavbar sideNavAside={sideNavAside} setSideNavAside={setSideNavAside} />
+          <div className="contentScrollable">
+            section
+          </div>
         </div>
       </div>
     </Guards>
