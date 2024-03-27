@@ -12,6 +12,7 @@
     justify-content: space-between;
     position: relative;
     z-index: 3;
+    max-width: 100%;
     @include mq($xlg) {
       padding: 20px 30px;
     }
@@ -20,6 +21,9 @@
     }
     @include mq($md) {
       padding: 15px 20px;
+    }
+    @include mq($sm) {
+      padding: 15px;
     }
     .searchWrapper {
       align-items: center;
@@ -46,12 +50,19 @@
         justify-content: flex-start;
         align-items: center;
         gap: 0;
+        @include mq($sm) {
+          width: 150px;
+          max-width: 150px;
+        }
         img {
           width: 24px;
           aspect-ratio: 1/1;
           height: auto;
           cursor: pointer;
           border: none;
+          @include mq($sm) {
+            width: 18px;
+          }
         }
         input {
           background-color: transparent;
@@ -83,6 +94,9 @@
       justify-content: flex-end;
       margin-left: auto;
       gap: 16px;
+      @include mq($sm) {
+        gap: 10px;
+      }
       img {
         height: 40px;
         aspect-ratio: 1/1;
@@ -90,14 +104,23 @@
         border-radius: 50%;
         object-fit: cover;
         border: 2px solid #d9d9d9;
+        @include mq($sm) {
+          height: 30px;
+        }
       }
       .names {
         align-items: center;
         gap: 8px;
+        @include mq($sm) {
+          gap: 5px;
+        }
         span {
           font-family: $poppinsSemiBold;
           @include p;
           color: $dark;
+          @include mq($xms) {
+            display: none;
+          }
         }
         button {
           border: none;
@@ -152,6 +175,14 @@
         justify-content: center;
         align-items: center;
         padding: 0;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        span {
+          @include p;
+          color: $darkBlue;
+          font-family: $poppinsSemiBold;
+        }
       }
     }
     .logoutWrapperActive {

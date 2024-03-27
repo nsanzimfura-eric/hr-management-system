@@ -5,17 +5,19 @@ import MenuIcon from '@mui/icons-material/Menu';
 import LogoutIcon from '@mui/icons-material/Logout';
 import { frontendRoutes } from "../../../../api/frontendRoutes";
 import { useNavigate } from "react-router-dom";
+import { mediaSizes } from "../../../../utils/constants";
+import useWindowSize from "../../../../hooks/useWindowSize";
 
 interface SideNavProps {
     sideNavAside: boolean;
     setSideNavAside: React.Dispatch<React.SetStateAction<boolean>>;
 }
 const TopNavbar = (props: SideNavProps) => {
-    const { setSideNavAside } = props;
+    const { setSideNavAside, sideNavAside } = props;
     const [searchValue, setSearchValue] = useState('');
-    const [showLogOut, setShowLogout] = useState(true);
+    const [showLogOut, setShowLogout] = useState(false);
     const navigate = useNavigate();
-
+    const { width } = useWindowSize();
 
     const closeSideNav = () => {
         setSideNavAside(false)
@@ -32,9 +34,14 @@ const TopNavbar = (props: SideNavProps) => {
     return (
         <div className={styles.topNavbar}>
             <div className="searchWrapper d-flex">
-                <div className="openMenu d-none" onClick={closeSideNav}>
-                    <MenuIcon sx={{ width: 40, height: 40 }} />
-                </div>
+                {sideNavAside &&
+                    <div className="openMenu d-none" onClick={closeSideNav}>
+                        <MenuIcon sx={{
+                            width: width <= mediaSizes.sm ? 30 : 40,
+                            height: width <= mediaSizes.sm ? 30 : 40
+                        }} />
+                    </div>
+                }
                 <div className="d-flex searchBox">
                     <img src="/svgs/search.svg" alt="Search Icon" />
                     <input type="text" name="search" placeholder="Search" id="search" value={searchValue} onChange={handleChange} />
@@ -49,7 +56,10 @@ const TopNavbar = (props: SideNavProps) => {
             </div>
             <div className={showLogOut ? "logoutWrapper logoutWrapperActive" : "logoutWrapper"}>
                 <button onClick={handleLogout}>
-                    <LogoutIcon sx={{ width: 30, height: 30 }} />
+                    <LogoutIcon sx={{
+                        width: width <= mediaSizes.sm ? 20 : 30,
+                        height: width <= mediaSizes.sm ? 20 : 30
+                    }} />
                     <span>Logout</span>
                 </button>
             </div>
