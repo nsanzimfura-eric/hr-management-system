@@ -8,6 +8,7 @@ import { frontendRoutes } from "../../api/frontendRoutes";
 import { loginValidationSchema, signUpValidationSchema, signUpInitialValues, loginInitialValues } from "./validationSchema";
 import ErrorComponent from "../errorComponent/ErrorComponent";
 import GoogleAuth from "../googleAuth/googleAuth";
+import AlertComponent from "../AlertComponent/AlertComponent";
 
 export interface AuthInterface {
     email: string;
@@ -21,6 +22,8 @@ const FormAuth = () => {
     const navigate = useNavigate();
     const location = useLocation();
     const [isSignUp, setIsSignUp] = useState(false);
+    const [errorAuth, setErrorAuth] = useState('');
+    const [userAuth, setUserAuth] = useState({});
     const [rememberUser, setRememberUser] = useState(false);
     const [validationShema, setValidationShema] = useState<any>(signUpValidationSchema);
     const [initialValues, setInitialValues] = useState<any>(signUpInitialValues);
@@ -165,7 +168,9 @@ const FormAuth = () => {
                         <Button type="submit" disabled={isSubmitting} sx={{ width: "100%", color: "white", }} className="buttonSubmit" variant="contained" color="warning">
                             {isSignUp ? "Sign Up" : "Login"}
                         </Button>
-                        <GoogleAuth />
+                        {errorAuth && <AlertComponent message={errorAuth} />}
+                        {/*  GOOOGLE AUTHENTICATION */}
+                        <GoogleAuth setErrorAuth={setErrorAuth} setUser={setUserAuth} />
                     </Form>
 
                 )
