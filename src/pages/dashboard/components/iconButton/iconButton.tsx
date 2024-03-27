@@ -6,15 +6,9 @@ const IconButton = (props: any) => {
 
     return (
         <div className={styles.iconButton} onClick={() => onClick(icon.id)}>
-            {isActive ? (
-                <>
-                    <img src={icon.iconActive} alt="Icon" className="activeImg" />
-                    <div className="activeLineIcon" />
-                    <div className="activeBg"></div>
-                </>
-            ) : (
-                <img src={icon.icon} alt="Icon" />
-            )}
+            <img src={icon.icon} alt="Icon" className={!isActive ? "isActiveBtn" : ""} />
+            {isActive && <div className="activeLineIcon" />}
+            {isActive && <div className="activeBg"></div>}
             <span className={`title ${isActive ? 'titleActive' : ''}`}>{icon.title}</span>
         </div>
     )

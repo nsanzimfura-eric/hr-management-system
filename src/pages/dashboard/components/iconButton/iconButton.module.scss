@@ -24,6 +24,7 @@
       height: auto;
       cursor: pointer;
       z-index: 1;
+      opacity: 1;
 
       @include mq($xls) {
         width: 25px;
@@ -31,6 +32,9 @@
       @include mq($sm) {
         width: 20px;
       }
+    }
+    .isActiveBtn {
+      opacity: 0.5;
     }
 
     .title {
