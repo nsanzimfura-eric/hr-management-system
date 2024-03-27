@@ -45,6 +45,16 @@
       flex-grow: 1;
       background-color: $secondary;
       padding: 30px 20px;
+      display: flex;
+      //for demo
+      gap: 50px;
+      flex-wrap: wrap;
+      .bg-warning {
+        width: calc(100% / 10);
+        aspect-ratio: 1/1;
+        gap: 30px;
+        height: auto;
+      }
       @include mq($lgx) {
         padding: 25px 20px;
       }
