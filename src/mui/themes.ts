@@ -12,10 +12,10 @@ declare module "@mui/material/TextField" {
   }
 }
 
-const xxs = "320px";
-const xxsh = "425px";
+// const xxs = "320px";
+// const xxsh = "425px";
 const xls = "600px";
-const xlg = "1440px";
+// const xlg = "1440px";
 const lg = "1200px";
 const md = "768px";
 

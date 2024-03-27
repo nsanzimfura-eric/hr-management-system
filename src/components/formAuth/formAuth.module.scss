@@ -5,13 +5,14 @@
   :global {
     background-color: transparent;
     width: 100%;
-    overflow: auto;
+    overflow: hidden;
     margin: 0;
     padding: 0;
     padding-top: 40px;
     flex-direction: column;
     display: flex;
     gap: 16px;
+
 
     .buttonSubmit {
       font-family: $poppinsRegular;

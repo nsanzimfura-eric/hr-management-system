@@ -7,6 +7,7 @@ import { useNavigate, useLocation, Link } from "react-router-dom";
 import { frontendRoutes } from "../../api/frontendRoutes";
 import { loginValidationSchema, signUpValidationSchema, signUpInitialValues, loginInitialValues } from "./validationSchema";
 import ErrorComponent from "../errorComponent/ErrorComponent";
+import GoogleAuth from "../googleAuth/googleAuth";
 
 export interface AuthInterface {
     email: string;
@@ -48,9 +49,9 @@ const FormAuth = () => {
         navigate(frontendRoutes.login)
     }
 
-    const checkBoxRef = useRef(null);
+    const checkBoxRef = useRef<HTMLInputElement>(null);
     const handleClickCheckBox = () => {
-        checkBoxRef.current.click()
+        checkBoxRef.current?.click()
     }
 
     return (
@@ -65,7 +66,7 @@ const FormAuth = () => {
                 }
             }}
         >
-            {({ values, errors, resetForm, handleChange, handleSubmit, isSubmitting, touched }) => {
+            {({ values, errors, handleChange, handleSubmit, isSubmitting, touched }) => {
                 // useEffect(() => {
                 //     if ((data || loginData) && (!loading || !loginLoading)) {
                 //         resetForm();
@@ -161,6 +162,7 @@ const FormAuth = () => {
                                 </Link>
                             </div>
                         }
+                        <GoogleAuth />
                         <Button type="submit" disabled={isSubmitting} sx={{ width: "100%", color: "white" }} className="buttonSubmit" variant="contained" color="warning">
                             {isSignUp ? "Sign Up" : "Login"}
                         </Button>
