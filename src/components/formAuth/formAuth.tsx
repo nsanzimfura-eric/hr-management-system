@@ -20,13 +20,19 @@ const FormAuth = () => {
     const navigate = useNavigate();
     const location = useLocation();
     const [isSignUp, setIsSignUp] = useState(false);
+    const [validationShema, setValidationShema] = useState<any>(signUpValidationSchema);
+    const [initialValues, setInitialValues] = useState<any>(signUpInitialValues);
 
     //watch signUp routes
     useEffect(() => {
         if (location.pathname === frontendRoutes.signup) {
-            setIsSignUp(true)
+            setIsSignUp(true);
+            setValidationShema(signUpValidationSchema);
+            setInitialValues(signUpInitialValues);
         } else {
-            setIsSignUp(false)
+            setIsSignUp(false);
+            setValidationShema(loginValidationSchema);
+            setInitialValues(loginInitialValues);
         }
     }, [location.pathname]);
 
@@ -43,14 +49,8 @@ const FormAuth = () => {
 
     return (
         <Formik
-            initialValues={
-                isSignUp
-                    ? signUpInitialValues
-                    : loginInitialValues
-            }
-            validationSchema={
-                isSignUp ? signUpValidationSchema : loginValidationSchema
-            }
+            initialValues={initialValues}
+            validationSchema={validationShema}
             onSubmit={(values: AuthInterface) => {
                 if (isSignUp) {
                     handleFormSubmitSignUp(values)
@@ -67,7 +67,7 @@ const FormAuth = () => {
                 // }, [data, loginData, loading, loginLoading]);
 
                 return (
-                    <Form autoComplete="off" className={styles.formAuth}>
+                    <Form autoComplete="off" className={styles.formAuth} onSubmit={handleSubmit}>
                         {
                             isSignUp &&
                             <div className="inputBox">
@@ -79,7 +79,7 @@ const FormAuth = () => {
                                     onChange={handleChange}
                                     placeholder="FirstName"
                                     value={values.firstName}
-                                    error={errors && touched.firstName}
+                                    error={errors.firstName && touched.firstName ? true : false}
                                 />
                                 {errors.firstName && touched.firstName && <ErrorComponent message={errors.firstName} />}
                             </div>
@@ -95,7 +95,7 @@ const FormAuth = () => {
                                     onChange={handleChange}
                                     placeholder="LastName"
                                     value={values.lastName}
-                                    error={errors && touched.lastName}
+                                    error={errors.lastName && touched.lastName ? true : false}
                                 />
                                 {errors.lastName && touched.lastName && <ErrorComponent message={errors.lastName} />}
                             </div>
@@ -109,7 +109,7 @@ const FormAuth = () => {
                                 onChange={handleChange}
                                 placeholder={isSignUp ? "Email" : "Username"}
                                 value={values.email}
-                                error={errors && touched.email}
+                                error={errors.email && touched.email ? true : false}
                             />
                             {errors.email && touched.email && <ErrorComponent message={errors.email} />}
                         </div>
@@ -122,7 +122,7 @@ const FormAuth = () => {
                                 onChange={handleChange}
                                 placeholder="Password"
                                 value={values.password}
-                                error={errors && touched.password}
+                                error={errors.password && touched.password ? true : false}
                             />
                             {errors.password && touched.password && <ErrorComponent message={errors.password} />}
                         </div>
@@ -138,7 +138,7 @@ const FormAuth = () => {
                                     onChange={handleChange}
                                     placeholder="Confirm Password"
                                     value={values.confirmPass}
-                                    error={errors && touched.confirmPass}
+                                    error={errors.confirmPass && touched.confirmPass ? true : false}
                                 />
                                 {errors.confirmPass && touched.confirmPass && <ErrorComponent message={errors.confirmPass} />}
                             </div>
@@ -151,7 +151,7 @@ const FormAuth = () => {
                 )
             }
             }
-        </Formik>
+        </Formik >
     )
 }
 
