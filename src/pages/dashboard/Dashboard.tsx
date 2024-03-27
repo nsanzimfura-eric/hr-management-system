@@ -12,6 +12,9 @@ const Dashboard = () => {
     <Guards>
       <div className={styles.dashboard}>
         <SideNavBar sideNavAside={sideNavAside} setSideNavAside={setSideNavAside} />
+        <div className={`${sideNavAside ? "contentWrapper p-0 m-0" : "contentWrapper widthFullContentWrapper p-0 m-0"}`}>
+
+        </div>
       </div>
     </Guards>
   )

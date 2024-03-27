@@ -1,0 +1,64 @@
+@import "../../../../styles/variables.scss";
+@import "../../../../styles/mixins.scss";
+
+.topNavbar {
+  :global {
+    width: 100%;
+    padding: 21px 32px;
+    background-color: $light;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .searchWrapper {
+      align-items: center;
+      gap: 20px;
+      .openMenu {
+        border-radius: inherit;
+        color: $darkBlue;
+        display: none;
+        cursor: pointer;
+        @include transition;
+        &:hover {
+          color: $warning;
+        }
+        @include mq($xls) {
+          display: flex !important;
+        }
+      }
+      .searchBox {
+        background-color: rgba(229, 237, 249, 44%);
+        border-radius: 8px;
+        padding: 8px 16px;
+        min-width: pxToVw(425);
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 0;
+        img {
+          width: 24px;
+          aspect-ratio: 1/1;
+          height: auto;
+          cursor: pointer;
+        }
+        input {
+          background-color: transparent;
+          border: none;
+          padding: 0;
+          padding-left: 14px;
+          flex-grow: 1;
+          display: flex;
+          justify-content: flex-start;
+          align-items: center;
+          height: 100%;
+          font-family: $poppinsRegular;
+          @include p;
+          color: $dark;
+          &::placeholder {
+            color: $dark;
+          }
+        }
+      }
+    }
+  }
+}
