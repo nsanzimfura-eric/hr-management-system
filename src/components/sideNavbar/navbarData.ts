@@ -1,4 +1,4 @@
-import { dashboardRoutes } from "../../../../utils/constants";
+import { dashboardRoutes } from "../../utils/constants";
 
 export interface SideNavBarLink {
   id: number;

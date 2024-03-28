@@ -3,10 +3,10 @@ import React, { useState } from "react";
 import styles from "./topNavbar.module.scss";
 import MenuIcon from '@mui/icons-material/Menu';
 import LogoutIcon from '@mui/icons-material/Logout';
-import { frontendRoutes } from "../../../../api/frontendRoutes";
+import { frontendRoutes } from "../../api/frontendRoutes";
 import { useNavigate } from "react-router-dom";
-import { mediaSizes } from "../../../../utils/constants";
-import useWindowSize from "../../../../hooks/useWindowSize";
+import { mediaSizes } from "../../utils/constants";
+import useWindowSize from "../../hooks/useWindowSize";
 
 interface SideNavProps {
     sideNavAside: boolean;

@@ -1,0 +1,41 @@
+@import "../../../../styles/variables.scss";
+@import "../../../../styles/mixins.scss";
+
+.dashboardHome {
+  :global {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    flex-grow: 1;
+    background-color: transparent;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    @include transition;
+    .contentMiddleWrapper {
+      height: 100%;
+      overflow: hidden;
+      flex-grow: 1;
+      overflow-y: auto;
+      padding: 0;
+      margin: 0;
+      @include scrollbar;
+      @include transition;
+    }
+    .buttonToggleMeetings {
+      background-color: $gray;
+      padding: 20px 10px;
+      border-radius: 4px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: fixed;
+      right: -20px;
+      z-index: 10;
+      top: 50%;
+      bottom: 50%;
+      @include transition;
+      transform: translate(-50%, -50%);
+    }
+  }
+}

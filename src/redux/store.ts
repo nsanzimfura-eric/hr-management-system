@@ -1,6 +1,6 @@
 // src/app/store.ts
 import { configureStore } from "@reduxjs/toolkit";
-import sideNavBarReducers from "./../pages/dashboard/components/sideNavbar/sideNavBarSlices";
+import sideNavBarReducers from "../components/sideNavbar/sideNavBarSlices";
 
 export const store = configureStore({
   reducer: {

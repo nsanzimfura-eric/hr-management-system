@@ -4,8 +4,8 @@ import IconButton from "../iconButton/iconButton";
 import { SideNavBarLink, navbarLinks } from "./navbarData";
 import styles from "./sideNavbar.module.scss";
 import CloseIcon from '@mui/icons-material/Close';
-import useWindowSize from "../../../../hooks/useWindowSize";
-import { mediaSizes } from "../../../../utils/constants";
+import useWindowSize from "../../hooks/useWindowSize";
+import { mediaSizes } from "../../utils/constants";
 import { useDispatch } from "react-redux";
 import { setActiveLink } from "./sideNavBarSlices";
 
