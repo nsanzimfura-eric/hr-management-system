@@ -3,7 +3,7 @@
 
 .upComingMeetings {
   @include scrollbar;
-  width: 320px;
+  min-width: 320px;
   padding: 16px 8px;
   overflow: auto;
   background-color: $light;
@@ -19,7 +19,7 @@
   @include transition;
   opacity: 1;
   @include mq($lg) {
-    width: 300px;
+    min-width: 300px;
   }
   @include mq($md) {
     padding: 14px 5px;
@@ -30,7 +30,7 @@
     z-index: 3;
   }
   @include mq($sm) {
-    width: 280px;
+    min-width: 280px;
     padding: 5px;
     top: 78px;
   }
