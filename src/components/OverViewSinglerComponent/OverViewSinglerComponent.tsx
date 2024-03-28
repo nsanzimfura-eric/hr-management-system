@@ -12,10 +12,12 @@ const OverViewSinglerComponent = (props: DataProps) => {
     return (
         <div className={styles.overViewSinglerComponent}>
             <button>{data.number}</button>
-            <div className="w-100 d-flex justify-content-end">
-                <img src={data.img} alt="BG" />
+            <div className="positionedBg">
+                <div className="imgWrapper d-flex justify-content-end">
+                    <img src={data.img} alt="BG" />
+                </div>
+                <span>{data.action}</span>
             </div>
-            <span>{data.action}</span>
         </div>
     )
 }

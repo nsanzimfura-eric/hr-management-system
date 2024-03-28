@@ -5,32 +5,27 @@
   :global {
     background-color: $light;
     border-radius: 8px;
-    padding: 24px;
-    padding-left: 17px;
+    padding: 0;
     position: relative;
     display: flex;
-    flex-direction: column;
     gap: 0;
-    width: calc(100% / 4 - 40px);
+    width: calc(100% / 4 - 30px);
     height: auto;
     max-height: fit-content;
     @include mq($xlg) {
-      padding: 20px;
-      padding-left: 14px;
-      width: calc(100% / 3 - 40px);
+      width: calc(100% / 3 - 27px);
     }
     @include mq($lg) {
-      padding: 18px;
-      padding-left: 14px;
-      width: calc(100% / 3 - 30px);
+      width: calc(100% / 3 - 20px);
     }
-    @include mq($md) {
-      padding: 15px;
-      padding-left: 12px;
-      width: calc(100% / 2 - 30px);
+    @include mq($xls) {
+      width: calc(100% / 2 - 15px);
     }
     @include mq($sm) {
-      width: calc(100% - 30px);
+      width: calc(100% / 2 - 15px);
+    }
+    @include mq($xms) {
+      width: 100%;
     }
     button {
       position: absolute;
@@ -73,14 +68,43 @@
         font-size: 18px;
       }
     }
-    div {
+    .positionedBg {
       flex-grow: 1;
-    }
-    span {
-      @include p;
-      color: #000000;
-      opacity: 0.5;
-      font-family: $poppinsRegular;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      padding: 24px;
+      padding-left: 17px;
+      @include mq($xlg) {
+        padding: 20px;
+        padding-left: 14px;
+      }
+      @include mq($lg) {
+        padding: 18px;
+        padding-left: 14px;
+      }
+      @include mq($md) {
+        padding: 15px;
+        padding-left: 12px;
+      }
+      .imgWrapper {
+        display: flex;
+        width: 100%;
+        justify-content: flex-end;
+        height: fit-content;
+        img {
+          width: 92px;
+          aspect-ratio: 92/73;
+          height: 73px;
+        }
+      }
+      span {
+        @include p;
+        color: #000000;
+        opacity: 0.5;
+        font-family: $poppinsRegular;
+        margin-top: auto;
+      }
     }
   }
 }

@@ -18,7 +18,7 @@ const DashboardHome = () => {
     <div className={styles.dashboardHome}>
       <div className="contentMiddleWrapper">
         {/* header */}
-        <div className="w-full d-flex justify-content-between align-items-center wrapperHeader">
+        <div className="w-100 d-flex justify-content-between align-items-center wrapperHeader">
           <Typography className='title' variant='subtitle1'>OverView</Typography>
           <div className="btns d-flex  align-items-center ms-auto">
             <button className="btn btn-primary">
@@ -32,7 +32,7 @@ const DashboardHome = () => {
           </div>
         </div>
         {/* Overview body */}
-        <div className="overViewBody">
+        <div className="overViewBody w-100">
           {overViewData.map((data, index) => {
             return <OverViewSinglerComponent key={index} data={data} />
           })}
