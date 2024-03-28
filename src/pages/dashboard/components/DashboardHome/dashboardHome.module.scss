@@ -11,16 +11,103 @@
     padding: 0;
     margin: 0;
     display: flex;
+    gap: 16px;
+    @include mq($xlg) {
+      gap: 14px;
+    }
+    @include mq($lg) {
+      gap: 10px;
+    }
+    @include mq($md) {
+      gap: 0;
+    }
     @include transition;
     .contentMiddleWrapper {
       height: 100%;
-      overflow: hidden;
       flex-grow: 1;
       overflow-y: auto;
       padding: 0;
       margin: 0;
       @include scrollbar;
       @include transition;
+      display: flex;
+      flex-direction: column;
+      gap: 29px;
+      @include mq($lg) {
+        gap: 20px;
+      }
+      @include mqh($sm) {
+        gap: 16px;
+      }
+      //header
+      .wrapperHeader {
+        display: flex;
+        flex-wrap: nowrap;
+        @include mqh($xls) {
+          flex-wrap: wrap-reverse;
+          gap: 16px;
+        }
+        .btns {
+          gap: 16px;
+          @include mq($xlg) {
+            gap: 13px;
+          }
+          @include mq($md) {
+            gap: 10px;
+          }
+          .btn {
+            @include p;
+            font-family: $poppinsSemiBold;
+            color: $light;
+            border-radius: 8px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: $primary;
+            @include transition;
+            cursor: pointer;
+            gap: 8px;
+            &:hover {
+              background-color: darken($color: $primary, $amount: 8);
+            }
+            @include mq($lg) {
+              gap: 5px;
+            }
+            span {
+              @include p;
+              font-family: $poppinsSemiBold;
+              color: $light;
+            }
+            img {
+              width: 24px;
+              aspect-ratio: 1/1;
+              height: auto;
+              @include mq($lg) {
+                width: 20px;
+              }
+              @include mq($xls) {
+                width: 18px;
+              }
+            }
+          }
+        }
+      }
+
+      //body overview
+      .overViewBody {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        background-color: transparent;
+        gap: 16px;
+        overflow: hidden;
+        @include mqh($lg) {
+          gap: 14px;
+        }
+        @include mqh($md) {
+          gap: 12px;
+        }
+      }
     }
     .buttonToggleMeetings {
       background-color: $gray;
@@ -36,6 +123,11 @@
       bottom: 50%;
       @include transition;
       transform: translate(-50%, -50%);
+    }
+    .title {
+      @include p;
+      color: $dark;
+      font-family: $poppinsSemiBold;
     }
   }
 }
