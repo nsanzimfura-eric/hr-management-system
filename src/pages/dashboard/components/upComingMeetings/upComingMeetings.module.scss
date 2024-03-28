@@ -3,25 +3,49 @@
 
 .upComingMeetings {
   @include scrollbar;
+  width: pxToVw(320);
+  padding: 16px 8px;
+  overflow: auto;
+  background-color: $light;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  border-radius: 4px;
+  background-color: transparent;
+  gap: 16px;
+  @include transition;
+  transform: translateX(0);
+  opacity: 1;
+  @include mq($xlg) {
+    width: 320px;
+  }
+  @include mq($md) {
+    padding: 14px 5px;
+    position: fixed;
+    top: 85px;
+    bottom: 100px;
+    right: 20px;
+    z-index: 3;
+  }
+  @include mq($sm) {
+    width: 280px;
+    padding: 5px;
+  }
   :global {
-    width: pxToVw(320);
-    padding: 16px 8px;
     background-color: $light;
-    overflow: auto;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    @include mq($xlg) {
-      padding: 20px 30px;
-    }
-    @include mq($lg) {
-      padding: 15px 25px;
-    }
-    @include mq($md) {
-      padding: 15px 20px;
-    }
-    @include mq($sm) {
-      padding: 15px;
+    .titleBox {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 0;
     }
   }
+}
+
+.transformedRight {
+  @include scrollbar;
+  transform: translateX(1000px);
+  opacity: 0;
+  overflow: auto;
 }
