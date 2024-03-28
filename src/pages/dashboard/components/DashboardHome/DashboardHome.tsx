@@ -18,7 +18,6 @@ const DashboardHome = () => {
   return (
     <div className={styles.dashboardHome}>
       <div className="contentMiddleWrapper">
-        {/* header */}
         <div className="w-100 d-flex justify-content-between align-items-center wrapperHeader">
           <Typography className='title' variant='subtitle1'>OverView</Typography>
           <div className="btns d-flex  align-items-center ms-auto">

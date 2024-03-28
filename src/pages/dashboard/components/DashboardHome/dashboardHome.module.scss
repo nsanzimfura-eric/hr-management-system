@@ -26,24 +26,22 @@
       flex-grow: 1;
       overflow-y: auto;
       padding: 0;
+      height: 100%;
       @include scrollbar;
       margin: 0;
       @include transition;
-      display: flex;
-      flex-direction: column;
-      gap: 29px;
-      @include mq($lg) {
-        gap: 20px;
-      }
-      @include mqh($sm) {
-        gap: 16px;
-      }
+
       //header
       .wrapperHeader {
         display: flex;
         flex-wrap: nowrap;
+        margin-top: 29px;
+        @include mq($lg) {
+          margin-top: 20px;
+        }
         @include mqh($xls) {
           flex-wrap: wrap-reverse;
+          margin-top: 16px;
           gap: 16px;
         }
         .btns {
@@ -99,6 +97,10 @@
         overflow: hidden;
         padding-left: 40px;
         padding-top: 40px;
+        margin-top: 29px;
+        @include mq($lg) {
+          margin-top: 20px;
+        }
         @include mq($lg) {
           gap: 30px;
           padding-left: 30px;
