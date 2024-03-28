@@ -14,7 +14,7 @@ const MeetingNotification = (props: IconButtonInterface) => {
 
     return (
         <div className={styles.meetingNotification} onClick={() => onClick(index)}>
-            <div className={clickedIndex === index || meeting.read ? "notificationInfo readSuccess" : "notificationInfo"}>
+            <div className={(clickedIndex === index || meeting.read) ? "notificationInfo readSuccess" : "notificationInfo"}>
                 <span>{meeting.hours}</span>
                 <div dangerouslySetInnerHTML={{ __html: meeting.details }} className="details" />
                 <div className="lineRight"></div>
