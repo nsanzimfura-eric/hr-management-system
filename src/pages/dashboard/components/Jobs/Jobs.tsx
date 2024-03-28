@@ -11,7 +11,7 @@ const Jobs = () => {
 
   return (
     <div className={styles.jobs}>
-      <Table responsive id="tablesJobs">
+      <Table responsive className="tablesJobs">
         <thead>
           <tr>
             <th>{""}</th>
@@ -31,7 +31,7 @@ const Jobs = () => {
             return (
               <tr key={rowIndex}>
                 <td><div className="icon"><img src="/svgs/jobs.svg" alt="Icon" /></div></td>
-                <td >
+                <td className="titleBox">
                   <span>{job.title}</span>
                   <small>{job.time}</small>
                 </td>
