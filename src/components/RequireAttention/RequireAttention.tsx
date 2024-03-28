@@ -1,6 +1,7 @@
 
 import { useState } from "react";
 import styles from "./RequireAttention.module.scss";
+import Jobs from "../../pages/dashboard/components/Jobs/Jobs";
 
 const headerFilters = ['Jobs', 'Candidates', 'Onboarding'];
 
@@ -19,6 +20,7 @@ const RequireAttention = () => {
                 ))}
             </div>
             {/* filtered component */}
+            {activeFilter === "Jobs" && <Jobs />}
         </div>
     )
 }

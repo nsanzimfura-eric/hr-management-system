@@ -39,7 +39,7 @@ const DashboardHome = () => {
           })}
         </div>
         {/* Require Attention Bottom */}
-        <div className="requireAttentionWrapper">
+        <div className="requireAttentionWrapper d-flex flex-column">
           <div className="w-100 d-flex justify-content-between align-items-center wrapperHeader">
             <Typography className='title' variant='subtitle1'>Require Attention</Typography>
           </div>

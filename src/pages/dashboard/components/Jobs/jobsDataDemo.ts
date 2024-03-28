@@ -1,3 +1,14 @@
+export interface JobInterface {
+  title: string;
+  time?: string;
+  positions: number;
+  applications: number;
+  interviewed: number;
+  rejected: number;
+  feedbacks: number;
+  offered: number;
+}
+
 export const demoJobsData = [
   {
     title: "Senior Data Analyst",
