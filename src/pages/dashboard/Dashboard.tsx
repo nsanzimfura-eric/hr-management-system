@@ -23,10 +23,10 @@ const Dashboard = () => {
         <div className={`${sideNavAside ? "contentWrapper p-0 m-0" : "contentWrapper widthFullContentWrapper w-full p-0 m-0"}`}>
           <TopNavbar sideNavAside={sideNavAside} setSideNavAside={setSideNavAside} />
           <div className="contentScrollable">
-            <div className={`contentMiddleWrapper ${!showMeetings && "full_width"} bg-warning`}>
+            <div className="contentMiddleWrapper  bg-warning">
               test wrapper
             </div>
-            {!showMeetings && <UpComingMeetings />}
+            <UpComingMeetings showMeetings={showMeetings} />
             <div className="buttonToggleMeetings">
               <ButtonIcon url="/svgs/arrowRight.svg" onClick={toggleMeetings} style={{ transform: !showMeetings ? 'rotate(180deg)' : '' }} />
             </div>

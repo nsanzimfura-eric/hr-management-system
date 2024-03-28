@@ -12,26 +12,27 @@
   flex-direction: column;
   border-radius: 4px;
   background-color: transparent;
+  margin-right: 0;
+  transform: translateX(0);
+  opacity: 1;
   gap: 16px;
   @include transition;
   opacity: 1;
   @include mq($lg) {
     width: 300px;
   }
-  @include mq($lg) {
-    width: 280px;
-  }
   @include mq($md) {
     padding: 14px 5px;
     position: fixed;
     top: 85px;
-    bottom: 100px;
+    bottom: 30px;
     right: 20px;
     z-index: 3;
   }
   @include mq($sm) {
     width: 280px;
     padding: 5px;
+    top: 78px;
   }
   :global {
     background-color: $light;
@@ -68,6 +69,22 @@
           gap: 5px;
         }
       }
+    }
+  }
+}
+
+//translate the section
+.transformRight {
+  :global {
+    margin-right: -320px;
+    opacity: 0;
+    @include transition;
+    @include mq($lg) {
+      margin-right: -300px;
+    }
+    @include mq($md) {
+      transform: translateX(1000px);
+      margin-right: 0;
     }
   }
 }

@@ -45,6 +45,7 @@
       display: flex;
       flex-direction: row;
       gap: 16px;
+      @include transition;
       @include mq($lgx) {
         padding: 25px 20px;
       }
@@ -62,10 +63,6 @@
         @include scrollbar;
         @include transition;
       }
-      .full_width {
-        @include transition;
-        width: 100%;
-      }
       .buttonToggleMeetings {
         background-color: $gray;
         padding: 20px 10px;
@@ -78,6 +75,7 @@
         z-index: 10;
         top: 50%;
         bottom: 50%;
+        @include transition;
         transform: translate(-50%, -50%);
       }
     }

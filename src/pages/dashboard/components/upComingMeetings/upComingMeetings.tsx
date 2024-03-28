@@ -5,7 +5,12 @@ import { MeetingsInterface, meetingsData } from './meetingsData';
 import styles from './upComingMeetings.module.scss';
 import { Typography } from "@mui/material";
 
-const UpComingMeetings = () => {
+interface upComingMeetingsProps {
+    showMeetings: boolean;
+}
+
+const UpComingMeetings = (props: upComingMeetingsProps) => {
+    const { showMeetings } = props;
     const [clickedMeetingMeeting, setClickedMeetingMeeting] = useState<null | number>(null);
 
     const handleClickAddMeeting = () => {
@@ -17,7 +22,7 @@ const UpComingMeetings = () => {
     };
 
     return (
-        <div className={styles.upComingMeetings}>
+        <div className={showMeetings ? styles.upComingMeetings : `${styles.upComingMeetings} ${styles.transformRight}`}>
             <div className='d-flex titleBox'>
                 <Typography className='title' variant='subtitle1'>Upcoming Meetings</Typography>
                 <ButtonIcon url="/svgs/addBlue.svg" onClick={handleClickAddMeeting} />
