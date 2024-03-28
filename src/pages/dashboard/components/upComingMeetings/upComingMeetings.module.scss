@@ -3,7 +3,7 @@
 
 .upComingMeetings {
   @include scrollbar;
-  width: pxToVw(320);
+  width: 320px;
   padding: 16px 8px;
   overflow: auto;
   background-color: $light;
@@ -14,10 +14,12 @@
   background-color: transparent;
   gap: 16px;
   @include transition;
-  transform: translateX(0);
   opacity: 1;
-  @include mq($xlg) {
-    width: 320px;
+  @include mq($lg) {
+    width: 300px;
+  }
+  @include mq($lg) {
+    width: 280px;
   }
   @include mq($md) {
     padding: 14px 5px;
@@ -39,13 +41,33 @@
       align-items: center;
       justify-content: flex-start;
       gap: 0;
+      gap: 8px;
+      background-color: transparent;
+      .title {
+        @include p;
+        color: $dark;
+        font-family: $poppinsSemiBold;
+      }
+    }
+    .meetingsWrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      .meetingWrapper {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        .time {
+          @include small;
+          font-family: $poppinsSemiBold;
+          opacity: 0.5;
+        }
+        .meetingActivities {
+          display: flex;
+          flex-direction: column;
+          gap: 5px;
+        }
+      }
     }
   }
-}
-
-.transformedRight {
-  @include scrollbar;
-  transform: translateX(1000px);
-  opacity: 0;
-  overflow: auto;
 }

@@ -10,6 +10,8 @@
     align-items: center;
     justify-content: center;
     @include transition;
+    border: none;
+    outline: none;
     img {
       width: 24px;
       aspect-ratio: 1/1;

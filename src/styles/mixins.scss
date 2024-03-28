@@ -211,8 +211,14 @@
   line-height: 1.6;
   display: flex;
   justify-content: flex-start;
-  @include mq($lg) {
+  @include mq($xlg) {
     font-size: pxToEm(10);
+  }
+  @include mq($lg) {
+    font-size: pxToEm(9);
+  }
+  @include mq($xls) {
+    font-size: pxToEm(8);
   }
 }
 

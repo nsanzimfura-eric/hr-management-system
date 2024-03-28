@@ -5,13 +5,7 @@ import { MeetingsInterface, meetingsData } from './meetingsData';
 import styles from './upComingMeetings.module.scss';
 import { Typography } from "@mui/material";
 
-interface upComingMeetingsProps {
-    showMeetings: boolean;
-    setShowMeetings: React.Dispatch<React.SetStateAction<boolean>>;
-}
-
-const UpComingMeetings = (props: upComingMeetingsProps) => {
-    const { showMeetings } = props;
+const UpComingMeetings = () => {
     const [clickedMeetingMeeting, setClickedMeetingMeeting] = useState<null | number>(null);
 
     const handleClickAddMeeting = () => {
@@ -23,7 +17,7 @@ const UpComingMeetings = (props: upComingMeetingsProps) => {
     };
 
     return (
-        <div className={showMeetings ? styles.upComingMeetings : styles.transformedRight}>
+        <div className={styles.upComingMeetings}>
             <div className='d-flex titleBox'>
                 <Typography className='title' variant='subtitle1'>Upcoming Meetings</Typography>
                 <ButtonIcon url="/svgs/addBlue.svg" onClick={handleClickAddMeeting} />
@@ -32,7 +26,7 @@ const UpComingMeetings = (props: upComingMeetingsProps) => {
                 {meetingsData.map((data: MeetingsInterface, index: number) => {
                     return (
                         <div key={index} className="meetingWrapper">
-                            <Typography>{data.time}</Typography>
+                            <Typography className='time'>{data.time}</Typography>
                             <div className='meetingActivities'>
                                 {data.activity?.map((meeting, idx: number) => {
                                     return <MeetingNotification key={idx} meeting={meeting} onClick={handleClickedMeeting} index={idx} clickedIndex={clickedMeetingMeeting} />
