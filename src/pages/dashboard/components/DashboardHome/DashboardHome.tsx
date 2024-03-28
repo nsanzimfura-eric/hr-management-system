@@ -5,6 +5,7 @@ import ButtonIcon from "../../../../components/ButtonIcon/ButtonIcon";
 import { Typography } from "@mui/material";
 import { overViewData } from "./overViewData";
 import OverViewSinglerComponent from "../../../../components/OverViewSinglerComponent/OverViewSinglerComponent";
+import RequireAttention from "../../../../components/RequireAttention/RequireAttention";
 
 
 const DashboardHome = () => {
@@ -36,6 +37,13 @@ const DashboardHome = () => {
           {overViewData.map((data, index) => {
             return <OverViewSinglerComponent key={index} data={data} />
           })}
+        </div>
+        {/* Require Attention Bottom */}
+        <div className="requireAttentionWrapper">
+          <div className="w-100 d-flex justify-content-between align-items-center wrapperHeader">
+            <Typography className='title' variant='subtitle1'>Require Attention</Typography>
+          </div>
+          <RequireAttention />
         </div>
       </div>
       <UpComingMeetings showMeetings={showMeetings} />

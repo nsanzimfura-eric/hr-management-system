@@ -98,8 +98,7 @@
         flex-wrap: wrap;
         gap: 40px;
         overflow: hidden;
-        min-height: 400px;
-        overflow: hidden;
+        min-height: fit-content;
         padding-left: 40px;
         padding-top: 40px;
         @include mq($lg) {
@@ -107,6 +106,21 @@
           padding-left: 30px;
           padding-top: 30px;
           width: calc(100% - 30px);
+        }
+      }
+      //require aTTENTION
+      .requireAttentionWrapper {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        padding: 0;
+        gap: 20px;
+        overflow: hidden;
+        flex-direction: column;
+        min-height: fit-content;
+        background-color: transparent;
+        @include mq($lg) {
+          gap: 15px;
         }
       }
     }

@@ -103,8 +103,7 @@
       }
       span {
         @include p;
-        color: #000000;
-        opacity: 0.5;
+        color: $blackOpaque;
         font-family: $poppinsRegular;
         margin-top: auto;
       }
