@@ -38,23 +38,14 @@
     }
     .contentScrollable {
       width: 100%;
-      overflow-y: auto;
-      @include scrollbar;
-      position: relative;
-      z-index: 1;
+      overflow: hidden;
       flex-grow: 1;
       background-color: $secondary;
       padding: 30px 20px;
       display: flex;
-      //for demo
-      gap: 50px;
-      flex-wrap: wrap;
-      .bg-warning {
-        width: calc(100% / 10);
-        aspect-ratio: 1/1;
-        gap: 30px;
-        height: auto;
-      }
+      display: flex;
+      flex-direction: row;
+      gap: 16px;
       @include mq($lgx) {
         padding: 25px 20px;
       }
@@ -63,6 +54,13 @@
       }
       @include mq($md) {
         padding: 15px;
+      }
+
+      .contentMiddleWrapper {
+        flex-grow: 1;
+        height: 100%;
+        overflow-y: auto;
+        @include scrollbar;
       }
     }
   }

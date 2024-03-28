@@ -1,0 +1,27 @@
+@import "../../../../styles/variables.scss";
+@import "../../../../styles/mixins.scss";
+
+.upComingMeetings {
+  @include scrollbar;
+  :global {
+    width: pxToVw(320);
+    padding: 16px 8px;
+    background-color: $light;
+    overflow: auto;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    @include mq($xlg) {
+      padding: 20px 30px;
+    }
+    @include mq($lg) {
+      padding: 15px 25px;
+    }
+    @include mq($md) {
+      padding: 15px 20px;
+    }
+    @include mq($sm) {
+      padding: 15px;
+    }
+  }
+}

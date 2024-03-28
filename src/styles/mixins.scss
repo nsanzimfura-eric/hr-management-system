@@ -12,7 +12,7 @@
 
 @mixin scrollbar {
   &::-webkit-scrollbar {
-    width: 10px;
+    width: 7px;
 
     @include mq($md) {
       display: none;
@@ -27,7 +27,7 @@
 
   /* Scrollbar Thumb */
   &::-webkit-scrollbar-thumb {
-    background-color: $light;
+    background-color: $darkBlue;
     border-radius: 30px;
   }
 }
