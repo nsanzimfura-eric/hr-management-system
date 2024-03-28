@@ -5,14 +5,10 @@
   :global {
     width: 100%;
     overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     flex-grow: 1;
     background-color: transparent;
     padding: 0;
     margin: 0;
-    display: flex;
     border-radius: 8px;
     @include transition;
     .tablesJobs {
