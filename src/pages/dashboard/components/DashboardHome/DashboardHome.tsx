@@ -3,6 +3,8 @@ import styles from "./dashboardHome.module.scss";
 import UpComingMeetings from "../../../../components/upComingMeetings/upComingMeetings";
 import ButtonIcon from "../../../../components/ButtonIcon/ButtonIcon";
 import { Typography } from "@mui/material";
+import { overViewData } from "./overViewData";
+import OverViewSinglerComponent from "../../../../components/OverViewSinglerComponent/OverViewSinglerComponent";
 
 
 const DashboardHome = () => {
@@ -31,9 +33,10 @@ const DashboardHome = () => {
         </div>
         {/* Overview body */}
         <div className="overViewBody">
-
+          {overViewData.map((data, index) => {
+            return <OverViewSinglerComponent key={index} data={data} />
+          })}
         </div>
-
       </div>
       <UpComingMeetings showMeetings={showMeetings} />
       <div className="buttonToggleMeetings">

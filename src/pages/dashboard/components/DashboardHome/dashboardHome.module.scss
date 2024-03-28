@@ -95,17 +95,19 @@
 
       //body overview
       .overViewBody {
-        width: 100%;
+        width: calc(100% - 40px);
         display: flex;
         flex-wrap: wrap;
         background-color: transparent;
-        gap: 16px;
+        gap: 40px;
         overflow: hidden;
-        @include mqh($lg) {
-          gap: 14px;
-        }
-        @include mqh($md) {
-          gap: 12px;
+        padding-left: 40px;
+        padding-top: 40px;
+        @include mq($lg) {
+          gap: 30px;
+          padding-left: 30px;
+          padding-top: 30px;
+          width: calc(100% - 30px);
         }
       }
     }

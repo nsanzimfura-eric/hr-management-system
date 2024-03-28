@@ -1,0 +1,86 @@
+@import "../../styles/variables.scss";
+@import "../../styles/mixins.scss";
+
+.overViewSinglerComponent {
+  :global {
+    background-color: $light;
+    border-radius: 8px;
+    padding: 24px;
+    padding-left: 17px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    width: calc(100% / 4 - 40px);
+    height: auto;
+    max-height: fit-content;
+    @include mq($xlg) {
+      padding: 20px;
+      padding-left: 14px;
+      width: calc(100% / 3 - 40px);
+    }
+    @include mq($lg) {
+      padding: 18px;
+      padding-left: 14px;
+      width: calc(100% / 3 - 30px);
+    }
+    @include mq($md) {
+      padding: 15px;
+      padding-left: 12px;
+      width: calc(100% / 2 - 30px);
+    }
+    @include mq($sm) {
+      width: calc(100% - 30px);
+    }
+    button {
+      position: absolute;
+      border: 1px solid hsla(223, 87%, 25%, 51%);
+      border-radius: 30px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 86px;
+      width: 92px;
+      font-family: $poppinsSemiBold;
+      color: $dark;
+      font-size: 24px;
+      left: -30px;
+      top: -20px;
+      background-color: $light;
+      @include mq($lgx) {
+        height: 76px;
+        width: 82px;
+        left: -25px;
+        top: -15px;
+      }
+      @include mq($lg) {
+        height: 66px;
+        width: 72px;
+        font-size: 20px;
+        left: -20px;
+        top: -12px;
+      }
+      @include mq($md) {
+        height: 66px;
+        width: 72px;
+        font-size: 19px;
+        left: -18px;
+        top: -10px;
+      }
+      @include mq($xls) {
+        height: 56px;
+        width: 62px;
+        font-size: 18px;
+      }
+    }
+    div {
+      flex-grow: 1;
+    }
+    span {
+      @include p;
+      color: #000000;
+      opacity: 0.5;
+      font-family: $poppinsRegular;
+    }
+  }
+}
