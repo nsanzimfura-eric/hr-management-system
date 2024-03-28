@@ -15,5 +15,12 @@
     margin: 0;
     display: flex;
     @include transition;
+    .calenderDemo {
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      @include scrollbar;
+      background-color: transparent !important;
+    }
   }
 }

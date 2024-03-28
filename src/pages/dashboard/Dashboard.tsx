@@ -9,6 +9,9 @@ import { RootState } from "../../redux/store";
 import { dashboardRoutes } from "../../utils/constants";
 import DashboardHome from "./components/DashboardHome/DashboardHome";
 import Jobs from "./components/Jobs/Jobs";
+import Calender from "./components/Calender/Calender";
+import Reports from "./components/Reports/Reports";
+import Candidates from "./components/Candidates/Candidates";
 
 const Dashboard = () => {
   const [sideNavAside, setSideNavAside] = useState(true);
@@ -24,9 +27,9 @@ const Dashboard = () => {
             {/* Render active Side nav link  */}
             {activeLink.title === dashboardRoutes.home && <DashboardHome />}
             {activeLink.title === dashboardRoutes.jobs && <Jobs />}
-            {activeLink.title === dashboardRoutes.candidates && <Jobs />}
-            {activeLink.title === dashboardRoutes.reports && <Jobs />}
-            {activeLink.title === dashboardRoutes.calender && <Jobs />}
+            {activeLink.title === dashboardRoutes.candidates && <Candidates />}
+            {activeLink.title === dashboardRoutes.reports && <Reports />}
+            {activeLink.title === dashboardRoutes.calender && <Calender />}
           </div>
         </div>
       </div>
