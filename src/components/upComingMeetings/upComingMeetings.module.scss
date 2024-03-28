@@ -26,11 +26,13 @@
     position: fixed;
     top: 85px;
     bottom: 30px;
-    right: 20px;
+    right: 15px;
     z-index: 3;
+    width: 280px;
+    padding-bottom: 100px;
   }
   @include mq($sm) {
-    min-width: 280px;
+    width: 250px;
     padding: 5px;
     top: 78px;
   }

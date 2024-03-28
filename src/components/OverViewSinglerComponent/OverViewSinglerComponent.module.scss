@@ -54,6 +54,7 @@
         font-size: 20px;
         left: -20px;
         top: -12px;
+        border-radius: 25px;
       }
       @include mq($md) {
         height: 66px;
@@ -61,11 +62,13 @@
         font-size: 19px;
         left: -18px;
         top: -10px;
+        border-radius: 20px;
       }
       @include mq($xls) {
         height: 56px;
         width: 62px;
         font-size: 18px;
+        border-radius: 15px;
       }
     }
     .positionedBg {
