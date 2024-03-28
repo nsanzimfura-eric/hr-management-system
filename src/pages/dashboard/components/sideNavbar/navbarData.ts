@@ -1,5 +1,11 @@
 import { dashboardRoutes } from "../../../../utils/constants";
 
+export interface SideNavBarLink {
+  id: number;
+  title: string;
+  icon: string;
+}
+
 export const navbarLinks = [
   { id: 1, title: dashboardRoutes.home, icon: "/svgs/home.svg" },
   { id: 2, title: dashboardRoutes.jobs, icon: "/svgs/jobs.svg" },

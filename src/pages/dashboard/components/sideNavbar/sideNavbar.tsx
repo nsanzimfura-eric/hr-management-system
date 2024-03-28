@@ -1,11 +1,13 @@
 
 import React, { useState } from "react";
 import IconButton from "../iconButton/iconButton";
-import { navbarLinks } from "./navbarData";
+import { SideNavBarLink, navbarLinks } from "./navbarData";
 import styles from "./sideNavbar.module.scss";
 import CloseIcon from '@mui/icons-material/Close';
 import useWindowSize from "../../../../hooks/useWindowSize";
 import { mediaSizes } from "../../../../utils/constants";
+import { useDispatch } from "react-redux";
+import { setActiveLink } from "./sideNavBarSlices";
 
 interface SideNavProps {
     sideNavAside: boolean;
@@ -16,9 +18,13 @@ const SideNavBar = (props: SideNavProps) => {
 
     const [activeId, setActiveId] = useState(navbarLinks[0].id);
     const { width } = useWindowSize();
+    const dispatch = useDispatch();
 
     const handleIconClick = (id: number) => {
         setActiveId(id);
+        //Update active Link
+        const activeSideNavLink = navbarLinks.filter((navData: SideNavBarLink) => navData.id === id);
+        dispatch(setActiveLink(activeSideNavLink[0]));
     };
 
     const closeSideNav = () => {
