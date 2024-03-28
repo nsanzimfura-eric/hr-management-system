@@ -7,7 +7,7 @@ const Footer = () => {
 
     return (
         <div className={styles.footer}>
-            <a href="https://nsanzimfura.web.app/" target="_blank">
+            <a href="https://nsanzimfura.web.app/" target="_blank" rel="noreferrer">
                 <Typography variant="body1" className="text-primary">Release Notes</Typography>
             </a>
             <Typography variant="body1" className="text-primary">Release Notes</Typography>

@@ -21,7 +21,6 @@ const Dashboard = () => {
               return (
                 <div key={item.id} className="bg-warning">
                   <img src={item.icon} alt="test" />
-                  <img src={item.iconActive} alt="test" />
                 </div>
               )
             })}
