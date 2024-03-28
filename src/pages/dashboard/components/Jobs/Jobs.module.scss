@@ -15,5 +15,16 @@
     margin: 0;
     display: flex;
     @include transition;
+    #tablesJobs {
+      background-color: $light;
+      border-radius: 8px;
+      padding: 26px 20px;
+      @include mq($lg) {
+        padding: 20px 15px;
+      }
+      @include mq($md) {
+        padding: 15px;
+      }
+    }
   }
 }
