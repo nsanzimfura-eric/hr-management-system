@@ -35,6 +35,9 @@
       @include mq($sm) {
         margin-left: 60px !important;
       }
+      @include mq(400px) {
+        margin-left: 0 !important;
+      }
     }
     .contentScrollable {
       width: 100%;

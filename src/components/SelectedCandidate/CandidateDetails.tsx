@@ -12,7 +12,6 @@ const headerFilters = ['General', 'Evaluations', 'Experience', 'Education', 'Eve
 const CandidateDetails = (props: CandidateProps) => {
     const { candidate } = props;
     const [activeFilter, setActiveFilter] = useState<string>(headerFilters[0]);
-    console.log(candidate)
 
     return (
         <div className={styles.candidateDetails}>
