@@ -24,10 +24,10 @@
       width: calc(100% / 2 - 15px);
     }
     @include mq($sm) {
-      width: calc(100% / 2 - 15px);
+      width: 100%;
+      min-height: 100px;
     }
     @include mq($xms) {
-      width: 100%;
     }
     button {
       position: absolute;
@@ -43,6 +43,7 @@
       font-size: 24px;
       left: -30px;
       top: -20px;
+      @include transition;
       background-color: $light;
       @include background-img;
       @include mq($lgx) {
@@ -74,6 +75,7 @@
         border-radius: 15px;
       }
     }
+
     .positionedBg {
       flex-grow: 1;
       display: flex;
@@ -81,6 +83,7 @@
       gap: 5px;
       padding: 24px;
       padding-left: 17px;
+      @include transition;
       @include mq($xlg) {
         padding: 20px;
         padding-left: 14px;
@@ -93,11 +96,13 @@
         padding: 15px;
         padding-left: 12px;
       }
-      .imgWrapper {
+      .names {
         display: flex;
-        width: 100%;
+        width: 90%;
+        max-width: 90%;
         justify-content: flex-end;
         height: fit-content;
+        padding-right: 0;
       }
       span {
         @include p;
@@ -105,9 +110,34 @@
         font-family: $poppinsRegular;
         margin-top: auto;
       }
+      .visibleOnHover {
+        @include transition;
+        display: flex;
+        justify-content: flex-end;
+        align-items: flex-end;
+        opacity: 0;
+        transform: translate(-40px);
+        @include mq($md) {
+          display: none; //no hover on md
+        }
+      }
+      &:hover {
+        .visibleOnHover {
+          opacity: 0.5 !important;
+          transform: translate(0px) !important;
+        }
+      }
     }
   }
   &:hover {
-    background-color: $leafOpaque;
+    background-color: $lightBlueOpaque;
+    button {
+      transform: scale(1.5);
+      transform: translate(20px, 20px);
+      @include mq($xls) {
+        transform: translate(0, 0);
+        transform: scale(1);
+      }
+    }
   }
 }

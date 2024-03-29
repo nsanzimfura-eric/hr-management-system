@@ -25,6 +25,8 @@
       align-items: center;
       justify-content: flex-start;
       border-radius: inherit;
+      @include transition;
+      cursor: pointer;
       span {
         height: 100%;
         padding: 10px;
@@ -67,9 +69,14 @@
         top: 0;
         background-color: hsla(216, 75%, 43%, 50%);
       }
+      &:hover {
+        background-color: darken($color: $lightBlueOpaque, $amount: 16);
+      }
     }
     .readSuccess {
       background-color: $leafLight;
+      @include transition;
+      cursor: pointer;
       span {
         border-color: hsla(93, 83%, 19%, 44%);
         color: $leaf;
@@ -79,6 +86,9 @@
       }
       .lineRight {
         background-color: hsla(93, 83%, 19%, 50%);
+      }
+      &:hover {
+        background-color: darken($color: $leafLight, $amount: 16);
       }
     }
   }

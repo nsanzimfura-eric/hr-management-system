@@ -1,6 +1,7 @@
 
 import { Typography } from "@mui/material";
 import styles from "./CandidateCard.module.scss";
+import KeyboardDoubleArrowRightIcon from '@mui/icons-material/KeyboardDoubleArrowRight';
 
 interface DataProps {
     data: any;
@@ -14,10 +15,11 @@ const CandidateCard = (props: DataProps) => {
         <div className={styles.candidateCard} onClick={() => onclick(data)}>
             <button style={{ backgroundImage: `url("${data.profile}")` }}></button>
             <div className="positionedBg">
-                <div className="imgWrapper d-flex justify-content-end">
-                    <Typography variant="h6" color="primary">{data.name}</Typography>
-                </div>
+                <Typography variant="h6" className="names" color="primary">{data.name}</Typography>
                 <span>{data.email}</span>
+                <div className="visibleOnHover">
+                    <KeyboardDoubleArrowRightIcon sx={{ width: 30, height: 30 }} />
+                </div>
             </div>
         </div>
     )
