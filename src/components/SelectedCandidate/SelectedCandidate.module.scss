@@ -73,6 +73,9 @@
         @include mq($lg) {
           gap: 15px;
         }
+        @include mq($xls) {
+          border-right: none;
+        }
         .userWrapper,
         .medias {
           display: flex;

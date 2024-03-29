@@ -12,7 +12,6 @@ const GeneralCandidateData = (props: CandidateProps) => {
         <div className={styles.generalCandidateData}>
 
 
-
         </div>
     )
 }
