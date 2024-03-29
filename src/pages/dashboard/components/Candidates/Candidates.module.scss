@@ -13,8 +13,40 @@
     background-color: transparent;
     padding: 0;
     margin: 0;
-    display: flex;
     @include transition;
+    flex-direction: column;
+    gap: 20px;
+    .header {
+      .candidatesTitle {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 0;
+        span {
+          @include p;
+          color: $dark;
+          opacity: 0.5;
+        }
+        .selected {
+          opacity: 1;
+        }
+      }
+      .backBtn {
+        display: flex;
+        gap: 8px;
+        cursor: pointer;
+        @include transition;
+        align-items: center;
+        .icon {
+          opacity: 0.5;
+        }
+        span {
+          @include p;
+          color: $dark;
+          font-family: $poppinsSemiBold;
+        }
+      }
+    }
     .candidatesWrapper {
       flex-grow: 1;
       display: flex;

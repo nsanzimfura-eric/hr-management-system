@@ -1,0 +1,159 @@
+@import "../../styles/variables.scss";
+@import "../../styles/mixins.scss";
+
+.selectedCandidate {
+  :global {
+    background-color: transparent;
+    width: 100%;
+    flex-grow: 1;
+    overflow: hidden;
+    section {
+      display: flex;
+      flex-direction: column;
+      padding: 34px 22px;
+      gap: 16px;
+      background-color: $light;
+      border-radius: 8px;
+      @include mq($xlg) {
+        gap: 14px;
+        padding: 30px 20px;
+      }
+      @include mq($lg) {
+        padding: 25px 20px;
+      }
+      @include mq($md) {
+        padding: 20px 15px;
+      }
+    }
+
+    //header
+    .header {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      button {
+        @include smallest;
+        height: 18px;
+        width: fit-content;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #ddeafb;
+        color: $dark;
+        font-family: $poppinsSemiBold;
+        padding: 0 36px;
+        @include mq($lg) {
+          padding: 0 30px;
+        }
+        @include mq($xls) {
+          padding: 0 20px;
+        }
+      }
+      .intro {
+        flex-grow: 1;
+        border-right: 1px solid #e5edf9;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        gap: 20px;
+        @include mq($lg) {
+          gap: 15px;
+        }
+        .userWrapper,
+        .medias {
+          display: flex;
+          align-items: flex-end;
+          justify-content: flex-start;
+          gap: 8px;
+        }
+        .userWrapper {
+          .logo {
+            width: 60px;
+            aspect-ratio: 1/1;
+            height: auto;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: hsla(222, 30%, 53%, 19%);
+            span {
+              font-size: 22px;
+              font-family: $poppinsSemiBold;
+              color: hsl(223, 84%, 17%);
+              text-transform: uppercase;
+              @include mq($md) {
+                font-size: 18px;
+              }
+            }
+          }
+          .user {
+            gap: 8px;
+            .namesWrapper,
+            .contacts {
+              display: flex;
+              align-items: center;
+              justify-content: flex-start;
+              gap: 14px;
+              .title {
+                font-family: $poppinsRegular;
+                color: $dark;
+                font-size: 22px;
+                @include mq($md) {
+                  font-size: 18px;
+                }
+              }
+              .email {
+                padding-right: 20px;
+                border-right: 1px solid hsla(221, 21%, 55%, 24%);
+                @include mq($lg) {
+                  padding-right: 15px;
+                }
+                @include mq($md) {
+                  padding-right: 10px;
+                }
+              }
+            }
+            .contacts {
+              gap: 4px;
+              span {
+                font-family: $poppinsRegular;
+                color: $dark;
+                opacity: 0.5;
+              }
+              .email {
+                padding-right: 20px;
+                border-right: 1px solid hsla(221, 21%, 55%, 24%);
+                @include mq($lg) {
+                  padding-right: 15px;
+                }
+                @include mq($md) {
+                  padding-right: 10px;
+                }
+              }
+            }
+          }
+        }
+        .medias {
+        }
+      }
+      .status {
+        margin-left: 80px;
+        @include mq($xlg) {
+          margin-left: 60px;
+        }
+        @include mq($lg) {
+          margin-left: 40px;
+        }
+        @include mq($md) {
+          margin-left: 20px;
+        }
+        @include mq($xls) {
+          margin-left: 0;
+        }
+      }
+    }
+  }
+}
