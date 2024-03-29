@@ -2,11 +2,12 @@
 @import "../../styles/mixins.scss";
 
 .selectedCandidate {
+  @include scrollbar;
   :global {
     background-color: transparent;
     width: 100%;
     flex-grow: 1;
-    overflow: hidden;
+    overflow: auto;
     section {
       display: flex;
       flex-direction: column;
@@ -311,13 +312,116 @@
         color: 10px;
       }
     }
+    //left part
+    .detailsWrapper {
+      gap: 20px;
+      @include mq($lg) {
+        gap: 15px;
+      }
+      .titleBox {
+        gap: 10px;
+        @include mq($md) {
+          gap: 6px;
+        }
+        span {
+          @include p;
+          color: $dark;
+          font-family: $poppinsSemiBold;
+        }
+      }
+
+      .filesBox {
+        display: flex;
+        gap: 14px;
+        flex-wrap: wrap;
+        @include mq($xlg) {
+          gap: 12px;
+        }
+        @include mq($lgx) {
+          gap: 10px;
+        }
+        @include mq($md) {
+          gap: 8px;
+        }
+        .file {
+          padding: 0 16px;
+          cursor: pointer;
+          height: 40px;
+          border: 1px solid hsla(223, 84%, 17%, 15%);
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          background-color: $secondary;
+          border-radius: 6px;
+          @include mq($lg) {
+            gap: 6px;
+          }
+          @include mq($xls) {
+            gap: 5px;
+          }
+          span {
+            @include p;
+            color: $dark;
+            font-family: $poppinsRegular;
+          }
+          .time {
+            @include smallest;
+            color: $dark;
+            font-family: $poppinsRegular;
+            opacity: 0.7;
+          }
+        }
+      }
+
+      // details experiences
+      .experienceBox {
+        section {
+          background-color: transparent;
+          margin: 0;
+          strong,
+          span,
+          li {
+            @include p;
+            color: $dark;
+            font-family: $poppinsRegular;
+          }
+          li,
+          span {
+            opacity: 0.5;
+          }
+          div {
+            display: flex;
+            gap: 12px;
+            @include mq($lg) {
+              gap: 8px;
+            }
+          }
+          .titles {
+            flex-direction: column;
+            gap: 8px;
+            position: relative;
+            .lineLeft {
+              position: absolute;
+              top: 0;
+              left: -15px;
+              bottom: 0;
+              width: 12px;
+              height: 100%;
+              background-color: #e5edf9;
+              border-radius: 8px;
+            }
+          }
+        }
+      }
+    }
+
     //right part
     .overView {
       border: 1px solid #e5edf9;
       border-radius: 8px;
       padding: 26px;
-      justify-content: center;
-      align-items: flex-start;
+      justify-content: flex-start;
+      align-items: center;
       gap: 60px;
       @include mq($lgx) {
         padding: 20px;
@@ -331,8 +435,9 @@
         gap: 30px;
       }
       .loadersPercent {
-        width: 457px;
-        height: 219px;
+        width: 219px;
+        aspect-ratio: 219/144;
+        height: auto;
         background-color: $light;
         border-radius: 8px;
         display: flex;
@@ -340,21 +445,16 @@
         justify-content: center;
         gap: 8;
         @include mq($xlg) {
-          width: 400px;
-          height: 200px;
+          width: 200px;
         }
-        @include mq($lg) {
-          width: 380px;
-          height: 180px;
+        @include mq($lgx) {
+          width: 180px;
         }
-        @include mq($md) {
-          width: 300px;
-          min-height: 150px;
-          height: auto;
+        @include mq($xls) {
+          width: 200px;
         }
         @include mq($sm) {
-          width: 250px;
-          min-height: 125px;
+          width: 180px;
         }
         .loaderBox {
           width: 48px;
@@ -372,7 +472,9 @@
           display: flex;
           justify-content: center;
           align-items: center;
-          gap: 8px;
+          flex-wrap: wrap;
+          line-height: 1.3;
+          gap: 5px;
           span {
             @include p;
             color: $dark;

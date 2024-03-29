@@ -59,8 +59,11 @@ export const demoCandidatesData = [
     ],
     experiences: `
     <section>
-        <strong>Senior Data Analyst</strong>
-        <div>Alight <span>(May 2021 - Present)</span></div>
+        <div class="titles">
+          <div class="lineLeft"></div>
+          <strong>Senior Data Analyst</strong>
+          <div>Alight <span>(May 2021 - Present)</span></div>
+        </div>
         <strong>Responsible for;</strong>
         <ul>
             <li>
@@ -75,8 +78,11 @@ export const demoCandidatesData = [
         </ul>
     </section>
     <section>
+      <div class="titles">
+        <div class="lineLeft"></div>
         <strong>Junior Data Analyst</strong>
         <div>Alight <span>(May 2020 - May 2021)</span></div>
+      </div>
         <strong>Responsible for;</strong>
         <ul>
             <li>
@@ -153,37 +159,43 @@ export const demoCandidatesData = [
     ],
     experiences: `
     <section>
-        <strong>Senior Data Analyst</strong>
-        <div>Alight <span>(May 2021 - Present)</span></div>
-        <strong>Responsible for;</strong>
-        <ul>
-            <li>
-                1. Data Exploration and Analysis: They perform exploratory data analysis to uncover insights, trends, and patterns in the data, often using statistical and visualisation techniques.
-            </li>
-            <li>
-                2. Data Cleaning and Preprocessing: Data analysts are responsible for cleaning and preparing raw renewable data to ensure its accuracy and reliability for analysis.
-            </li>
-            <li>
-                3. Reporting and Communication: Data analysts communicate their findings through reports, dashboards, and presentations to help stakeholders make informed decisions based on the data-driven insights.
-            </li>
-        </ul>
-    </section>
-    <section>
-        <strong>Junior Data Analyst</strong>
-        <div>Alight <span>(May 2020 - May 2021)</span></div>
-        <strong>Responsible for;</strong>
-        <ul>
-            <li>
-                1. Data Exploration and Analysis: They perform exploratory data analysis to uncover insights, trends, and patterns in the data, often using statistical and visualisation techniques.
-            </li>
-            <li>
-                2. Data Cleaning and Preprocessing: Data analysts are responsible for cleaning and preparing raw renewable data to ensure its accuracy and reliability for analysis.
-            </li>
-            <li>
-                3. Reporting and Communication: Data analysts communicate their findings through reports, dashboards, and presentations to help stakeholders make informed decisions based on the data-driven insights.
-            </li>
-        </ul>
-    </section>
+    <div class="titles">
+      <div class="lineLeft"></div>
+      <strong>Senior Data Analyst</strong>
+      <div>Alight <span>(May 2021 - Present)</span></div>
+    </div>
+    <strong>Responsible for;</strong>
+    <ul>
+        <li>
+            1. Data Exploration and Analysis: They perform exploratory data analysis to uncover insights, trends, and patterns in the data, often using statistical and visualisation techniques.
+        </li>
+        <li>
+            2. Data Cleaning and Preprocessing: Data analysts are responsible for cleaning and preparing raw renewable data to ensure its accuracy and reliability for analysis.
+        </li>
+        <li>
+            3. Reporting and Communication: Data analysts communicate their findings through reports, dashboards, and presentations to help stakeholders make informed decisions based on the data-driven insights.
+        </li>
+    </ul>
+</section>
+<section>
+  <div class="titles">
+    <div class="lineLeft"></div>
+    <strong>Junior Data Analyst</strong>
+    <div>Alight <span>(May 2020 - May 2021)</span></div>
+  </div>
+    <strong>Responsible for;</strong>
+    <ul>
+        <li>
+            1. Data Exploration and Analysis: They perform exploratory data analysis to uncover insights, trends, and patterns in the data, often using statistical and visualisation techniques.
+        </li>
+        <li>
+            2. Data Cleaning and Preprocessing: Data analysts are responsible for cleaning and preparing raw renewable data to ensure its accuracy and reliability for analysis.
+        </li>
+        <li>
+            3. Reporting and Communication: Data analysts communicate their findings through reports, dashboards, and presentations to help stakeholders make informed decisions based on the data-driven insights.
+        </li>
+    </ul>
+</section>
     
     `,
   },
@@ -247,8 +259,11 @@ export const demoCandidatesData = [
     ],
     experiences: `
     <section>
-        <strong>Senior Data Analyst</strong>
-        <div>Alight <span>(May 2021 - Present)</span></div>
+        <div class="titles">
+          <div class="lineLeft"></div>
+          <strong>Senior Data Analyst</strong>
+          <div>Alight <span>(May 2021 - Present)</span></div>
+        </div>
         <strong>Responsible for;</strong>
         <ul>
             <li>
@@ -263,8 +278,11 @@ export const demoCandidatesData = [
         </ul>
     </section>
     <section>
+      <div class="titles">
+        <div class="lineLeft"></div>
         <strong>Junior Data Analyst</strong>
         <div>Alight <span>(May 2020 - May 2021)</span></div>
+      </div>
         <strong>Responsible for;</strong>
         <ul>
             <li>
@@ -278,7 +296,6 @@ export const demoCandidatesData = [
             </li>
         </ul>
     </section>
-    
     `,
   },
   {
@@ -341,8 +358,11 @@ export const demoCandidatesData = [
     ],
     experiences: `
     <section>
-        <strong>Senior Data Analyst</strong>
-        <div>Alight <span>(May 2021 - Present)</span></div>
+        <div class="titles">
+          <div class="lineLeft"></div>
+          <strong>Senior Data Analyst</strong>
+          <div>Alight <span>(May 2021 - Present)</span></div>
+        </div>
         <strong>Responsible for;</strong>
         <ul>
             <li>
@@ -357,8 +377,11 @@ export const demoCandidatesData = [
         </ul>
     </section>
     <section>
+      <div class="titles">
+        <div class="lineLeft"></div>
         <strong>Junior Data Analyst</strong>
         <div>Alight <span>(May 2020 - May 2021)</span></div>
+      </div>
         <strong>Responsible for;</strong>
         <ul>
             <li>
@@ -372,7 +395,6 @@ export const demoCandidatesData = [
             </li>
         </ul>
     </section>
-    
     `,
   },
   {
@@ -434,39 +456,44 @@ export const demoCandidatesData = [
       },
     ],
     experiences: `
-    <section>
+      <section>
+      <div class="titles">
+        <div class="lineLeft"></div>
         <strong>Senior Data Analyst</strong>
         <div>Alight <span>(May 2021 - Present)</span></div>
-        <strong>Responsible for;</strong>
-        <ul>
-            <li>
-                1. Data Exploration and Analysis: They perform exploratory data analysis to uncover insights, trends, and patterns in the data, often using statistical and visualisation techniques.
-            </li>
-            <li>
-                2. Data Cleaning and Preprocessing: Data analysts are responsible for cleaning and preparing raw renewable data to ensure its accuracy and reliability for analysis.
-            </li>
-            <li>
-                3. Reporting and Communication: Data analysts communicate their findings through reports, dashboards, and presentations to help stakeholders make informed decisions based on the data-driven insights.
-            </li>
-        </ul>
-    </section>
-    <section>
-        <strong>Junior Data Analyst</strong>
-        <div>Alight <span>(May 2020 - May 2021)</span></div>
-        <strong>Responsible for;</strong>
-        <ul>
-            <li>
-                1. Data Exploration and Analysis: They perform exploratory data analysis to uncover insights, trends, and patterns in the data, often using statistical and visualisation techniques.
-            </li>
-            <li>
-                2. Data Cleaning and Preprocessing: Data analysts are responsible for cleaning and preparing raw renewable data to ensure its accuracy and reliability for analysis.
-            </li>
-            <li>
-                3. Reporting and Communication: Data analysts communicate their findings through reports, dashboards, and presentations to help stakeholders make informed decisions based on the data-driven insights.
-            </li>
-        </ul>
-    </section>
-    
+      </div>
+      <strong>Responsible for;</strong>
+      <ul>
+          <li>
+              1. Data Exploration and Analysis: They perform exploratory data analysis to uncover insights, trends, and patterns in the data, often using statistical and visualisation techniques.
+          </li>
+          <li>
+              2. Data Cleaning and Preprocessing: Data analysts are responsible for cleaning and preparing raw renewable data to ensure its accuracy and reliability for analysis.
+          </li>
+          <li>
+              3. Reporting and Communication: Data analysts communicate their findings through reports, dashboards, and presentations to help stakeholders make informed decisions based on the data-driven insights.
+          </li>
+      </ul>
+  </section>
+  <section>
+    <div class="titles">
+      <div class="lineLeft"></div>
+      <strong>Junior Data Analyst</strong>
+      <div>Alight <span>(May 2020 - May 2021)</span></div>
+    </div>
+      <strong>Responsible for;</strong>
+      <ul>
+          <li>
+              1. Data Exploration and Analysis: They perform exploratory data analysis to uncover insights, trends, and patterns in the data, often using statistical and visualisation techniques.
+          </li>
+          <li>
+              2. Data Cleaning and Preprocessing: Data analysts are responsible for cleaning and preparing raw renewable data to ensure its accuracy and reliability for analysis.
+          </li>
+          <li>
+              3. Reporting and Communication: Data analysts communicate their findings through reports, dashboards, and presentations to help stakeholders make informed decisions based on the data-driven insights.
+          </li>
+      </ul>
+  </section>
     `,
   },
   {
@@ -529,8 +556,11 @@ export const demoCandidatesData = [
     ],
     experiences: `
     <section>
-        <strong>Senior Data Analyst</strong>
-        <div>Alight <span>(May 2021 - Present)</span></div>
+        <div class="titles">
+          <div class="lineLeft"></div>
+          <strong>Senior Data Analyst</strong>
+          <div>Alight <span>(May 2021 - Present)</span></div>
+        </div>
         <strong>Responsible for;</strong>
         <ul>
             <li>
@@ -545,8 +575,11 @@ export const demoCandidatesData = [
         </ul>
     </section>
     <section>
+      <div class="titles">
+        <div class="lineLeft"></div>
         <strong>Junior Data Analyst</strong>
         <div>Alight <span>(May 2020 - May 2021)</span></div>
+      </div>
         <strong>Responsible for;</strong>
         <ul>
             <li>
@@ -623,8 +656,11 @@ export const demoCandidatesData = [
     ],
     experiences: `
     <section>
-        <strong>Senior Data Analyst</strong>
-        <div>Alight <span>(May 2021 - Present)</span></div>
+        <div class="titles">
+          <div class="lineLeft"></div>
+          <strong>Senior Data Analyst</strong>
+          <div>Alight <span>(May 2021 - Present)</span></div>
+        </div>
         <strong>Responsible for;</strong>
         <ul>
             <li>
@@ -639,8 +675,11 @@ export const demoCandidatesData = [
         </ul>
     </section>
     <section>
+      <div class="titles">
+        <div class="lineLeft"></div>
         <strong>Junior Data Analyst</strong>
         <div>Alight <span>(May 2020 - May 2021)</span></div>
+      </div>
         <strong>Responsible for;</strong>
         <ul>
             <li>
@@ -717,8 +756,11 @@ export const demoCandidatesData = [
     ],
     experiences: `
     <section>
-        <strong>Senior Data Analyst</strong>
-        <div>Alight <span>(May 2021 - Present)</span></div>
+        <div class="titles">
+          <div class="lineLeft"></div>
+          <strong>Senior Data Analyst</strong>
+          <div>Alight <span>(May 2021 - Present)</span></div>
+        </div>
         <strong>Responsible for;</strong>
         <ul>
             <li>
@@ -733,8 +775,11 @@ export const demoCandidatesData = [
         </ul>
     </section>
     <section>
+      <div class="titles">
+        <div class="lineLeft"></div>
         <strong>Junior Data Analyst</strong>
         <div>Alight <span>(May 2020 - May 2021)</span></div>
+      </div>
         <strong>Responsible for;</strong>
         <ul>
             <li>
