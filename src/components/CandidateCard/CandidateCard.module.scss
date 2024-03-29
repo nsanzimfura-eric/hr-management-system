@@ -1,0 +1,113 @@
+@import "../../styles/variables.scss";
+@import "../../styles/mixins.scss";
+
+.candidateCard {
+  :global {
+    background-color: $light;
+    border-radius: 8px;
+    padding: 0;
+    position: relative;
+    display: flex;
+    gap: 0;
+    width: calc(100% / 4 - 30px);
+    height: auto;
+    max-height: fit-content;
+    cursor: pointer;
+    @include transition;
+    @include mq($xlg) {
+      width: calc(100% / 3 - 27px);
+    }
+    @include mq($lg) {
+      width: calc(100% / 3 - 20px);
+    }
+    @include mq($xls) {
+      width: calc(100% / 2 - 15px);
+    }
+    @include mq($sm) {
+      width: calc(100% / 2 - 15px);
+    }
+    @include mq($xms) {
+      width: 100%;
+    }
+    button {
+      position: absolute;
+      border: 1px solid hsla(223, 87%, 25%, 51%);
+      border-radius: 30px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 86px;
+      width: 92px;
+      font-family: $poppinsSemiBold;
+      color: $dark;
+      font-size: 24px;
+      left: -30px;
+      top: -20px;
+      background-color: $light;
+      @include background-img;
+      @include mq($lgx) {
+        height: 76px;
+        width: 82px;
+        left: -25px;
+        top: -15px;
+      }
+      @include mq($lg) {
+        height: 66px;
+        width: 72px;
+        font-size: 20px;
+        left: -20px;
+        top: -12px;
+        border-radius: 25px;
+      }
+      @include mq($md) {
+        height: 66px;
+        width: 72px;
+        font-size: 19px;
+        left: -18px;
+        top: -10px;
+        border-radius: 20px;
+      }
+      @include mq($xls) {
+        height: 56px;
+        width: 62px;
+        font-size: 18px;
+        border-radius: 15px;
+      }
+    }
+    .positionedBg {
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      padding: 24px;
+      padding-left: 17px;
+      @include mq($xlg) {
+        padding: 20px;
+        padding-left: 14px;
+      }
+      @include mq($lg) {
+        padding: 18px;
+        padding-left: 14px;
+      }
+      @include mq($md) {
+        padding: 15px;
+        padding-left: 12px;
+      }
+      .imgWrapper {
+        display: flex;
+        width: 100%;
+        justify-content: flex-end;
+        height: fit-content;
+      }
+      span {
+        @include p;
+        color: $blackOpaque;
+        font-family: $poppinsRegular;
+        margin-top: auto;
+      }
+    }
+  }
+  &:hover {
+    background-color: $leafOpaque;
+  }
+}
