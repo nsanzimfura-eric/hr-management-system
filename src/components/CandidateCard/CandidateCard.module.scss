@@ -4,31 +4,16 @@
 .candidateCard {
   :global {
     background-color: $light;
+    height: 100%;
+    width: 100%;
     border-radius: 8px;
     padding: 0;
     position: relative;
     display: flex;
     gap: 0;
-    width: calc(100% / 4 - 30px);
-    height: auto;
-    max-height: fit-content;
     cursor: pointer;
     @include transition;
-    @include mq($xlg) {
-      width: calc(100% / 3 - 27px);
-    }
-    @include mq($lg) {
-      width: calc(100% / 3 - 20px);
-    }
-    @include mq($xls) {
-      width: calc(100% / 2 - 15px);
-    }
-    @include mq($sm) {
-      width: 100%;
-      min-height: 100px;
-    }
-    @include mq($xms) {
-    }
+
     button {
       position: absolute;
       border: 1px solid hsla(223, 87%, 25%, 51%);
@@ -109,6 +94,7 @@
         color: $blackOpaque;
         font-family: $poppinsRegular;
         margin-top: auto;
+        line-height: 1.2;
       }
       .visibleOnHover {
         @include transition;
@@ -116,7 +102,7 @@
         justify-content: flex-end;
         align-items: flex-end;
         opacity: 0;
-        transform: translate(-40px);
+        transform: translate(-40px, 0px);
         @include mq($md) {
           display: none; //no hover on md
         }
@@ -124,7 +110,29 @@
       &:hover {
         .visibleOnHover {
           opacity: 0.5 !important;
-          transform: translate(0px) !important;
+          transform: translateX(0px) !important;
+          transform: translate(0px, 0px);
+          position: absolute;
+          bottom: 15px;
+          right: 15px;
+          z-index: 2;
+        }
+        span {
+          opacity: 1 !important;
+          @include transition;
+          transform: translateY(10px);
+          display: inline-block;
+          display: inline-block;
+          max-width: 60%;
+          white-space: normal;
+          overflow-wrap: break-word;
+          color: $dark;
+          @include mq($xlg) {
+            transform: translateY(7px);
+          }
+          @include mq($lg) {
+            transform: translateY(5px);
+          }
         }
       }
     }

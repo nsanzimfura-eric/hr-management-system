@@ -39,7 +39,8 @@ const Candidates = () => {
       {!clickedCandidate &&
         <div className="candidatesWrapper">
           {demoCandidatesData.map((singleCandidate, index) => {
-            return <CandidateCard key={index} data={singleCandidate} onclick={handleClickedCandidate} />
+            return <div className="singleCandidate" key={index}><CandidateCard key={index} data={singleCandidate} onclick={handleClickedCandidate} />
+            </div>
           })}
         </div>
       }

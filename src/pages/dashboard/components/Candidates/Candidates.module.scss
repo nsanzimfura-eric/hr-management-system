@@ -69,6 +69,28 @@
         padding-top: 30px;
         width: calc(100% - 30px);
       }
+      .singleCandidate {
+        background-color: transparent;
+        padding: 0;
+        width: calc(100% / 4 - 30px);
+        height: auto;
+        min-height: 188px;
+        cursor: pointer;
+        @include transition;
+        @include mq($xlg) {
+          width: calc(100% / 3 - 27px);
+        }
+        @include mq($lg) {
+          width: calc(100% / 3 - 20px);
+        }
+        @include mq($xls) {
+          width: calc(100% / 2 - 15px);
+        }
+        @include mq($sm) {
+          width: 100%;
+          min-height: 130px;
+        }
+      }
     }
   }
 }
