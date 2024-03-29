@@ -1,6 +1,7 @@
 
 import { OverViewDataInterface } from "../../pages/dashboard/components/DashboardHome/overViewData";
 import styles from "./OverViewSinglerComponent.module.scss";
+import KeyboardDoubleArrowRightIcon from '@mui/icons-material/KeyboardDoubleArrowRight';
 
 interface DataProps {
     data: OverViewDataInterface;
@@ -17,6 +18,9 @@ const OverViewSinglerComponent = (props: DataProps) => {
                     <img src={data.img} alt="BG" />
                 </div>
                 <span>{data.action}</span>
+                <div className="visibleOnHover">
+                    <KeyboardDoubleArrowRightIcon sx={{ width: 30, height: 30 }} />
+                </div>
             </div>
         </div>
     )

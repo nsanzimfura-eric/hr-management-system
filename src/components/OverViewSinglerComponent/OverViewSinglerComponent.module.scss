@@ -12,6 +12,8 @@
     width: calc(100% / 4 - 30px);
     height: auto;
     max-height: fit-content;
+    cursor: pointer;
+    @include transition;
     @include mq($xlg) {
       width: calc(100% / 3 - 27px);
     }
@@ -41,6 +43,7 @@
       font-size: 24px;
       left: -30px;
       top: -20px;
+      @include transition;
       background-color: $light;
       @include mq($lgx) {
         height: 76px;
@@ -106,6 +109,40 @@
         color: $blackOpaque;
         font-family: $poppinsRegular;
         margin-top: auto;
+        @include transition;
+      }
+      .visibleOnHover {
+        @include transition;
+        display: flex;
+        justify-content: flex-end;
+        align-items: flex-end;
+        opacity: 0;
+        transform: translate(-40px);
+        @include mq($md) {
+          display: none; //no hover on md
+        }
+      }
+      &:hover {
+        .visibleOnHover {
+          opacity: 0.5 !important;
+          transform: translate(0px) !important;
+        }
+        span {
+          color: $dark;
+        }
+      }
+    }
+  }
+  &:hover {
+    background-color: $lightBlueOpaque;
+    button {
+      transform: scale(1.5);
+      transform: translate(20px, 20px);
+      background-color: $primary;
+      color: $light;
+      @include mq($xls) {
+        transform: translate(0, 0);
+        transform: scale(1);
       }
     }
   }
