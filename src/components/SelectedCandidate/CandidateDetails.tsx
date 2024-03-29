@@ -1,6 +1,7 @@
 
 import { useState } from "react";
 import styles from "./SelectedCandidate.module.scss";
+import GeneralCandidateData from "./GeneralCandidateData";
 
 
 interface CandidateProps {
@@ -25,7 +26,7 @@ const CandidateDetails = (props: CandidateProps) => {
                 ))}
             </div>
             {/* filtered results */}
-            {activeFilter === "General" && <span>Evaluations</span>}
+            {activeFilter === "General" && <GeneralCandidateData candidate={candidate} />}
             {activeFilter === "Evaluations" && <span>Evaluations</span>}
             {activeFilter === "Experience" && <span>Experience</span>}
             {activeFilter === "Education" && <span>Education</span>}

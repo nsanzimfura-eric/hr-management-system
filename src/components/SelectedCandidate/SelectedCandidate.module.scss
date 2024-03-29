@@ -15,6 +15,7 @@
       background-color: $light;
       border-radius: 8px;
       margin-top: 29px;
+      overflow: hidden;
       @include mq($xlg) {
         gap: 14px;
         padding: 30px 20px;
@@ -38,6 +39,7 @@
       margin-top: 0;
       justify-content: space-between;
       flex-wrap: wrap;
+      overflow: hidden;
       button {
         @include smallest;
         height: 18px;
@@ -107,6 +109,10 @@
               align-items: center;
               justify-content: flex-start;
               gap: 14px;
+              @include mq($xls) {
+                flex-direction: column;
+                align-items: flex-start;
+              }
               .title {
                 font-family: $poppinsRegular;
                 color: $dark;
@@ -124,6 +130,12 @@
                 @include mq($md) {
                   padding-right: 10px;
                 }
+              }
+            }
+            .namesWrapper {
+              @include mq($xls) {
+                flex-direction: row;
+                align-items: flex-start;
               }
             }
             .contacts {
@@ -154,8 +166,15 @@
           @include mq($lg) {
             gap: 25px;
           }
+          @include mq($xls) {
+            width: 100%;
+          }
+
           button {
             @include btnEdit;
+            @include mq($xls) {
+              margin-right: auto;
+            }
           }
           a {
             text-decoration: none;
@@ -170,6 +189,7 @@
       }
       .status {
         margin-left: 80px;
+        gap: 4px;
         @include mq($xlg) {
           margin-left: 60px;
         }
@@ -220,10 +240,50 @@
     padding: 0;
     display: flex;
     flex-direction: column;
+    gap: 0;
     .headerFilters {
       @include headerFilters;
       padding-bottom: 12px;
       border-bottom: 1px solid #e5edf9;
+      @include mq($md) {
+        display: flex;
+        flex-wrap: wrap;
+      }
+      button {
+        @include mq($md) {
+          background-color: #ddeafb;
+          border-radius: 9px;
+          padding: 10px 20px;
+          width: calc(100% / 4 - 20px);
+          .activeLine {
+            inset: 0;
+            bottom: 0;
+            border-radius: 9px;
+            pointer-events: none;
+          }
+        }
+        @include mq($xls) {
+          width: calc(100% / 3 - 20px);
+        }
+        @include mq($sm) {
+          width: calc(100% / 2 - 20px);
+        }
+        @include mq($xms) {
+          width: calc(100% / 2 - 10px);
+        }
+      }
     }
+  }
+}
+
+//
+.generalCandidateData {
+  width: 100%;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  padding: 30px 0;
+  :global {
+    background-color: transparent;
   }
 }
