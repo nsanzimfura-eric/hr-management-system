@@ -110,6 +110,9 @@
         font-family: $poppinsRegular;
         margin-top: auto;
         @include transition;
+        line-height: 1.3;
+        white-space: normal;
+        overflow-wrap: break-word;
       }
       .visibleOnHover {
         @include transition;
@@ -118,6 +121,9 @@
         align-items: flex-end;
         opacity: 0;
         transform: translate(-40px);
+        position: absolute;
+        right: 10px;
+        bottom: 15px;
         @include mq($md) {
           display: none; //no hover on md
         }
@@ -129,6 +135,9 @@
         }
         span {
           color: $dark;
+          transform: translateY(10px);
+          display: inline-block;
+          text-align: left;
         }
       }
     }
