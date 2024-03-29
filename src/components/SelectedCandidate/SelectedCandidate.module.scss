@@ -12,7 +12,7 @@
       flex-direction: column;
       padding: 34px 22px;
       gap: 16px;
-      background-color: $light;
+      background-color: $lightb;
       border-radius: 8px;
       margin-top: 29px;
       overflow: hidden;
@@ -283,10 +283,137 @@
 .generalCandidateData {
   width: 100%;
   padding: 0;
-  display: flex;
-  flex-direction: column;
+  display: grid;
   padding: 30px 0;
+  grid-template-columns: 3fr 1fr;
+  gap: 27px;
+  @include mq($lgx) {
+    gap: 20px;
+  }
+  @include mq($xls) {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
   :global {
     background-color: transparent;
+    .edit {
+      background-color: transparent;
+      color: #7d9be7;
+      font-size: 12px;
+      padding: 0;
+      cursor: pointer;
+      border: none;
+      outline: none;
+      padding-bottom: 5px;
+      border-bottom: 1px solid #7d9be7;
+      @include mq($sm) {
+        color: 10px;
+      }
+    }
+    //right part
+    .overView {
+      border: 1px solid #e5edf9;
+      border-radius: 8px;
+      padding: 26px;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 60px;
+      @include mq($lgx) {
+        padding: 20px;
+        gap: 50px;
+      }
+      @include mq($lg) {
+        gap: 40px;
+      }
+      @include mq($md) {
+        padding: 15px;
+        gap: 30px;
+      }
+      .loadersPercent {
+        width: 457px;
+        height: 219px;
+        background-color: $light;
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8;
+        @include mq($xlg) {
+          width: 400px;
+          height: 200px;
+        }
+        @include mq($lg) {
+          width: 380px;
+          height: 180px;
+        }
+        @include mq($md) {
+          width: 300px;
+          min-height: 150px;
+          height: auto;
+        }
+        @include mq($sm) {
+          width: 250px;
+          min-height: 125px;
+        }
+        .loaderBox {
+          width: 48px;
+          aspect-ratio: 1/1;
+          height: auto;
+          @include mq($lg) {
+            width: 40px;
+          }
+          @include mq($md) {
+            width: 38px;
+          }
+        }
+        .score {
+          width: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          gap: 8px;
+          span {
+            @include p;
+            color: $dark;
+            opacity: 1;
+            font-family: $poppinsSemiBold;
+          }
+          .fit {
+            color: $success;
+          }
+        }
+      }
+      // skills
+      .skills {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        @include mq($lg) {
+          gap: 14px;
+        }
+        @include mq($xls) {
+          gap: 12px;
+        }
+        .skill {
+          width: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          span {
+            flex-grow: 1;
+            @include p;
+            font-family: $poppinsRegular;
+            color: $dark;
+            opacity: 0.7;
+          }
+          img {
+            width: 16px;
+            height: 16px;
+          }
+        }
+      }
+    }
   }
 }
