@@ -12,7 +12,7 @@ const SelectedCandidate = (props: CandidateProps) => {
 
     return (
         <div className={styles.selectedCandidate}>
-            <section className="header">
+            <section className="headerCandidates w-100 d-flex">
                 <div className="intro d-flex flex-column">
                     {/* info */}
                     <div className="userWrapper">
@@ -45,23 +45,25 @@ const SelectedCandidate = (props: CandidateProps) => {
                 </div>
                 {/* status */}
                 <div className="status d-flex flex-column">
-                    <p>Current Status</p>
-                    <div className="s-flex">
+                    <p className="mb-3">Current Status</p>
+                    <div className="d-flex">
                         <span>Round</span>
                         <button>Technical</button>
                     </div>
-                    <div className="s-flex">
+                    <div className="d-flex">
                         <span>Assigned to</span>
-                        <button><img src={candidate.profile} alt="Profile" width={22} height={22} /> {candidate.name}</button>
+                        <button className="img"><img src={candidate.profile} alt="Profile" width={22} height={22} /> {candidate.name}</button>
                     </div>
-                    <div className="s-flex">
+                    <div className="d-flex">
                         <span>Interview Date</span>
-                        <span>Jul 30, 2024</span>
+                        <span className="date">Jul 30, 2024</span>
                     </div>
                 </div>
             </section>
             {/*  ====== Filters Section */}
-            <section></section>
+            <section>
+                test
+            </section>
         </div>
     )
 }

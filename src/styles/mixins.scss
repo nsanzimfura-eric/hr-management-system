@@ -236,3 +236,13 @@
     font-size: pxToEm(8);
   }
 }
+
+@mixin btnEdit {
+  background-color: transparent;
+  border: 1px solid $primary;
+  color: $primary;
+  border: none;
+  padding: 0;
+  border-bottom: 1px solid $primary;
+  border-radius: 0;
+}
