@@ -18,48 +18,7 @@
       gap: 18px;
     }
     .headerFilters {
-      display: flex;
-      align-items: center;
-      justify-content: flex-start;
-      gap: 35px;
-      @include mq($xlg) {
-        gap: 25px;
-      }
-      @include mq($lg) {
-        gap: 20px;
-      }
-      button {
-        border: none;
-        outline: none;
-        background-color: transparent;
-        cursor: pointer;
-        display: flex;
-        justify-content: flex-start;
-        align-items: center;
-        padding: 0;
-        padding-bottom: 5px;
-        position: relative;
-        @include transition;
-        color: $blackOpaque;
-        div {
-          position: absolute;
-          bottom: 0;
-          left: 0;
-          width: 40px;
-          height: 2px;
-          background-color: $warning;
-          @include transition;
-          transform: translateX(100px);
-          opacity: 0;
-        }
-      }
-      .active {
-        color: $black;
-      }
-      .activeLine {
-        transform: translateX(0);
-        opacity: 1;
-      }
+      @include headerFilters;
     }
   }
 }

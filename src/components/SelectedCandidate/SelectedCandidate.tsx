@@ -1,5 +1,6 @@
 
 import { returnNamesInitials } from "../../helpers/getNameInitials";
+import CandidateDetails from "./CandidateDetails";
 import styles from "./SelectedCandidate.module.scss";
 
 interface CandidateProps {
@@ -62,7 +63,7 @@ const SelectedCandidate = (props: CandidateProps) => {
             </section>
             {/*  ====== Filters Section */}
             <section>
-                test
+                <CandidateDetails candidate={candidate} />
             </section>
         </div>
     )

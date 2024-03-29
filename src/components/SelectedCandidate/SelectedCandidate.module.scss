@@ -212,3 +212,18 @@
     }
   }
 }
+
+// bellow is th selected candidates details
+.candidateDetails {
+  :global {
+    width: 100%;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    .headerFilters {
+      @include headerFilters;
+      padding-bottom: 12px;
+      border-bottom: 1px solid #e5edf9;
+    }
+  }
+}
