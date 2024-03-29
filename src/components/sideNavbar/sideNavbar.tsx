@@ -1,13 +1,14 @@
 
-import React, { useState } from "react";
+import React from "react";
 import IconButton from "../iconButton/iconButton";
 import { SideNavBarLink, navbarLinks } from "./navbarData";
 import styles from "./sideNavbar.module.scss";
 import CloseIcon from '@mui/icons-material/Close';
 import useWindowSize from "../../hooks/useWindowSize";
 import { mediaSizes } from "../../utils/constants";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { setActiveLink } from "./sideNavBarSlices";
+import { RootState } from "../../redux/store";
 
 interface SideNavProps {
     sideNavAside: boolean;
@@ -15,13 +16,11 @@ interface SideNavProps {
 }
 const SideNavBar = (props: SideNavProps) => {
     const { sideNavAside, setSideNavAside } = props;
-
-    const [activeId, setActiveId] = useState(navbarLinks[0].id);
+    const { activeLink } = useSelector((state: RootState) => state.sideNavBarReducers);
     const { width } = useWindowSize();
     const dispatch = useDispatch();
 
     const handleIconClick = (id: number) => {
-        setActiveId(id);
         //Update active Link
         const activeSideNavLink = navbarLinks.filter((navData: SideNavBarLink) => navData.id === id);
         dispatch(setActiveLink(activeSideNavLink[0]));
@@ -46,7 +45,7 @@ const SideNavBar = (props: SideNavProps) => {
                             key={icon.id}
                             icon={icon}
                             onClick={handleIconClick}
-                            isActive={icon.id === activeId}
+                            isActive={icon.id === activeLink.id}
                         />)
                 })}
             </div>
