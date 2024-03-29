@@ -1,5 +1,4 @@
 
-import { Container } from "react-bootstrap";
 import Footer from "../Footer/Footer";
 import styles from "../login/login.module.scss";
 import { Typography } from '@mui/material';
@@ -13,7 +12,7 @@ const SignUp = () => {
 
   return (
     <div className={styles.login} >
-      <Container className="loginWrapper">
+      <div className="loginWrapper">
         <div className="boxWrapper d-flex flex-column w-100">
           {/* login title  */}
           <div className="d-flex titleBox">
@@ -47,7 +46,7 @@ const SignUp = () => {
           </div>
         </div>
         <Footer />
-      </Container>
+      </div>
     </div>
   )
 }
