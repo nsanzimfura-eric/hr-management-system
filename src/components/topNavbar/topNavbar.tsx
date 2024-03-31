@@ -1,5 +1,5 @@
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./topNavbar.module.scss";
 import MenuIcon from '@mui/icons-material/Menu';
 import LogoutIcon from '@mui/icons-material/Logout';
@@ -13,8 +13,10 @@ interface SideNavProps {
     setSideNavAside: React.Dispatch<React.SetStateAction<boolean>>;
 }
 const TopNavbar = (props: SideNavProps) => {
+    const user = JSON.parse(localStorage.getItem('userProfile')!);
     const { setSideNavAside, sideNavAside } = props;
     const [searchValue, setSearchValue] = useState('');
+    const [userProfile, setUserProfile] = useState<any>(user);
     const [showLogOut, setShowLogout] = useState(false);
     const navigate = useNavigate();
     const { width } = useWindowSize();
@@ -28,9 +30,18 @@ const TopNavbar = (props: SideNavProps) => {
     }
 
     const handleLogout = () => {
+        localStorage.removeItem('token');
+        localStorage.removeItem('userProfile');
         navigate(frontendRoutes.login);
         setShowLogout(prev => !prev);
     }
+
+    //setUserProfile names
+    useEffect(() => {
+        setUserProfile(user)
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
+
     return (
         <div className={styles.topNavbar}>
             <div className="searchWrapper d-flex">
@@ -50,7 +61,7 @@ const TopNavbar = (props: SideNavProps) => {
             <div className="profile d-flex">
                 <img src="/images/user.jpg" alt="User" />
                 <div className="d-flex names">
-                    <span>Jane Doe</span>
+                    <span>{userProfile.firstName || 'John'} {userProfile.lastName || 'Doe'} </span>
                     <button onClick={() => setShowLogout(prev => !prev)}><img src="/svgs/arrowDown.svg" alt="Arrow down" /></button>
                 </div>
             </div>

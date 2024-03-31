@@ -14,6 +14,7 @@ const Guards = (props: any) => {
         if (!token) {
             navigate(frontendRoutes.login)
         }
+        //eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     return (
