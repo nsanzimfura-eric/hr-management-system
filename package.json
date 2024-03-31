@@ -37,6 +37,7 @@
     "react-dom": "^18.2.0",
     "react-headroom": "^3.2.1",
     "react-player": "^2.14.1",
+    "react-quill": "^2.0.0",
     "react-redux": "^9.1.0",
     "react-router-dom": "^6.21.3",
     "yup": "^1.4.0"

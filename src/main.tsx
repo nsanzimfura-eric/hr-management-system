@@ -5,6 +5,7 @@ import './styles/index.scss';
 import { Provider } from 'react-redux';
 import { store } from './redux/store';
 import 'react-circular-progressbar/dist/styles.css';
+import 'react-quill/dist/quill.snow.css';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>

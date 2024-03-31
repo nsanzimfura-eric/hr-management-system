@@ -1,0 +1,8 @@
+@import "../../styles/variables.scss";
+@import "../../styles/mixins.scss";
+
+.quilMaker {
+  :global {
+    background-color: transparent;
+  }
+}

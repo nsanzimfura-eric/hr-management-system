@@ -26,12 +26,12 @@ const CandidateDetails = (props: CandidateProps) => {
             </div>
             {/* filtered results */}
             {activeFilter === "General" && <GeneralCandidateData candidate={candidate} />}
-            {activeFilter === "Evaluations" && <span>Evaluations</span>}
-            {activeFilter === "Experience" && <span>Experience</span>}
-            {activeFilter === "Education" && <span>Education</span>}
-            {activeFilter === "Events" && <span>Events</span>}
-            {activeFilter === "Documents" && <span>Documents</span>}
-            {activeFilter === "Messages" && <span>Messages</span>}
+            {activeFilter === "Evaluations" && <span className="w-100 text-center p-4">Evaluations</span>}
+            {activeFilter === "Experience" && <span className="w-100 text-center p-4">Experience</span>}
+            {activeFilter === "Education" && <span className="w-100 text-center p-4">Education</span>}
+            {activeFilter === "Events" && <span className="w-100 text-center p-4">Events</span>}
+            {activeFilter === "Documents" && <span className="w-100 text-center p-4">Documents</span>}
+            {activeFilter === "Messages" && <span className="w-100 text-center p-4">Messages</span>}
 
         </div>
     )

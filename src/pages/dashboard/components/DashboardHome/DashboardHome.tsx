@@ -10,9 +10,16 @@ import RequireAttention from "../../../../components/RequireAttention/RequireAtt
 
 const DashboardHome = () => {
   const [showMeetings, setShowMeetings] = useState(true);
+  const [showModal, setShowModal] = useState(false);
 
   const toggleMeetings = () => {
     setShowMeetings(prev => !prev)
+  }
+  const handleAddCandidate = () => {
+    // HR can not add a candidate, instead candidates will be added by default,
+    // when they have applied to the job posted by the HR.
+    // that's why I put there  this alert  !!!!!!!!!!!!!!!!!!!
+    alert("HR can not add a candidate, instead candidates will be added by default, when they have applied to the jobs you posted as HR")
   }
 
   return (
@@ -21,11 +28,11 @@ const DashboardHome = () => {
         <div className="w-100 d-flex justify-content-between align-items-center wrapperHeader">
           <Typography className='title' variant='subtitle1'>OverView</Typography>
           <div className="btns d-flex  align-items-center ms-auto">
-            <button className="btn btn-primary">
+            <button className="btn btn-primary" onClick={handleAddCandidate}>
               <img src="/svgs/addIcon_White.svg" alt="Add Icon" />
               <span>Add Candidate</span>
             </button>
-            <button className="btn btn-primary">
+            <button className="btn btn-primary" onClick={handleAddJob}>
               <img src="/svgs/addIcon_White.svg" alt="Add Icon" />
               <span>Add Job</span>
             </button>
