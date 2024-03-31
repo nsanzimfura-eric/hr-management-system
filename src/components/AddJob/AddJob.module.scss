@@ -4,5 +4,20 @@
 .addJob {
   :global {
     background-color: $light;
+    //calender
+    .rdrDayNumber {
+      overflow: hidden !important;
+    }
+    .rdrSelected {
+      color: $darkBlue !important;
+    }
+    .rdrMonth {
+      width: 100% !important;
+    }
+    .rdrCalendarWrapper {
+      @include mq($xms) {
+        font-size: 10px !important;
+      }
+    }
   }
 }

@@ -4,13 +4,14 @@ import { Alert, Stack } from '@mui/material';
 
 interface ErrorInterface {
     message: string;
+    alertType?: any;
 }
 const AlertComponent = (props: ErrorInterface) => {
-    const { message } = props;
+    const { message, alertType = 'error' } = props;
 
     return (
         <Stack className={styles.errorComponent} spacing={2}>
-            <Alert severity="error">{message}</Alert>
+            <Alert severity={alertType}>{message}</Alert>
         </Stack>
     )
 }
