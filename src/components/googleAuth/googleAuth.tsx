@@ -1,5 +1,5 @@
 
-import React, { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useLocation } from "react-router-dom";
 import { frontendRoutes } from '../../api/frontendRoutes';
 import styles from "./googleAuth.module.scss";
@@ -7,13 +7,12 @@ import styles from "./googleAuth.module.scss";
 // import { backendAPI } from '../../api/backendAPI';
 // import { JwtPayload, jwtDecode } from "jwt-decode";
 
-interface GoogleAuthInterface {
-    setErrorAuth: React.Dispatch<React.SetStateAction<string>>;
-    setUser: React.Dispatch<React.SetStateAction<any>>;
+// interface GoogleAuthInterface {
+//     setErrorAuth: React.Dispatch<React.SetStateAction<string>>;
+//     setUser: React.Dispatch<React.SetStateAction<any>>;
 
-}
-const GoogleAuth = (props: GoogleAuthInterface) => {
-    console.log(props)
+// }
+const GoogleAuth = () => {
     const location = useLocation();
     const [isSignUp, setIsSignUp] = useState(false);
     //hooks

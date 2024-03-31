@@ -1,10 +1,10 @@
-import axios, { AxiosError } from "axios";
+import axios from "axios";
 import { useState } from "react";
 
 const usePostData = <T = any>() => {
   const [loading, setLoading] = useState<boolean>(false);
   const [data, setData] = useState<T | null>(null);
-  const [error, setError] = useState<string | null>(null);
+  const [error, setError] = useState<any>(null);
 
   const postHandler = async (url: string, postData: T) => {
     const token = localStorage.getItem("token");
@@ -23,10 +23,13 @@ const usePostData = <T = any>() => {
     try {
       const response = await axios.post<T>(url, postData, config);
       setData(response.data);
-    } catch (err) {
-      const error = err as AxiosError;
-      setError(error.message || "An unknown error occurred");
-      console.error(error);
+    } catch (err: any) {
+      setError(
+        String(error.responseText) ||
+          error.message ||
+          "An unknown error occurred"
+      );
+      console.error(err);
     } finally {
       setLoading(false);
     }

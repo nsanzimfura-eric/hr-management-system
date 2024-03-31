@@ -9,6 +9,9 @@ import { loginValidationSchema, signUpValidationSchema, signUpInitialValues, log
 import ErrorComponent from "../errorComponent/ErrorComponent";
 import GoogleAuth from "../googleAuth/googleAuth";
 import AlertComponent from "../AlertComponent/AlertComponent";
+import usePostData from "../../hooks/usePostData";
+import { backendAPI } from "../../api/backendAPI";
+import LoadingComponent from "../LoadingComponent/LoadingComponent";
 
 export interface AuthInterface {
     email: string;
@@ -22,11 +25,13 @@ const FormAuth = () => {
     const navigate = useNavigate();
     const location = useLocation();
     const [isSignUp, setIsSignUp] = useState(false);
-    const [errorAuth, setErrorAuth] = useState('');
-    const [userAuth, setUserAuth] = useState({});
     const [rememberUser, setRememberUser] = useState(false);
+    const [formReset, setFormReset] = useState(false);
     const [validationShema, setValidationShema] = useState<any>(signUpValidationSchema);
     const [initialValues, setInitialValues] = useState<any>(signUpInitialValues);
+
+    //custom hooks
+    const { data, error, loading, postHandler } = usePostData();
 
     //watch signUp routes
     useEffect(() => {
@@ -41,45 +46,54 @@ const FormAuth = () => {
         }
     }, [location.pathname]);
 
+    //redirect user after auth
+    useEffect(() => {
+        if (!loading && !error && data) {
+            //reset form;
+            setFormReset(true);
+            setTimeout(() => { setFormReset(false); }, 500);
 
-    const handleFormSubmitLogin = (values: AuthInterface) => {
-        console.log(values, 'login');
-        navigate(frontendRoutes.dashboard)
-    }
+            if (isSignUp) {
+                navigate(frontendRoutes.login)
 
-    const handleFormSubmitSignUp = (values: AuthInterface) => {
-        console.log(values, 'sign up')
-        navigate(frontendRoutes.login)
-    }
+            } else {
+                //save token
+                localStorage.setItem('token', data as string);
+                navigate(frontendRoutes.dashboard);
+            }
+        }
+        //eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [loading, error, data])
 
     const checkBoxRef = useRef<HTMLInputElement>(null);
     const handleClickCheckBox = () => {
         checkBoxRef.current?.click()
     }
 
-    console.log(userAuth, 'user logged in')
-
     return (
         <Formik
             initialValues={initialValues}
             validationSchema={validationShema}
-            onSubmit={(values: AuthInterface) => {
+            onSubmit={async (values: AuthInterface) => {
                 if (isSignUp) {
-                    handleFormSubmitSignUp(values)
+                    //signUp
+                    await postHandler(backendAPI.signup, values)
                 } else {
-                    handleFormSubmitLogin(values)
+                    //login
+                    await postHandler(backendAPI.login, values);
                 }
             }}
         >
-            {({ values, errors, handleChange, handleSubmit, isSubmitting, touched }) => {
-                // useEffect(() => {
-                //     if ((data || loginData) && (!loading || !loginLoading)) {
-                //         resetForm();
-                //     }
-                // }, [data, loginData, loading, loginLoading]);
+            {({ values, errors, handleChange, resetForm, handleSubmit, isSubmitting, touched }) => {
+                if (formReset) {
+                    resetForm();
+                }
 
                 return (
                     <Form autoComplete="off" className={styles.formAuth} onSubmit={handleSubmit}>
+                        {error && <AlertComponent message={error} />}
+                        {loading && <LoadingComponent />}
+
                         {
                             isSignUp &&
                             <div className="inputBox">
@@ -170,9 +184,8 @@ const FormAuth = () => {
                         <Button type="submit" disabled={isSubmitting} sx={{ width: "100%", color: "white", }} className="buttonSubmit" variant="contained" color="warning">
                             {isSignUp ? "Sign Up" : "Login"}
                         </Button>
-                        {errorAuth && <AlertComponent message={errorAuth} />}
                         {/*  GOOOGLE AUTHENTICATION */}
-                        <GoogleAuth setErrorAuth={setErrorAuth} setUser={setUserAuth} />
+                        <GoogleAuth />
                     </Form>
 
                 )
