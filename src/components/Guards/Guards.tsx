@@ -11,7 +11,6 @@ const Guards = (props: any) => {
 
     useEffect(() => {
         const token = localStorage.getItem('token');
-        console.log(token, 'test toke')
         if (!token) {
             navigate(frontendRoutes.login)
         }

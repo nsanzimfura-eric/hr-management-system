@@ -28,7 +28,6 @@ const FormAuth = () => {
     const [rememberUser, setRememberUser] = useState(false);
     const [showPassword, setShowPassword] = useState(false);
     const [formReset, setFormReset] = useState(false);
-    const [signUpValues, setSignUpValues] = useState<AuthInterface | null>(null);
     const [validationShema, setValidationShema] = useState<any>(signUpValidationSchema);
     const [initialValues, setInitialValues] = useState<any>(signUpInitialValues);
 
@@ -56,16 +55,12 @@ const FormAuth = () => {
             setTimeout(() => { setFormReset(false); }, 500);
 
             if (isSignUp) {
-                //before redirect to login page, let's keep user credentials
-                const credentials = { email: signUpValues?.email, password: signUpValues?.password }
-                localStorage.setItem('userCredentials', JSON.stringify(credentials));
                 navigate(frontendRoutes.login);
 
             } else {
                 //save token
                 localStorage.setItem('token', data.data?.token as string);
                 localStorage.setItem('userProfile', JSON.stringify(data.data));
-                localStorage.removeItem('userCredentials');
                 navigate(frontendRoutes.dashboard);
             }
         }
@@ -77,17 +72,6 @@ const FormAuth = () => {
         checkBoxRef.current?.click()
     }
 
-    //watch user from LS after signUp;
-
-    useEffect(() => {
-        const userCredentials = JSON.parse(localStorage.getItem('userCredentials')!);
-        if (userCredentials) {
-            //make is easy for user to aut-fill their data into inputs
-            setInitialValues({ ...initialValues, email: userCredentials.email, password: userCredentials.password });
-        }
-        //eslint-disable-next-line react-hooks/exhaustive-deps
-    }, []);
-
     const togglePasswordVisibility = () => {
         setShowPassword(!showPassword);
     };
@@ -98,7 +82,6 @@ const FormAuth = () => {
             validationSchema={validationShema}
             onSubmit={async (values: AuthInterface) => {
                 if (isSignUp) {
-                    setSignUpValues(values)
                     //signUp
                     await postHandler(backendAPI.signup, values)
                 } else {
@@ -121,7 +104,7 @@ const FormAuth = () => {
                             isSignUp &&
                             <div className="inputBox">
                                 <TextField
-                                    id="outlined-basic"
+                                    id="outlined-basic-firstName"
                                     name="firstName"
                                     label="FirstName"
                                     variant="outlined"
@@ -137,7 +120,7 @@ const FormAuth = () => {
                             isSignUp &&
                             <div className="inputBox">
                                 <TextField
-                                    id="outlined-basic"
+                                    id="outlined-basic-lastName"
                                     name="lastName"
                                     label="LastName"
                                     variant="outlined"
@@ -151,7 +134,7 @@ const FormAuth = () => {
                         }
                         <div className="inputBox">
                             <TextField
-                                id="outlined-basic"
+                                id="outlined-basic-email"
                                 name="email"
                                 label={isSignUp ? "Email" : "Username"}
                                 variant="outlined"
@@ -164,7 +147,7 @@ const FormAuth = () => {
                         </div>
                         <div className="inputBox">
                             <TextField
-                                id="outlined-basic"
+                                id="outlined-basic-password"
                                 name="password"
                                 label="Password"
                                 type={showPassword ? "text" : "password"}
@@ -194,7 +177,7 @@ const FormAuth = () => {
                             isSignUp &&
                             <div className="inputBox">
                                 <TextField
-                                    id="outlined-basic"
+                                    id="outlined-basic-confirmPass"
                                     name="confirmPass"
                                     label="Re-enter Password"
                                     variant="outlined"
