@@ -35,7 +35,7 @@ const RequireAttention = () => {
                 ))}
             </div>
             {/* filtered component */}
-            {activeFilter === "Jobs" && <Jobs />}
+            {activeFilter === "Jobs" && <Jobs showHeader={false} />}
             {activeFilter === "Candidates" && <div>
                 <div className="candidatesWrapper">
                     {demoCandidatesData.map((singleCandidate, index) => {

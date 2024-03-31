@@ -3,12 +3,14 @@
 
 .jobs {
   overflow: hidden;
-  overflow-y: auto;
-  @include scrollbar;
+  display: flex;
+  gap: 30px;
+  height: 100%;
+  flex-direction: column;
   :global {
     width: 100%;
-    flex-grow: 1;
     background-color: transparent;
+    flex-grow: 1;
     padding: 0;
     margin: 0;
     border-radius: 8px;
@@ -47,6 +49,18 @@
           width: 18px;
         }
       }
+    }
+    .title {
+      @include p;
+      color: $dark;
+      font-family: $poppinsSemiBold;
+    }
+
+    .jobsWrapper {
+      @include scrollbar;
+      overflow-y: auto;
+      flex-direction: column;
+      flex-grow: 1;
     }
   }
 }
