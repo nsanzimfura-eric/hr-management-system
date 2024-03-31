@@ -12,8 +12,6 @@ import AlertComponent from "../AlertComponent/AlertComponent";
 import usePostData from "../../hooks/usePostData";
 import { backendAPI } from "../../api/backendAPI";
 import LoadingComponent from "../LoadingComponent/LoadingComponent";
-import { VisibilityOff, Visibility } from '@mui/icons-material';
-
 
 export interface AuthInterface {
     email: string;
@@ -183,7 +181,7 @@ const FormAuth = () => {
                                                 onClick={togglePasswordVisibility}
                                                 edge="end"
                                             >
-                                                {showPassword ? <VisibilityOff /> : <Visibility />}
+                                                <img src={`/svgs/${showPassword ? "eye" : "blind"}.svg`} alt="Icon" style={{ width: 22, height: 19 }} className="img-fluid" />
                                             </IconButton>
                                         </InputAdornment>
                                     ),
@@ -213,7 +211,7 @@ const FormAuth = () => {
                                                     onClick={togglePasswordVisibility}
                                                     edge="end"
                                                 >
-                                                    {showPassword ? <VisibilityOff /> : <Visibility />}
+                                                    <img src={`/svgs/${showPassword ? "eye" : "blind"}.svg`} alt="Icon" style={{ width: 22, height: 19 }} className="img-fluid" />
                                                 </IconButton>
                                             </InputAdornment>
                                         ),
