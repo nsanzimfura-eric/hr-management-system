@@ -6,6 +6,8 @@ import { Typography } from "@mui/material";
 import { overViewData } from "./overViewData";
 import OverViewSinglerComponent from "../../../../components/OverViewSinglerComponent/OverViewSinglerComponent";
 import RequireAttention from "../../../../components/RequireAttention/RequireAttention";
+import AppModal from "../../../../components/AppModal/AppModal";
+import AddJob from "../../../../components/AddJob/AddJob";
 
 
 const DashboardHome = () => {
@@ -21,6 +23,9 @@ const DashboardHome = () => {
     // that's why I put there  this alert  !!!!!!!!!!!!!!!!!!!
     alert("HR can not add a candidate, instead candidates will be added by default, when they have applied to the jobs you posted as HR")
   }
+  const handleAddJob = () => {
+    setShowModal(prev => !prev)
+  }
 
   return (
     <div className={styles.dashboardHome}>
@@ -32,12 +37,18 @@ const DashboardHome = () => {
               <img src="/svgs/addIcon_White.svg" alt="Add Icon" />
               <span>Add Candidate</span>
             </button>
-            <button className="btn btn-primary" onClick={handleAddJob}>
+            <button className="btn btn-primary" onClick={(handleAddJob)}>
               <img src="/svgs/addIcon_White.svg" alt="Add Icon" />
               <span>Add Job</span>
             </button>
           </div>
         </div>
+        {/* Add job Modal */}
+        {showModal &&
+          <AppModal open={showModal} handleClose={handleAddJob}>
+            <AddJob />
+          </AppModal>
+        }
         {/* Overview body */}
         <div className="overViewBody w-100">
           {overViewData.map((data, index) => {

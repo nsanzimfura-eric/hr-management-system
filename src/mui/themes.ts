@@ -130,8 +130,7 @@ const themes = createTheme({
       styleOverrides: {
         root: {
           width: "100%",
-    fontFamily: `"Poppins-Medium.ttf"`,
-
+          fontFamily: `"Poppins-Medium.ttf"`,
         },
       },
     },
@@ -201,6 +200,60 @@ const themes = createTheme({
           props: { size: "small" },
           style: {
             height: "40px",
+          },
+        },
+      ],
+    },
+    MuiDialogTitle: {
+      styleOverrides: {
+        root: {
+          fontSize: "1.5em",
+          lineHeight: `${31.2 / 24}`,
+          textAlign: "center",
+        },
+      },
+    },
+    MuiDialogContent: {
+      styleOverrides: {
+        root: {
+          fontSize: "1em",
+          lineHeight: 1.3,
+          textAlign: "center",
+          fontFamily: `"Poppins-Medium.ttf"`,
+          color: "#000000",
+        },
+      },
+    },
+    MuiDialog: {
+      variants: [
+        {
+          props: { about: "generalDialog" },
+          style: {
+            "& .MuiDialog-paper": {
+              maxWidth: "600px !important",
+              minWidth: "600px !important",
+              ...mq(xls, {
+                maxWidth: "calc(100% - 15px) !important",
+                minWidth: "calc(100% - 15px) !important",
+              }),
+            },
+            "& .MuiDialogTitle-root": {
+              textAlign: "left",
+            },
+            "& .MuiDialogContent-root": {
+              textAlign: "left",
+            },
+            "& .css-187u8ms-MuiTypography-root-MuiDialogContentText-root": {
+              display: "flex !important",
+            },
+            "& ::-webkit-scrollbar": {
+              width: "2px",
+              maxWidth: "2px",
+            },
+            "& #alert-dialog-slide-description": {
+              display: "grid",
+              gridTemplateColumns: "1fr 0px",
+            },
           },
         },
       ],

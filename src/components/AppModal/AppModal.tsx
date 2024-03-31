@@ -14,7 +14,7 @@ interface AppModalProps {
 const AppModal = (props: AppModalProps) => {
     const { open, handleClose, children } = props;
     return (
-        <Dialog open={open} TransitionComponent={Transition} keepMounted onClose={handleClose} aria-describedby="alert-dialog-slide-description">
+        <Dialog open={open} TransitionComponent={Transition} keepMounted onClose={handleClose} aria-describedby="alert-dialog-slide-description" about="generalDialog">
             <DialogContent className="popUp_container">
                 <div id="alert-dialog-slide-description">
                     {children}
