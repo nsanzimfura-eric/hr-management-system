@@ -41,7 +41,6 @@ const Login = () => {
                 {/*  form */}
                 <FormAuth />
               </div>
-
             </div>
           </div>
         </div>
