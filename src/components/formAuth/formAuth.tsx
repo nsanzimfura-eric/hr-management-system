@@ -1,7 +1,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import styles from "./formAuth.module.scss";
-import { TextField, Button, Typography } from '@mui/material';
+import { TextField, Button, Typography, IconButton, InputAdornment } from '@mui/material';
 import { Formik, Form } from 'formik';
 import { useNavigate, useLocation, Link } from "react-router-dom";
 import { frontendRoutes } from "../../api/frontendRoutes";
@@ -12,6 +12,8 @@ import AlertComponent from "../AlertComponent/AlertComponent";
 import usePostData from "../../hooks/usePostData";
 import { backendAPI } from "../../api/backendAPI";
 import LoadingComponent from "../LoadingComponent/LoadingComponent";
+import { VisibilityOff, Visibility } from '@mui/icons-material';
+
 
 export interface AuthInterface {
     email: string;
@@ -26,6 +28,7 @@ const FormAuth = () => {
     const location = useLocation();
     const [isSignUp, setIsSignUp] = useState(false);
     const [rememberUser, setRememberUser] = useState(false);
+    const [showPassword, setShowPassword] = useState(false);
     const [formReset, setFormReset] = useState(false);
     const [signUpValues, setSignUpValues] = useState<AuthInterface | null>(null);
     const [validationShema, setValidationShema] = useState<any>(signUpValidationSchema);
@@ -86,6 +89,10 @@ const FormAuth = () => {
         }
         //eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
+
+    const togglePasswordVisibility = () => {
+        setShowPassword(!showPassword);
+    };
 
     return (
         <Formik
@@ -162,11 +169,25 @@ const FormAuth = () => {
                                 id="outlined-basic"
                                 name="password"
                                 label="Password"
+                                type={showPassword ? "text" : "password"}
                                 variant="outlined"
                                 onChange={handleChange}
                                 placeholder="Password"
                                 value={values.password}
                                 error={errors.password && touched.password ? true : false}
+                                InputProps={{
+                                    endAdornment: (
+                                        <InputAdornment position="end">
+                                            <IconButton
+                                                aria-label="toggle password visibility"
+                                                onClick={togglePasswordVisibility}
+                                                edge="end"
+                                            >
+                                                {showPassword ? <VisibilityOff /> : <Visibility />}
+                                            </IconButton>
+                                        </InputAdornment>
+                                    ),
+                                }}
                             />
                             {errors.password && touched.password && <ErrorComponent message={errors.password} />}
                         </div>
@@ -179,10 +200,24 @@ const FormAuth = () => {
                                     name="confirmPass"
                                     label="Re-enter Password"
                                     variant="outlined"
+                                    type={showPassword ? "text" : "password"}
                                     onChange={handleChange}
                                     placeholder="Re-enter Password"
                                     value={values.confirmPass}
                                     error={errors.confirmPass && touched.confirmPass ? true : false}
+                                    InputProps={{
+                                        endAdornment: (
+                                            <InputAdornment position="end">
+                                                <IconButton
+                                                    aria-label="toggle password visibility"
+                                                    onClick={togglePasswordVisibility}
+                                                    edge="end"
+                                                >
+                                                    {showPassword ? <VisibilityOff /> : <Visibility />}
+                                                </IconButton>
+                                            </InputAdornment>
+                                        ),
+                                    }}
                                 />
                                 {errors.confirmPass && touched.confirmPass && <ErrorComponent message={errors.confirmPass} />}
                             </div>

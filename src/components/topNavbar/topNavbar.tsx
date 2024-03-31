@@ -16,7 +16,7 @@ const TopNavbar = (props: SideNavProps) => {
     const user = JSON.parse(localStorage.getItem('userProfile')!);
     const { setSideNavAside, sideNavAside } = props;
     const [searchValue, setSearchValue] = useState('');
-    const [userProfile, setUserProfile] = useState<any>(user);
+    const [userProfile, setUserProfile] = useState<any>({ ...user });
     const [showLogOut, setShowLogout] = useState(false);
     const navigate = useNavigate();
     const { width } = useWindowSize();
@@ -61,7 +61,7 @@ const TopNavbar = (props: SideNavProps) => {
             <div className="profile d-flex">
                 <img src="/images/user.jpg" alt="User" />
                 <div className="d-flex names">
-                    <span>{userProfile.firstName || 'John'} {userProfile.lastName || 'Doe'} </span>
+                    <span>{userProfile?.firstName || 'John'} {userProfile?.lastName || 'Doe'} </span>
                     <button onClick={() => setShowLogout(prev => !prev)}><img src="/svgs/arrowDown.svg" alt="Arrow down" /></button>
                 </div>
             </div>
