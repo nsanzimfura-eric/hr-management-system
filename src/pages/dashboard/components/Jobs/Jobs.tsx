@@ -1,51 +1,42 @@
 
 
+import { useState } from "react";
+import AddJob from "../../../../components/AddJob/AddJob";
+import AppModal from "../../../../components/AppModal/AppModal";
 import styles from "./Jobs.module.scss";
-import Table from 'react-bootstrap/Table';
-import { JobInterface, demoJobsData } from "./jobsDataDemo";
+import TableDemoJobs from "./components/tableDemoJobs/tableDemoJobs";
+import { Typography } from "@mui/material";
 
 const Jobs = () => {
-  //createDemo Table titles and removes time from  titles
-  const headersTitles = ["Positions Left", "Applications", "Interviewed", "Rejected", "Feedback Pending", "Offered"];
+  const [showModal, setShowModal] = useState(false);
 
+
+  const handleAddJob = () => {
+    setShowModal(prev => !prev)
+  }
 
   return (
     <div className={styles.jobs}>
-      <Table responsive className="tablesJobs">
-        <thead>
-          <tr>
-            <th>{""}</th>
-            <th>{""}</th>
-            {headersTitles.map((title, index) => (
-              <th key={index}>{title}</th>
-            ))}
-          </tr>
-        </thead>
-        <tbody>
-          {demoJobsData.map((job: JobInterface, rowIndex) => {
-            const valuesArrayWithNoTime_Title: (string | number)[] = Object.entries(job)
-              .filter(([key]) => key !== 'title' && key !== 'time')
-              // eslint-disable-next-line @typescript-eslint/no-unused-vars
-              .map(([_, value]: [string, string | number]) => value);
+      {/* add jobs btn */}
+      <div className="d-flex w-100 align-items-center justify-content-between">
+        <Typography className='title' variant='subtitle1'>List Of Jobs</Typography>
+        <button className="btn btn-primary" onClick={(handleAddJob)}>
+          <img src="/svgs/addIcon_White.svg" alt="Add Icon" />
+          <span>Add Job</span>
+        </button>
+      </div>
+      {/* Add job Modal */}
+      {showModal &&
+        <AppModal open={showModal} handleClose={handleAddJob}>
+          <AddJob />
+        </AppModal>
+      }
 
-            return (
-              <tr key={rowIndex}>
-                <td><div className="icon"><img src="/svgs/jobs.svg" alt="Icon" /></div></td>
-                <td className="titleBox">
-                  <span>{job.title}</span>
-                  <small>{job.time}</small>
-                </td>
-                {valuesArrayWithNoTime_Title.map((item, indexData) => {
-                  return (
-                    <td key={indexData}>{item}</td>
-                  )
-                })}
-              </tr>
-            )
-          }
-          )}
-        </tbody>
-      </Table>
+      {/* This components below is here Because of the  deign form figma.
+          It is well structured and suggested but right now it is not matching the backend APi response.
+          Once enhanced the api, we will use it
+      */}
+      <TableDemoJobs />
     </div>
   )
 }
