@@ -5,7 +5,7 @@
   :global {
     margin: 0;
     font-size: 12px;
-    font-family: $poppinsRegular;
+    font-family: $poppinsSemiBold !important;
     color: $error;
     @include mq($lg) {
       font-size: 10px;

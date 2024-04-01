@@ -1,0 +1,65 @@
+@import "../../styles/variables.scss";
+@import "../../styles/mixins.scss";
+
+.applyToJOB {
+  :global {
+    background-color: transparent;
+    border-radius: inherit;
+    width: 100%;
+    .title {
+      @include h3;
+      font-family: $poppinsSemiBold;
+      color: $darkBlue;
+      display: flex;
+      justify-content: center;
+    }
+    .form {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+    }
+    .inputBox {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      .file {
+        background-color: $lightBlueOpaque;
+        border: none;
+        border-radius: 8px;
+        outline: none;
+        cursor: pointer;
+        display: flex;
+        justify-content: flex-start;
+        gap: 15px;
+        align-items: center;
+        padding: 10px 10px;
+      }
+    }
+    //calender
+    .rdrDayNumber {
+      overflow: hidden !important;
+    }
+    .rdrSelected {
+      color: $darkBlue !important;
+    }
+    .rdrMonth {
+      width: 100% !important;
+    }
+    .rdrCalendarWrapper {
+      @include mq($xms) {
+        font-size: 10px !important;
+      }
+    }
+    .buttonSubmit {
+      font-family: $poppinsRegular;
+      text-transform: capitalize !important;
+      margin-top: calc(54px - 16px);
+      background-color: $darkBlue !important;
+
+      &:hover {
+        background-color: darken($color: $darkBlue, $amount: 8) !important;
+      }
+    }
+  }
+}

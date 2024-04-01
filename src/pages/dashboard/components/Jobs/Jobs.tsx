@@ -12,6 +12,7 @@ import LoadingComponent from "../../../../components/LoadingComponent/LoadingCom
 import ErrorComponent from "../../../../components/errorComponent/ErrorComponent";
 import { useNavigate, useLocation } from "react-router-dom";
 import { frontendRoutes } from "../../../../api/frontendRoutes";
+import SingleDBJob, { DBJobInterface } from "../../../../components/singleDBJob/singleDBJob";
 
 interface AddJobProps {
   showHeader?: boolean;
@@ -76,6 +77,10 @@ const Jobs = (props: AddJobProps) => {
       {error && !loading && <ErrorComponent message={error} />}
       {data && !loading &&
         <div className="jobsWrapper w-100 p-0 m-0">
+          {/* Jobs from the backend */}
+          {data.data?.map((job: DBJobInterface) => {
+            return <SingleDBJob index={job.id} key={job.id} job={job} />
+          })}
           {/* This components below is here Because of the  deign form figma.
           It is well structured and suggested but right now it is not matching the backend APi response.
           Once enhanced the api, we will use it

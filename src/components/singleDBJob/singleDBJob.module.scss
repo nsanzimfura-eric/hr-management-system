@@ -1,0 +1,83 @@
+@import "../../styles/variables.scss";
+@import "../../styles/mixins.scss";
+
+.singleDBJob {
+  :global {
+    background-color: transparent;
+    * {
+      @include transition;
+    }
+    .title {
+      font-size: 20px;
+      color: $darkBlue;
+      font-family: $poppinsSemiBold;
+      @include mq($xlg) {
+        font-size: 18px;
+      }
+      @include mq($lgx) {
+        font-size: 16px;
+      }
+      @include mq($xls) {
+        font-size: 15px;
+      }
+      @include mq($sm) {
+        font-size: 14px;
+      }
+    }
+    .ago {
+      margin: 0 auto;
+      @include smallest;
+      color: $dark;
+    }
+
+    .accordion-button:not(.collapsed) {
+      background-color: $primary;
+      @include transition;
+      color: $light;
+      * {
+        color: $light;
+        @include transition;
+      }
+    }
+    .deleteHeader {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      .titleApplicants {
+        @include small;
+      }
+      button {
+        background-color: transparent;
+        padding: 0;
+        border: none;
+        outline: none;
+      }
+      .btn {
+        @include p;
+        color: $light;
+        font-family: $poppinsSemiBold;
+        background-color: $darkBlue;
+        cursor: pointer;
+        padding: 15px 30px;
+        border-radius: 30px;
+        @include transition;
+        @include mq($lg) {
+          padding: 10px 20px;
+        }
+        @include mq($xls) {
+          padding: 6px 15px;
+        }
+        @include mq($sm) {
+          padding: 5px 10px;
+        }
+        &:hover {
+          background-color: darken($color: $primary, $amount: 10) !important;
+        }
+      }
+    }
+    .details {
+      color: $dark;
+      opacity: 0.6;
+    }
+  }
+}

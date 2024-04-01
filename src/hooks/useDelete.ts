@@ -1,0 +1,41 @@
+import axios from "axios";
+import { useState } from "react";
+
+const useDelete = <T = any>() => {
+  const [loading, setLoading] = useState<boolean>(false);
+  const [data, setData] = useState<T | null>(null);
+  const [error, setError] = useState<any>(null);
+
+  const deleteHandler = async (url: string) => {
+    const token = localStorage.getItem("token");
+
+    setLoading(true);
+    setError(null);
+    setData(null);
+
+    const config = {
+      headers: {
+        ...(token && { Authorization: `Bearer ${token}` }),
+        "Content-Type": "application/json",
+      },
+    };
+
+    try {
+      const response = await axios.delete<T>(url, config);
+      setData(response.data);
+    } catch (err: any) {
+      setError(
+        String(error.responseText) ||
+          error.message ||
+          "An unknown error occurred"
+      );
+      console.error(err);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  return { deleteHandler, data, loading, error };
+};
+
+export default useDelete;
