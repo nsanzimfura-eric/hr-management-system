@@ -1,0 +1,14 @@
+@import "../../styles/variables.scss";
+@import "../../styles/mixins.scss";
+
+.globalNavBar {
+  :global {
+    width: 100%;
+    padding: 21px 32px;
+    background-color: $light;
+    .activeLink {
+      color: $blueBold !important;
+      font-weight: $poppinsSemiBold;
+    }
+  }
+}

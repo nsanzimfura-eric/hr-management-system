@@ -10,6 +10,8 @@ import useFetchData from "../../../../hooks/useFetchData";
 import { backendAPI } from "../../../../api/backendAPI";
 import LoadingComponent from "../../../../components/LoadingComponent/LoadingComponent";
 import ErrorComponent from "../../../../components/errorComponent/ErrorComponent";
+import { useNavigate, useLocation } from "react-router-dom";
+import { frontendRoutes } from "../../../../api/frontendRoutes";
 
 interface AddJobProps {
   showHeader?: boolean;
@@ -17,6 +19,8 @@ interface AddJobProps {
 
 const Jobs = (props: AddJobProps) => {
   const { showHeader = true } = props;
+  const navigate = useNavigate();
+  const location = useLocation();
 
   const [showModal, setShowModal] = useState(false);
   const { data, loading, error, fetchHandler } = useFetchData();
@@ -36,16 +40,31 @@ const Jobs = (props: AddJobProps) => {
   }, []);
 
   console.log(loading, error, data, 'terst');
+  const handleInviteApplicants = () => {
+    navigate(frontendRoutes.careers)
+
+  }
+
   return (
     <div className={styles.jobs}>
       {/* add jobs btn */}
       <div className="d-flex w-100 align-items-center justify-content-between p-0 m-0">
         <Typography className='title' variant='subtitle1'>List Of Jobs</Typography>
+
         {showHeader &&
-          <button className="btn btn-primary" onClick={(handleAddJob)}>
-            <img src="/svgs/addIcon_White.svg" alt="Add Icon" />
-            <span>Add Job</span>
-          </button>}
+          <div className="ms-auto d-flex align-items-center">
+            {location.pathname !== frontendRoutes.careers &&
+              <button className="btn btn-primary me-2" onClick={(handleInviteApplicants)}>
+                <img src="/svgs/candidates.svg" alt="Add Icon" />
+                <span>Invite Applicants</span>
+              </button>
+            }
+            <button className="btn btn-primary" onClick={(handleAddJob)}>
+              <img src="/svgs/addIcon_White.svg" alt="Add Icon" />
+              <span>Add Job</span>
+            </button>
+          </div>
+        }
       </div>
       {/* Add job Modal */}
       {showModal &&

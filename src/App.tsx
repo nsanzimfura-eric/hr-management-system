@@ -10,6 +10,7 @@ import { frontendRoutes } from './api/frontendRoutes';
 import Login from './pages/login/Login';
 import Dashboard from './pages/dashboard/Dashboard';
 import SignUp from './pages/signup/signup';
+import Careers from './pages/Careers/Careers';
 
 function App() {
   const { windowLoaded, fontsLoaded } = useLoadFonts()
@@ -23,6 +24,7 @@ function App() {
           <Route path={frontendRoutes.login} element={<Login />} />
           <Route path={frontendRoutes.signup} element={<SignUp />} />
           <Route path={frontendRoutes.dashboard} element={<Dashboard />} />
+          <Route path={frontendRoutes.careers} element={<Careers />} />
           <Route path="*" element={<PageNotFound />} />
         </Routes>
       </ThemeProvider>

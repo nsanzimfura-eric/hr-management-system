@@ -16,7 +16,7 @@ const Home = () => {
     } else {
       navigate(frontendRoutes.dashboard)
     }
-
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   return (
