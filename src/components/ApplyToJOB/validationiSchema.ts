@@ -1,6 +1,8 @@
 import * as Yup from "yup";
 
-const phoneRegex = /^\+?[1-9]\d{1,14}$/;
+const phoneRegex =
+  /^\+?[0-9]{1,3}?[-. ]?(\([0-9]{1,3}\)[-. ]?)?[0-9]{1,4}[-. ]?[0-9]{1,4}([-. ]?[0-9]{1,9})?$/;
+
 export const validationSchema = Yup.object().shape({
   name: Yup.string().required("Your Full Name is required"),
   email: Yup.string()

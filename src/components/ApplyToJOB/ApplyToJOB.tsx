@@ -32,20 +32,10 @@ const ApplyToJOB = (props: ApplyToJOBProps) => {
         //eslint-disable-next-line react-hooks/exhaustive-deps
     }, [loading, error, data])
 
-    const handleApplicationSubmit = (values: any) => {
-        const formData = new FormData();
-        for (const [key, value] of Object.entries(values)) {
-            if (typeof value === 'string' || value instanceof Blob) {
-                formData.append(key, value);
-            } else {
-                // For unsupported types, you might choose to not append them to formData,
-                // or handle them according to your specific requirements.
-            }
-        }
-        void formDataHandler(backendAPI.applyToJob(job.id), formData);
-    }
 
     const fileRef = useRef<HTMLInputElement>(null);
+
+    console.log(loading, data, error, "setError(err.responseText || err.message ||");
 
     return (
         <div className={styles.applyToJOB} >
@@ -54,7 +44,19 @@ const ApplyToJOB = (props: ApplyToJOBProps) => {
                 initialValues={initialValues}
                 validationSchema={validationSchema}
                 onSubmit={(values) => {
-                    handleApplicationSubmit(values)
+                    // handleApplicationSubmit(values)
+                    // post data 
+                    const formData = new FormData();
+                    formData.append('email', values.email);
+                    formData.append('phone', values.phone);
+                    formData.append('name', values.name);
+                    formData.append('web', values.web);
+                    formData.append('linkedin', values.linkedin);
+                    formData.append('github', values.github);
+                    // @ts-ignore
+                    formData.append('file', values.file.file, values.file.name);
+                    //add data
+                    void formDataHandler(backendAPI.applyToJob(job.id), formData);
                 }}
             >
                 {({ values, errors, handleChange, setFieldValue, handleSubmit, isSubmitting, touched }) => {
@@ -122,8 +124,14 @@ const ApplyToJOB = (props: ApplyToJOBProps) => {
                                     accept="application/pdf"
                                     onChange={(e: any) => {
                                         const file = e.target.files[0];
+                                        const newFile = {
+                                            url: URL.createObjectURL(file),
+                                            name: file.name,
+                                            file: file,
+                                        }
+
                                         if (file && file.type === "application/pdf") {
-                                            void setFieldValue('file', file);
+                                            void setFieldValue('file', newFile);
                                         } else {
                                             alert("Please upload a PDF file.")
                                         }
