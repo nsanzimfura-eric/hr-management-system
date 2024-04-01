@@ -1,9 +1,9 @@
 import axios from "axios";
 import { useState } from "react";
 
-const useDelete = <T = any>() => {
+const useDelete = () => {
   const [loading, setLoading] = useState<boolean>(false);
-  const [data, setData] = useState<T | null>(null);
+  const [success, setSuccess] = useState<boolean>(false); // Changed to success status
   const [error, setError] = useState<any>(null);
 
   const deleteHandler = async (url: string) => {
@@ -11,31 +11,26 @@ const useDelete = <T = any>() => {
 
     setLoading(true);
     setError(null);
-    setData(null);
+    setSuccess(false);
 
     const config = {
       headers: {
         ...(token && { Authorization: `Bearer ${token}` }),
-        "Content-Type": "application/json",
       },
     };
 
     try {
-      const response = await axios.delete<T>(url, config);
-      setData(response.data);
+      await axios.delete(url, config); // Changed to axios.delete
+      setSuccess(true); // Set success status on successful deletion
     } catch (err: any) {
-      setError(
-        String(error.responseText) ||
-          error.message ||
-          "An unknown error occurred"
-      );
+      setError(error.message || "An unknown error occurred");
       console.error(err);
     } finally {
       setLoading(false);
     }
   };
 
-  return { deleteHandler, data, loading, error };
+  return { deleteHandler, success, loading, error };
 };
 
 export default useDelete;

@@ -7,9 +7,10 @@ import LoadingComponent from "../LoadingComponent/LoadingComponent";
 import styles from "./singleDBJob.module.scss";
 import { Accordion } from 'react-bootstrap';
 import DeleteIcon from '@mui/icons-material/Delete';
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import AppModal from "../AppModal/AppModal";
 import ApplyToJOB from "./../ApplyToJOB/ApplyToJOB";
+import useFetchData from "../../hooks/useFetchData";
 
 export interface HRinterface {
     id: string
@@ -55,7 +56,8 @@ interface SingleJobProps {
 }
 const SingleDBJob = (props: SingleJobProps) => {
     const { job, index } = props;
-    const { loading, error, deleteHandler } = useDelete();
+    const { loading, error, success, deleteHandler } = useDelete();
+    const { fetchHandler } = useFetchData();
     const [showApplyModal, setShowApplyModal] = useState(false);
 
     const handleDeleteJob = (id: string) => {
@@ -66,6 +68,14 @@ const SingleDBJob = (props: SingleJobProps) => {
     const handleApply = () => {
         setShowApplyModal(prev => !prev)
     }
+    //refresh jobs list
+    useEffect(() => {
+        if (success && !loading) {
+            void fetchHandler(backendAPI.getAllJobs);
+        }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [success]);
+
     return (
         <div className={styles.singleDBJob}>
             <Accordion>

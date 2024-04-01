@@ -24,11 +24,7 @@ const usePostData = <T = any>() => {
       const response = await axios.post<T>(url, postData, config);
       setData(response.data);
     } catch (err: any) {
-      setError(
-        String(error.responseText) ||
-          error.message ||
-          "An unknown error occurred"
-      );
+      setError(error.message || "An unknown error occurred");
       console.error(err);
     } finally {
       setLoading(false);

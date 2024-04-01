@@ -97,7 +97,7 @@ const ApplyToJOB = (props: ApplyToJOBProps) => {
                                     label="Phone"
                                     variant="outlined"
                                     onChange={handleChange}
-                                    placeholder="johndoe@alight.com"
+                                    placeholder="(+250)780088171"
                                     value={values.phone}
                                     error={errors.phone && touched.phone ? true : false}
                                 />
@@ -167,7 +167,7 @@ const ApplyToJOB = (props: ApplyToJOBProps) => {
                                     label="Portfolio"
                                     variant="outlined"
                                     onChange={handleChange}
-                                    placeholder="****"
+                                    placeholder="http(s)://***"
                                     value={values.web}
                                     error={errors.web && touched.web ? true : false}
                                 />
