@@ -23,7 +23,11 @@ const useDelete = () => {
       await axios.delete(url, config); // Changed to axios.delete
       setSuccess(true); // Set success status on successful deletion
     } catch (err: any) {
-      setError(err.responseText || err.message || "An unknown error occurred");
+      setError(
+        err.response?.data?.message ||
+          err.message ||
+          "An unknown error occurred"
+      );
       console.error(err);
     } finally {
       setLoading(false);

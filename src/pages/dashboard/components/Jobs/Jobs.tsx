@@ -40,7 +40,6 @@ const Jobs = (props: AddJobProps) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  console.log(loading, error, data, 'terst');
   const handleInviteApplicants = () => {
     navigate(frontendRoutes.careers)
 

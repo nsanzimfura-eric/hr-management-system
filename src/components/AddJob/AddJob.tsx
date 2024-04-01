@@ -26,7 +26,6 @@ const AddJob = (props: AddJobProps) => {
             //reset form;
             setFormReset('Job Created successfully');
             setTimeout(() => { setFormReset(null); }, 2000);
-            console.log(data, 'job created successfully');
             handleClose();
         }
         //eslint-disable-next-line react-hooks/exhaustive-deps

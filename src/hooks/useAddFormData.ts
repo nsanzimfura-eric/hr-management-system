@@ -23,7 +23,11 @@ const useAddFormData = <T = any>() => {
       const response = await axios.post<T>(url, data, config);
       setData(response.data);
     } catch (err: any) {
-      setError(err.responseText || err.message || "An unknown error occurred");
+      setError(
+        err.response?.data?.message ||
+          err.message ||
+          "An unknown error occurred"
+      );
       console.error(err);
     } finally {
       setLoading(false);

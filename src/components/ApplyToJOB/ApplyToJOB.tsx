@@ -54,12 +54,12 @@ const ApplyToJOB = (props: ApplyToJOBProps) => {
                     formData.append('linkedin', values.linkedin);
                     formData.append('github', values.github);
                     // @ts-ignore
-                    formData.append('file', values.file.file, values.file.name);
+                    formData.append('file', values.file.file);
                     //add data
                     void formDataHandler(backendAPI.applyToJob(job.id), formData);
                 }}
             >
-                {({ values, errors, handleChange, setFieldValue, handleSubmit, isSubmitting, touched }) => {
+                {({ values, errors, handleChange, isSubmitting, setFieldValue, handleSubmit, touched }) => {
 
                     return (
                         <Form autoComplete="off" className="form" onSubmit={handleSubmit}>
@@ -108,7 +108,7 @@ const ApplyToJOB = (props: ApplyToJOBProps) => {
 
                             <div className="inputBox">
                                 <label htmlFor='name' >Upload your resume only in pdf</label>
-                                <button onClick={() => fileRef.current?.click()} className='file'>
+                                <div onClick={() => fileRef.current?.click()} className='file'>
                                     <img src="/svgs/pdf.svg" alt="Pdf" width={20} height={20} />
                                     {values.file &&
                                         <span>
@@ -116,7 +116,7 @@ const ApplyToJOB = (props: ApplyToJOBProps) => {
                                                 values.file.name}
                                         </span>
                                     }
-                                </button>
+                                </div>
                                 <input
                                     type="file"
                                     ref={fileRef}
@@ -124,14 +124,9 @@ const ApplyToJOB = (props: ApplyToJOBProps) => {
                                     accept="application/pdf"
                                     onChange={(e: any) => {
                                         const file = e.target.files[0];
-                                        const newFile = {
-                                            url: URL.createObjectURL(file),
-                                            name: file.name,
-                                            file: file,
-                                        }
 
                                         if (file && file.type === "application/pdf") {
-                                            void setFieldValue('file', newFile);
+                                            void setFieldValue('file', file);
                                         } else {
                                             alert("Please upload a PDF file.")
                                         }
@@ -186,7 +181,7 @@ const ApplyToJOB = (props: ApplyToJOBProps) => {
                                 {loading && <LoadingComponent />}
                                 {formReset && <AlertComponent message={formReset} alertType="success" />}
                             </div>
-                            <Button type="submit" disabled={isSubmitting} sx={{ width: "100%", color: "white", }} className="buttonSubmit" variant="contained">
+                            <Button type="submit" sx={{ width: "100%", color: "white", }} disabled={loading} className="buttonSubmit" variant="contained">
                                 Submit Application
                             </Button>
 
