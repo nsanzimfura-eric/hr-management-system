@@ -11,8 +11,13 @@ import ErrorComponent from '../errorComponent/ErrorComponent';
 import { Calendar } from "react-date-range";
 import QuilMaker from '../QuilMaker/QuilMaker';
 
+interface AddJobProps {
+    handleClose: () => void;
+}
 
-const AddJob = () => {
+const AddJob = (props: AddJobProps) => {
+    const { handleClose } = props;
+
     const { data, error, loading, postHandler } = usePostData();
     const [formReset, setFormReset] = useState<string | null>(null);
 
@@ -21,6 +26,8 @@ const AddJob = () => {
             //reset form;
             setFormReset('Job Created successfully');
             setTimeout(() => { setFormReset(null); }, 2000);
+            console.log(data, 'job created successfully');
+            handleClose();
         }
         //eslint-disable-next-line react-hooks/exhaustive-deps
     }, [loading, error, data])
@@ -35,16 +42,11 @@ const AddJob = () => {
                     void postHandler(backendAPI.createJob, values)
                 }}
             >
-                {({ values, errors, handleChange, setFieldValue, resetForm, handleSubmit, isSubmitting, touched }) => {
-                    if (formReset) {
-                        resetForm();
-                    }
+                {({ values, errors, handleChange, setFieldValue, handleSubmit, isSubmitting, touched }) => {
 
                     return (
                         <Form autoComplete="off" className="form" onSubmit={handleSubmit}>
-                            {error && <AlertComponent message={error} />}
-                            {loading && <LoadingComponent />}
-                            {formReset && <AlertComponent message={formReset} alertType="success" />}
+
                             <div className="inputBox">
                                 <label htmlFor='title' >Job Title</label>
                                 <TextField
@@ -67,21 +69,24 @@ const AddJob = () => {
                                         void setFieldValue('deadline', date.toString());
                                     }}
                                 />
-                                {errors.title && touched.title && <ErrorComponent message={errors.title} />}
+                                {errors.deadline && touched.deadline && <ErrorComponent message={String(errors.deadline)} />}
                             </div>
                             <div className="inputBox">
                                 <label >Application Deadline</label>
                                 <QuilMaker
-                                    id="outlined-basic-title"
-                                    onChange={handleChange}
+                                    id="outlined-basic-description"
+                                    onChange={(value: string) => setFieldValue('description', value)}
                                     placeholder="Job Description"
                                     value={values.description}
                                 />
-                                {errors.title && touched.title && <ErrorComponent message={errors.title} />}
+                                {errors.description && touched.description && <ErrorComponent message={errors.description} />}
                             </div>
                             <Button type="submit" disabled={isSubmitting} sx={{ width: "100%", color: "white", }} className="buttonSubmit" variant="contained">
                                 Create Job
                             </Button>
+                            {error && <AlertComponent message={error} />}
+                            {loading && <LoadingComponent />}
+                            {formReset && <AlertComponent message={formReset} alertType="success" />}
                         </Form>
 
                     )

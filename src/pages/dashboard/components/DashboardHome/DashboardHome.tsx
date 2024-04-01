@@ -46,7 +46,7 @@ const DashboardHome = () => {
         {/* Add job Modal */}
         {showModal &&
           <AppModal open={showModal} handleClose={handleAddJob}>
-            <AddJob />
+            <AddJob handleClose={handleAddJob} />
           </AppModal>
         }
         {/* Overview body */}

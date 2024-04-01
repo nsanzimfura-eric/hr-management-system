@@ -27,7 +27,6 @@ const FormAuth = () => {
     const [isSignUp, setIsSignUp] = useState(false);
     const [rememberUser, setRememberUser] = useState(false);
     const [showPassword, setShowPassword] = useState(false);
-    const [formReset, setFormReset] = useState(false);
     const [validationShema, setValidationShema] = useState<any>(signUpValidationSchema);
     const [initialValues, setInitialValues] = useState<any>(signUpInitialValues);
 
@@ -50,10 +49,6 @@ const FormAuth = () => {
     //redirect user after auth
     useEffect(() => {
         if (!loading && !error && data) {
-            //reset form;
-            setFormReset(true);
-            setTimeout(() => { setFormReset(false); }, 500);
-
             if (isSignUp) {
                 navigate(frontendRoutes.login);
 
@@ -90,10 +85,7 @@ const FormAuth = () => {
                 }
             }}
         >
-            {({ values, errors, handleChange, resetForm, handleSubmit, isSubmitting, touched }) => {
-                if (formReset) {
-                    resetForm();
-                }
+            {({ values, errors, handleChange, handleSubmit, isSubmitting, touched }) => {
 
                 return (
                     <Form autoComplete="off" className={styles.formAuth} onSubmit={handleSubmit}>

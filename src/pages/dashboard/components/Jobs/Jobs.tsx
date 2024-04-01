@@ -50,7 +50,7 @@ const Jobs = (props: AddJobProps) => {
       {/* Add job Modal */}
       {showModal &&
         <AppModal open={showModal} handleClose={handleAddJob}>
-          <AddJob />
+          <AddJob handleClose={handleAddJob} />
         </AppModal>
       }
       {loading && <LoadingComponent />}
