@@ -87,15 +87,20 @@ const SingleDBJob = (props: SingleJobProps) => {
                     <Accordion.Body>
                         <div className="deleteHeader mb-2">
                             <span className="titleApplicants">{job.candidates?.length} Applicant{`${job.candidates?.length > 1 ? "s" : ""}`}</span>
+
                             {token &&
                                 // you can delete on if you are HR
                                 <button onClick={() => handleDeleteJob(job.id)}>
                                     <DeleteIcon sx={{ color: "#d50000", width: 25, height: 35 }} />
                                 </button>
                             }
-                            {error && <AlertComponent message={error} />}
-                            {loading && <LoadingComponent />}
                         </div>
+                        {(loading || error) &&
+                            <div className="deleteHeader mb-2">
+                                {error && <AlertComponent message={error} />}
+                                {loading && <LoadingComponent />}
+                            </div>
+                        }
                         <div className="deleteHeader mb-2 d-flex justify-content-end">
 
                             <button onClick={handleApply} className="btn btn-primary">

@@ -75,17 +75,23 @@ const Jobs = (props: AddJobProps) => {
       }
       {loading && <LoadingComponent />}
       {error && !loading && <ErrorComponent message={error} />}
-      {data && !loading &&
+      {!loading &&
         <div className="jobsWrapper w-100 p-0 m-0">
           {/* Jobs from the backend */}
-          {data.data?.map((job: DBJobInterface) => {
-            return <SingleDBJob index={job.id} key={job.id} job={job} />
-          })}
+          {location.pathname === frontendRoutes.careers && data &&
+            <>
+              {data?.data?.map((job: DBJobInterface) => {
+                return <SingleDBJob index={job.id} key={job.id} job={job} />
+              })}
+            </>
+          }
+
           {/* This components below is here Because of the  deign form figma.
           It is well structured and suggested but right now it is not matching the backend APi response.
           Once enhanced the api, we will use it
       */}
-          <TableDemoJobs />
+          {/* This is dummy data use from Figma, so not need to display them on public job list where everyone will apply */}
+          {location.pathname !== frontendRoutes.careers && <TableDemoJobs />}
         </div>}
     </div>
   )

@@ -11,7 +11,6 @@ const Careers = () => {
     <div className={styles.jobsPage} id="jobsPage">
       <GlobalNavBar />
       <Container>
-
         <Jobs showHeader={false} />
       </Container>
     </div>

@@ -181,12 +181,15 @@ const ApplyToJOB = (props: ApplyToJOBProps) => {
                                 />
                                 {errors.web && touched.web && <ErrorComponent message={errors.web} />}
                             </div>
+                            <div className='actions_responses d-flex flex-column' style={{ gap: 10 }}>
+                                {error && !loading && <AlertComponent message={error} />}
+                                {loading && <LoadingComponent />}
+                                {formReset && <AlertComponent message={formReset} alertType="success" />}
+                            </div>
                             <Button type="submit" disabled={isSubmitting} sx={{ width: "100%", color: "white", }} className="buttonSubmit" variant="contained">
                                 Submit Application
                             </Button>
-                            {error && <AlertComponent message={error} />}
-                            {loading && <LoadingComponent />}
-                            {formReset && <AlertComponent message={formReset} alertType="success" />}
+
                         </Form>
 
                     )
