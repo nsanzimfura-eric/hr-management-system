@@ -3,26 +3,23 @@ import styles from './QuilMaker.module.scss';
 
 interface QuilMakerProps {
     value: string;
-    error: string;
-    touched: boolean;
     placeholder: string;
-    handleChange: () => void;
+    onChange: any;
+    id?: string;
 }
 
 const QuilMaker = (props: QuilMakerProps) => {
-    const { value, error, touched, placeholder, handleChange } = props;
+    const { value, placeholder, onChange, id = "description" } = props;
     return (
-        <div className={styles.quilMaker} >
-            <ReactQuill
-                id="description"
-                theme="snow"
-                placeholder={placeholder}
-                onChange={handleChange}
-                value={value}
-                className="quilMakerInput "
-            />
-            {touched && error && <small className="errors">{error}</small>}
-        </div>
+        <ReactQuill
+            {...props}
+            id={id}
+            theme="snow"
+            placeholder={placeholder}
+            onChange={onChange}
+            value={value}
+            className={styles.quilMaker}
+        />
     );
 };
 

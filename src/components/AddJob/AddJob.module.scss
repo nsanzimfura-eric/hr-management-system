@@ -3,7 +3,27 @@
 
 .addJob {
   :global {
-    background-color: $light;
+    background-color: transparent;
+    border-radius: inherit;
+    width: 100%;
+    .title {
+      @include h3;
+      font-family: $poppinsSemiBold;
+      color: $darkBlue;
+      display: flex;
+      justify-content: center;
+    }
+    .form {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+    }
+    .inputBox {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
     //calender
     .rdrDayNumber {
       overflow: hidden !important;
@@ -17,6 +37,16 @@
     .rdrCalendarWrapper {
       @include mq($xms) {
         font-size: 10px !important;
+      }
+    }
+    .buttonSubmit {
+      font-family: $poppinsRegular;
+      text-transform: capitalize !important;
+      margin-top: calc(54px - 16px);
+      background-color: $darkBlue !important;
+
+      &:hover {
+        background-color: darken($color: $darkBlue, $amount: 8) !important;
       }
     }
   }

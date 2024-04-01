@@ -4,5 +4,28 @@
 .quilMaker {
   :global {
     background-color: transparent;
+    width: 100%;
+    border-radius: 8px;
+    .ql-editor {
+      min-height: 150px;
+    }
+
+    .ql-container.ql-snow {
+      border: 2px solid $primary;
+      border-radius: 0;
+      border-bottom-left-radius: 8px;
+      border-bottom-right-radius: 8px;
+      font-family: $poppinsMedium !important;
+      color: $dark;
+    }
+    .ql-toolbar.ql-snow {
+      @include p;
+      color: $darkBlue;
+      font-family: $poppinsSemiBold;
+      border: 2px solid $primary;
+      border-radius: 0;
+      border-top-left-radius: 8px;
+      border-top-right-radius: 8px;
+    }
   }
 }

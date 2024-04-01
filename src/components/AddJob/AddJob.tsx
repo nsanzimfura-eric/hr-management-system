@@ -9,6 +9,7 @@ import LoadingComponent from '../LoadingComponent/LoadingComponent';
 import AlertComponent from '../AlertComponent/AlertComponent';
 import ErrorComponent from '../errorComponent/ErrorComponent';
 import { Calendar } from "react-date-range";
+import QuilMaker from '../QuilMaker/QuilMaker';
 
 
 const AddJob = () => {
@@ -26,6 +27,7 @@ const AddJob = () => {
 
     return (
         <div className={styles.addJob} >
+            <h2 className="title mb-5">Create A New Job</h2>
             <Formik
                 initialValues={initialValues}
                 validationSchema={validationSchema}
@@ -33,17 +35,18 @@ const AddJob = () => {
                     void postHandler(backendAPI.createJob, values)
                 }}
             >
-                {({ values, errors, handleChange, resetForm, handleSubmit, isSubmitting, touched }) => {
+                {({ values, errors, handleChange, setFieldValue, resetForm, handleSubmit, isSubmitting, touched }) => {
                     if (formReset) {
                         resetForm();
                     }
 
                     return (
-                        <Form autoComplete="off" className={styles.formAuth} onSubmit={handleSubmit}>
+                        <Form autoComplete="off" className="form" onSubmit={handleSubmit}>
                             {error && <AlertComponent message={error} />}
                             {loading && <LoadingComponent />}
                             {formReset && <AlertComponent message={formReset} alertType="success" />}
                             <div className="inputBox">
+                                <label htmlFor='title' >Job Title</label>
                                 <TextField
                                     id="outlined-basic-title"
                                     name="title"
@@ -57,11 +60,26 @@ const AddJob = () => {
                                 {errors.title && touched.title && <ErrorComponent message={errors.title} />}
                             </div>
                             <div className="inputBox">
-                                <label htmlFor="date">Igihe Gisigaye</label>
-                                <Calendar date={date} onChange={onChange} />
+                                <label >Application Deadline</label>
+                                <Calendar
+                                    date={new Date(values.deadline)}
+                                    onChange={(date) => {
+                                        void setFieldValue('deadline', date.toString());
+                                    }}
+                                />
                                 {errors.title && touched.title && <ErrorComponent message={errors.title} />}
                             </div>
-                            <Button type="submit" disabled={isSubmitting} sx={{ width: "100%", color: "white", }} className="buttonSubmit" variant="contained" color="warning">
+                            <div className="inputBox">
+                                <label >Application Deadline</label>
+                                <QuilMaker
+                                    id="outlined-basic-title"
+                                    onChange={handleChange}
+                                    placeholder="Job Description"
+                                    value={values.description}
+                                />
+                                {errors.title && touched.title && <ErrorComponent message={errors.title} />}
+                            </div>
+                            <Button type="submit" disabled={isSubmitting} sx={{ width: "100%", color: "white", }} className="buttonSubmit" variant="contained">
                                 Create Job
                             </Button>
                         </Form>

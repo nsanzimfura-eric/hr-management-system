@@ -10,6 +10,6 @@ export const validationSchema = Yup.object().shape({
 
 export const initialValues = {
   title: "",
-  deadline: "",
+  deadline: new Date(),
   description: "",
 };
