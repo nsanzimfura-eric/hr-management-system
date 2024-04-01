@@ -35,8 +35,6 @@ const ApplyToJOB = (props: ApplyToJOBProps) => {
 
     const fileRef = useRef<HTMLInputElement>(null);
 
-    console.log(loading, data, error, "setError(err.responseText || err.message ||");
-
     return (
         <div className={styles.applyToJOB} >
             <h2 className="title mb-5">Apply to Job: {job.title}</h2>
@@ -46,7 +44,9 @@ const ApplyToJOB = (props: ApplyToJOBProps) => {
                 onSubmit={(values) => {
                     // handleApplicationSubmit(values)
                     // post data 
+                    console.log(values.file, 'values.file.file');
                     const formData = new FormData();
+
                     formData.append('email', values.email);
                     formData.append('phone', values.phone);
                     formData.append('name', values.name);
@@ -54,12 +54,12 @@ const ApplyToJOB = (props: ApplyToJOBProps) => {
                     formData.append('linkedin', values.linkedin);
                     formData.append('github', values.github);
                     // @ts-ignore
-                    formData.append('file', values.file.file);
+                    formData.append('file', values.file);
                     //add data
                     void formDataHandler(backendAPI.applyToJob(job.id), formData);
                 }}
             >
-                {({ values, errors, handleChange, isSubmitting, setFieldValue, handleSubmit, touched }) => {
+                {({ values, errors, handleChange, setFieldValue, handleSubmit, touched }) => {
 
                     return (
                         <Form autoComplete="off" className="form" onSubmit={handleSubmit}>
@@ -126,7 +126,7 @@ const ApplyToJOB = (props: ApplyToJOBProps) => {
                                         const file = e.target.files[0];
 
                                         if (file && file.type === "application/pdf") {
-                                            void setFieldValue('file', file);
+                                            setFieldValue('file', file);
                                         } else {
                                             alert("Please upload a PDF file.")
                                         }
